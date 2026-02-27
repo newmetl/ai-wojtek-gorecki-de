@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #0a0e1a;
+    position: relative;
+  }
+
+  /* Background effects */
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 30%, rgba(6,182,212,0.15), transparent),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(168,85,247,0.12), transparent),
+      radial-gradient(ellipse 40% 30% at 50% 90%, rgba(236,72,153,0.08), transparent);
+  }
+
+  /* Grid lines */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 60px 80px;
+    gap: 60px;
+  }
+
+  .photo-wrapper {
+    flex-shrink: 0;
+    width: 220px;
+    height: 220px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 3px solid rgba(6,182,212,0.4);
+    box-shadow: 0 12px 48px rgba(6,182,212,0.2), 0 0 80px rgba(168,85,247,0.1);
+  }
+
+  .photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-content {
+    flex: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(6,182,212,0.12);
+    border: 1px solid rgba(6,182,212,0.25);
+    color: #06b6d4;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 800;
+    color: #e2e8f0;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 .gradient {
+    background: linear-gradient(135deg, #06b6d4, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 520px;
+  }
+
+  .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899);
+  }
+
+  .logo-area {
+    position: absolute;
+    bottom: 32px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .logo-area span {
+    color: #64748b;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="content">
+    <div class="photo-wrapper">
+      <img src="https://wojtek-gorecki.de/assets/images/image01.jpg?v=b9e0086b" alt="Wojtek Gorecki">
+    </div>
+    <div class="text-content">
+      <div class="badge">
+        <span class="dot"></span>
+        KI-gestützter Product Owner
+      </div>
+      <h1>
+        Wojtek<br>
+        <span class="gradient">Gorecki</span>
+      </h1>
+      <div class="subtitle">
+        Strategie · Technologie · Führung<br>
+        Über 15 Jahre digitale Produktentwicklung
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+  <div class="logo-area">
+    <span>Erstellt mit KI & OpenClaw</span>
+  </div>
+</body>
+</html>
