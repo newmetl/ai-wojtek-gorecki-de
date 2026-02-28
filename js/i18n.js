@@ -6,10 +6,10 @@ const translations = {
     navContact: 'Kontakt',
 
     // Hero
-    heroBadge: '✨ KI-gestützter Product Owner',
+    heroBadge: 'KI-gestützter Product Owner',
     heroTitle1: 'Hallo, ich bin',
     heroTitle2: 'Wojtek Gorecki',
-    heroDesc: 'Product Owner mit Leidenschaft für künstliche Intelligenz und digitale Transformation. Diese Website wurde vollständig mit KI erstellt und wird von KI gepflegt — ein lebendiger Beweis dafür, was möglich ist, wenn Mensch und Maschine zusammenarbeiten.',
+    heroDesc: 'Product Owner mit Leidenschaft für künstliche Intelligenz und digitale Transformation. Über 15 Jahre Erfahrung in der Entwicklung digitaler Produkte — an der Schnittstelle von Strategie, Technologie und Führung.',
     heroBtnCV: 'Mein CV ansehen',
     heroBtnContact: 'Kontakt aufnehmen',
 
@@ -216,10 +216,10 @@ const translations = {
     navContact: 'Contact',
 
     // Hero
-    heroBadge: '✨ AI-Powered Product Owner',
+    heroBadge: 'AI-Powered Product Owner',
     heroTitle1: "Hi, I'm",
     heroTitle2: 'Wojtek Gorecki',
-    heroDesc: 'Product Owner passionate about artificial intelligence and digital transformation. This website was fully created by AI and is maintained by AI — a living proof of what\'s possible when humans and machines work together.',
+    heroDesc: 'Product Owner passionate about artificial intelligence and digital transformation. Over 15 years of experience building digital products — at the intersection of strategy, technology, and leadership.',
     heroBtnCV: 'View my CV',
     heroBtnContact: 'Get in touch',
 
