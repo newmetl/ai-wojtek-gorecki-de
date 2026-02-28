@@ -203,7 +203,7 @@ const translations = {
     heroBtnLinkedIn: 'LinkedIn',
 
     // Footer
-    footerText: '© 2026 Wojtek Gorecki. Erstellt mit KI & ',
+    footerText: '© 2026 Wojtek Gorecki. Mit ❤️ und KI erstellt — powered by ',
     footerOpenClaw: 'OpenClaw',
     footerImprint: 'Impressum',
     footerPrivacy: 'Datenschutz',
@@ -413,7 +413,7 @@ const translations = {
     heroBtnLinkedIn: 'LinkedIn',
 
     // Footer
-    footerText: '© 2026 Wojtek Gorecki. Built with AI & ',
+    footerText: '© 2026 Wojtek Gorecki. Made with ❤️ and AI — powered by ',
     footerOpenClaw: 'OpenClaw',
     footerImprint: 'Legal Notice',
     footerPrivacy: 'Privacy Policy',
