@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 500" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1117"/>
+      <stop offset="100%" stop-color="#161822"/>
+    </linearGradient>
+    <linearGradient id="userBubble" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="agentBubbleG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#1a2332"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="500" fill="url(#bgGrad3)" rx="16"/>
+
+  <!-- Chat header -->
+  <rect x="0" y="0" width="520" height="56" rx="16" fill="#1e293b"/>
+  <rect x="0" y="30" width="520" height="26" fill="#1e293b"/>
+  <circle cx="36" cy="28" r="16" fill="#10b98120" stroke="#10b98140" stroke-width="1"/>
+  <text x="36" y="33" text-anchor="middle" fill="#10b981" font-size="11" font-weight="800">AI</text>
+  <text x="62" y="26" fill="#e2e8f0" font-size="14" font-weight="600">Aios</text>
+  <circle cx="62" cy="38" r="4" fill="#10b981"/>
+  <text x="74" y="42" fill="#10b981" font-size="10">online</text>
+
+  <!-- Message 1: User (right) -->
+  <rect x="120" y="74" width="370" height="50" rx="14" fill="url(#userBubble)"/>
+  <text x="140" y="95" fill="#fff" font-size="13">Ändere die Überschrift auf der Startseite</text>
+  <text x="140" y="113" fill="#bfdbfe" font-size="13">zu &quot;Digitale Produkte mit KI&quot;</text>
+  <text x="468" y="138" text-anchor="end" fill="#475569" font-size="9">17:02</text>
+
+  <!-- Message 2: Agent (left) -->
+  <rect x="30" y="148" width="370" height="66" rx="14" fill="url(#agentBubbleG)" stroke="#334155" stroke-width="0.5"/>
+  <text x="50" y="170" fill="#e2e8f0" font-size="13">Erledigt — Änderung in HTML und i18n</text>
+  <text x="50" y="189" fill="#e2e8f0" font-size="13">(DE + EN) umgesetzt.</text>
+  <text x="50" y="206" fill="#94a3b8" font-size="12" font-style="italic">Stage-Deployment läuft...</text>
+  <text x="54" y="228" fill="#475569" font-size="9">17:02</text>
+
+  <!-- Message 3: Agent (left) - Stage live -->
+  <rect x="30" y="238" width="340" height="46" rx="14" fill="url(#agentBubbleG)" stroke="#10b98140" stroke-width="1"/>
+  <text x="50" y="259" fill="#10b981" font-size="13" font-weight="600">Staging live</text>
+  <text x="132" y="259" fill="#94a3b8" font-size="13">—</text>
+  <text x="148" y="259" fill="#60a5fa" font-size="12" text-decoration="underline">stage.ai.wojtek-gorecki.de</text>
+  <text x="50" y="276" fill="#10b981" font-size="11">Bitte prüfen</text>
+  <text x="54" y="298" fill="#475569" font-size="9">17:03</text>
+
+  <!-- Message 4: User (right) -->
+  <rect x="120" y="308" width="370" height="50" rx="14" fill="url(#userBubble)"/>
+  <text x="140" y="330" fill="#fff" font-size="13">Sieht gut aus.</text>
+  <text x="140" y="348" fill="#bfdbfe" font-size="13">Bitte auf Produktion deployen.</text>
+  <text x="468" y="372" text-anchor="end" fill="#475569" font-size="9">17:05</text>
+
+  <!-- Message 5: Agent (left) - Prod deployed -->
+  <rect x="30" y="382" width="350" height="46" rx="14" fill="url(#agentBubbleG)" stroke="#10b98140" stroke-width="1"/>
+  <text x="50" y="404" fill="#10b981" font-size="13" font-weight="600">Production-Deployment abgeschlossen.</text>
+  <text x="50" y="420" fill="#e2e8f0" font-size="13">Seite ist live.</text>
+  <text x="54" y="442" fill="#475569" font-size="9">17:05</text>
+
+  <!-- Input area -->
+  <rect x="20" y="458" width="480" height="28" rx="14" fill="#1e293b" stroke="#334155" stroke-width="0.5"/>
+  <text x="40" y="477" fill="#475569" font-size="12">Nachricht schreiben...</text>
+</svg>
