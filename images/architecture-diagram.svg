@@ -9,12 +9,12 @@
       <stop offset="100%" stop-color="#0f172a"/>
     </linearGradient>
     <filter id="shadow2"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/></filter>
-    <marker id="aDown" markerWidth="8" markerHeight="8" refX="4" refY="8" orient="auto"><path d="M0,0 L4,8 L8,0" fill="#8b5cf6"/></marker>
-    <marker id="aDownY" markerWidth="8" markerHeight="8" refX="4" refY="8" orient="auto"><path d="M0,0 L4,8 L8,0" fill="#f59e0b"/></marker>
-    <marker id="aDownG" markerWidth="8" markerHeight="8" refX="4" refY="8" orient="auto"><path d="M0,0 L4,8 L8,0" fill="#10b981"/></marker>
-    <marker id="aRight" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#3b82f6"/></marker>
-    <marker id="aUp" markerWidth="8" markerHeight="8" refX="4" refY="0" orient="auto"><path d="M0,8 L4,0 L8,8" fill="#f97316"/></marker>
-    <marker id="aUpB" markerWidth="8" markerHeight="8" refX="4" refY="0" orient="auto"><path d="M0,8 L4,0 L8,8" fill="#3b82f6"/></marker>
+    <!-- Universal arrow markers with orient=auto -->
+    <marker id="aP" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#8b5cf6"/></marker>
+    <marker id="aY" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#f59e0b"/></marker>
+    <marker id="aG" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#10b981"/></marker>
+    <marker id="aO" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#f97316"/></marker>
+    <marker id="aB" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#3b82f6"/></marker>
   </defs>
 
   <!-- Background -->
@@ -22,7 +22,8 @@
 
   <!-- Internet label -->
   <text x="420" y="28" text-anchor="middle" fill="#8b5cf6" font-size="12" font-weight="600" letter-spacing="1">HTTPS · INTERNET</text>
-  <line x1="420" y1="36" x2="420" y2="78" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#aDown)"/>
+  <!-- Arrow down into VPS -->
+  <line x1="420" y1="36" x2="420" y2="96" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#aP)"/>
 
   <!-- VPS outer frame -->
   <rect x="40" y="64" width="760" height="550" rx="16" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="8,4"/>
@@ -38,9 +39,9 @@
   <rect x="488" y="114" width="68" height="22" rx="6" fill="#8b5cf620" stroke="#8b5cf640" stroke-width="1"/>
   <text x="522" y="129" text-anchor="middle" fill="#8b5cf6" font-size="9" font-weight="600">NGINX</text>
 
-  <!-- Arrows Proxy → Stage / Prod -->
-  <line x1="360" y1="172" x2="220" y2="224" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#aDownY)"/>
-  <line x1="480" y1="172" x2="620" y2="224" stroke="#10b981" stroke-width="1.5" marker-end="url(#aDownG)"/>
+  <!-- Arrows: Proxy → down-left to Stage, down-right to Prod -->
+  <path d="M350 172 L220 226" stroke="#f59e0b" stroke-width="1.5" fill="none" marker-end="url(#aY)"/>
+  <path d="M490 172 L620 226" stroke="#10b981" stroke-width="1.5" fill="none" marker-end="url(#aG)"/>
 
   <!-- ===== ROW 2: Staging + Production ===== -->
   <!-- Staging -->
@@ -61,7 +62,7 @@
   <rect x="688" y="244" width="68" height="22" rx="6" fill="#10b98120" stroke="#10b98140" stroke-width="1"/>
   <text x="722" y="259" text-anchor="middle" fill="#10b981" font-size="9" font-weight="600">NGINX</text>
 
-  <!-- ===== ROW 3: Deployment Services ===== -->
+  <!-- ===== ROW 3: Deployment Services (centered) ===== -->
   <rect x="230" y="360" width="380" height="72" rx="10" fill="url(#containerGrad)" stroke="#f97316" stroke-width="1.5" filter="url(#shadow2)"/>
   <rect x="246" y="374" width="30" height="30" rx="6" fill="#f9731620"/>
   <text x="261" y="394" text-anchor="middle" fill="#f97316" font-size="10" font-weight="800">API</text>
@@ -70,13 +71,13 @@
   <rect x="528" y="374" width="68" height="22" rx="6" fill="#f9731620" stroke="#f9731640" stroke-width="1"/>
   <text x="562" y="389" text-anchor="middle" fill="#f97316" font-size="9" font-weight="600">Python</text>
 
-  <!-- Arrows: Deploy Services → Stage / Prod -->
-  <line x1="330" y1="360" x2="220" y2="304" stroke="#f97316" stroke-width="1.5" marker-end="url(#aUp)"/>
-  <text x="256" y="340" fill="#f97316" font-size="9" opacity="0.7">deploy</text>
-  <line x1="510" y1="360" x2="620" y2="304" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#aUp)"/>
-  <text x="582" y="340" fill="#f97316" font-size="9" opacity="0.7">nach Freigabe</text>
+  <!-- Arrows: Deploy Services → up-left to Stage, up-right to Prod -->
+  <path d="M330 360 L220 302" stroke="#f97316" stroke-width="1.5" fill="none" marker-end="url(#aO)"/>
+  <text x="256" y="338" fill="#f97316" font-size="9" opacity="0.7">deploy</text>
+  <path d="M510 360 L620 302" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#aO)"/>
+  <text x="582" y="338" fill="#f97316" font-size="9" opacity="0.7">nach Freigabe</text>
 
-  <!-- ===== ROW 4: OpenClaw ===== -->
+  <!-- ===== ROW 4: OpenClaw (centered) ===== -->
   <rect x="230" y="490" width="380" height="72" rx="10" fill="url(#containerGrad)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow2)"/>
   <rect x="246" y="504" width="30" height="30" rx="6" fill="#3b82f620"/>
   <text x="261" y="523" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="800">AI</text>
@@ -85,17 +86,17 @@
   <rect x="528" y="504" width="68" height="22" rx="6" fill="#3b82f620" stroke="#3b82f640" stroke-width="1"/>
   <text x="562" y="519" text-anchor="middle" fill="#3b82f6" font-size="9" font-weight="600">Node.js</text>
 
-  <!-- Arrow: OpenClaw → Deployment Services -->
-  <line x1="420" y1="490" x2="420" y2="434" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#aUpB)"/>
+  <!-- Arrow: OpenClaw → up to Deployment Services -->
+  <line x1="420" y1="490" x2="420" y2="434" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#aB)"/>
   <rect x="428" y="452" width="62" height="16" rx="4" fill="#0f1117"/>
   <text x="459" y="463" text-anchor="middle" fill="#64748b" font-size="9">HTTP API</text>
 
-  <!-- Chat entry -->
+  <!-- Chat entry: arrow up into OpenClaw -->
   <rect x="310" y="588" width="220" height="36" rx="18" fill="#3b82f610" stroke="#3b82f640" stroke-width="1"/>
   <text x="420" y="611" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="500">Telegram · Web-Chat</text>
-  <line x1="420" y1="588" x2="420" y2="564" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#aUpB)"/>
+  <line x1="420" y1="588" x2="420" y2="564" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#aB)"/>
 
-  <!-- Legend -->
+  <!-- Footer -->
   <rect x="160" y="645" width="520" height="35" rx="8" fill="#ffffff06" stroke="#ffffff10" stroke-width="1"/>
   <text x="420" y="668" text-anchor="middle" fill="#475569" font-size="11" font-weight="500">5 Container · 1 VPS · vollständig automatisiert</text>
 </svg>
