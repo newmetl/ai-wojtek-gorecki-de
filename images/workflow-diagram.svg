@@ -57,10 +57,10 @@
   <text x="516" y="326" fill="#e2e8f0" font-size="14" font-weight="600">Deployment auf Staging</text>
   <text x="516" y="346" fill="#94a3b8" font-size="11">Git Push &amp; automatisches Deploy</text>
 
-  <!-- Arrow: Step 3 → down-left → Step 4 -->
-  <path d="M460 329 L400 329 L400 380 L340 409" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arG)"/>
-  <rect x="365" y="366" width="70" height="16" rx="4" fill="#0f1117"/>
-  <text x="400" y="377" text-anchor="middle" fill="#64748b" font-size="9">Staging live</text>
+  <!-- Arrow: Step 3 → straight down to Step 4 (left column) -->
+  <line x1="200" y1="358" x2="200" y2="406" stroke="#10b981" stroke-width="2" marker-end="url(#arG)"/>
+  <!-- Connecting line from Step 3 box to left column -->
+  <path d="M460 329 L200 329 L200 358" stroke="#10b981" stroke-width="2" fill="none"/>
 
   <!-- ROW 4 (y=410): Step 4 — Review (Human, left) -->
   <circle cx="42" cy="439" r="14" fill="#3b82f630"/>
@@ -83,8 +83,9 @@
   <text x="116" y="546" fill="#e2e8f0" font-size="14" font-weight="600">Freigabe</text>
   <text x="116" y="566" fill="#94a3b8" font-size="11">Bestätigung per Chat-Nachricht</text>
 
-  <!-- Arrow: Step 5 → down-right → Step 6 -->
-  <path d="M340 549 L400 549 L400 600 L460 629" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arB)"/>
+  <!-- Arrow: Step 5 → straight across and down to Step 6 -->
+  <path d="M340 549 L600 549 L600 548" stroke="#3b82f6" stroke-width="2" fill="none"/>
+  <line x1="600" y1="548" x2="600" y2="626" stroke="#3b82f6" stroke-width="2" marker-end="url(#arB)"/>
 
   <!-- ROW 6 (y=630): Step 6 — Deploy Production (Agent, right) -->
   <circle cx="758" cy="659" r="14" fill="#10b98130"/>
