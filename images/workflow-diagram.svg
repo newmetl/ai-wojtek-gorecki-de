@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 820" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1117"/>
+      <stop offset="100%" stop-color="#161822"/>
+    </linearGradient>
+    <!-- Single arrow marker, orient=auto rotates it correctly -->
+    <marker id="arB" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#3b82f6"/></marker>
+    <marker id="arG" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#10b981"/></marker>
+    <marker id="arY" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#f59e0b"/></marker>
+    <marker id="arGray" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="820" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Column Headers -->
+  <rect x="60" y="20" width="280" height="36" rx="8" fill="#3b82f610"/>
+  <text x="200" y="44" text-anchor="middle" fill="#3b82f6" font-size="13" font-weight="700" letter-spacing="2">MENSCH</text>
+  <rect x="460" y="20" width="280" height="36" rx="8" fill="#10b98110"/>
+  <text x="600" y="44" text-anchor="middle" fill="#10b981" font-size="13" font-weight="700" letter-spacing="2">KI-AGENT</text>
+
+  <!-- Divider line -->
+  <line x1="400" y1="20" x2="400" y2="760" stroke="#ffffff10" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ROW 1 (y=80): Step 1 — Chat-Nachricht (Human, left) -->
+  <circle cx="42" cy="109" r="14" fill="#3b82f630"/>
+  <text x="42" y="114" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="700">1</text>
+  <rect x="60" y="80" width="280" height="58" rx="12" fill="#3b82f608" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="72" y="92" width="32" height="32" rx="8" fill="#3b82f620"/>
+  <text x="88" y="114" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">W</text>
+  <text x="116" y="106" fill="#e2e8f0" font-size="14" font-weight="600">Chat-Nachricht</text>
+  <text x="116" y="126" fill="#94a3b8" font-size="11">Anforderung an den KI-Agenten</text>
+
+  <!-- Arrow: Step 1 → Step 2 -->
+  <line x1="340" y1="109" x2="460" y2="219" stroke="#3b82f6" stroke-width="2" marker-end="url(#arB)"/>
+
+  <!-- ROW 2 (y=190): Step 2 — Code-Änderungen (Agent, right) -->
+  <circle cx="758" cy="219" r="14" fill="#10b98130"/>
+  <text x="758" y="224" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">2</text>
+  <rect x="460" y="190" width="280" height="58" rx="12" fill="#10b98108" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="472" y="202" width="32" height="32" rx="8" fill="#10b98120"/>
+  <text x="488" y="224" text-anchor="middle" fill="#10b981" font-size="14" font-weight="700">&lt;/&gt;</text>
+  <text x="516" y="216" fill="#e2e8f0" font-size="14" font-weight="600">Code-Änderungen</text>
+  <text x="516" y="236" fill="#94a3b8" font-size="11">HTML, CSS, JS &amp; i18n anpassen</text>
+
+  <!-- Arrow: Step 2 → down → Step 3 -->
+  <line x1="600" y1="248" x2="600" y2="296" stroke="#10b981" stroke-width="2" marker-end="url(#arG)"/>
+
+  <!-- ROW 3 (y=300): Step 3 — Deploy Staging (Agent, right) -->
+  <circle cx="758" cy="329" r="14" fill="#10b98130"/>
+  <text x="758" y="334" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">3</text>
+  <rect x="460" y="300" width="280" height="58" rx="12" fill="#10b98108" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="472" y="312" width="32" height="32" rx="8" fill="#10b98120"/>
+  <text x="488" y="333" text-anchor="middle" fill="#10b981" font-size="13" font-weight="700">GIT</text>
+  <text x="516" y="326" fill="#e2e8f0" font-size="14" font-weight="600">Deployment auf Staging</text>
+  <text x="516" y="346" fill="#94a3b8" font-size="11">Git Push &amp; automatisches Deploy</text>
+
+  <!-- Arrow: Step 3 → Step 4 (diagonal, right to left) -->
+  <line x1="460" y1="329" x2="340" y2="439" stroke="#10b981" stroke-width="2" marker-end="url(#arG)"/>
+
+  <!-- ROW 4 (y=410): Step 4 — Review (Human, left) -->
+  <circle cx="42" cy="439" r="14" fill="#3b82f630"/>
+  <text x="42" y="444" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="700">4</text>
+  <rect x="60" y="410" width="280" height="58" rx="12" fill="#3b82f608" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="72" y="422" width="32" height="32" rx="8" fill="#3b82f620"/>
+  <text x="88" y="444" text-anchor="middle" fill="#3b82f6" font-size="14" font-weight="700">Q</text>
+  <text x="116" y="436" fill="#e2e8f0" font-size="14" font-weight="600">Review auf Staging</text>
+  <text x="116" y="456" fill="#94a3b8" font-size="11">Visuelle Prüfung der Änderungen</text>
+
+  <!-- Arrow: Step 4 → down → Step 5 -->
+  <line x1="200" y1="468" x2="200" y2="516" stroke="#3b82f6" stroke-width="2" marker-end="url(#arB)"/>
+
+  <!-- ROW 5 (y=520): Step 5 — Freigabe (Human, left) -->
+  <circle cx="42" cy="549" r="14" fill="#3b82f630"/>
+  <text x="42" y="554" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="700">5</text>
+  <rect x="60" y="520" width="280" height="58" rx="12" fill="#3b82f608" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="72" y="532" width="32" height="32" rx="8" fill="#3b82f620"/>
+  <text x="88" y="553" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">&#x2713;</text>
+  <text x="116" y="546" fill="#e2e8f0" font-size="14" font-weight="600">Freigabe</text>
+  <text x="116" y="566" fill="#94a3b8" font-size="11">Bestätigung per Chat-Nachricht</text>
+
+  <!-- Arrow: Step 5 → Step 6 (diagonal, left to right) -->
+  <line x1="340" y1="549" x2="460" y2="659" stroke="#3b82f6" stroke-width="2" marker-end="url(#arB)"/>
+
+  <!-- ROW 6 (y=630): Step 6 — Deploy Production (Agent, right) -->
+  <circle cx="758" cy="659" r="14" fill="#10b98130"/>
+  <text x="758" y="664" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">6</text>
+  <rect x="460" y="630" width="280" height="58" rx="12" fill="#10b98108" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="472" y="642" width="32" height="32" rx="8" fill="#10b98120"/>
+  <text x="488" y="663" text-anchor="middle" fill="#10b981" font-size="12" font-weight="700">PROD</text>
+  <text x="516" y="656" fill="#e2e8f0" font-size="14" font-weight="600">Deployment auf Produktion</text>
+  <text x="516" y="676" fill="#94a3b8" font-size="11">Merge &amp; Deploy auf Live-Seite</text>
+
+  <!-- Iteration arrow: Step 4 back to Step 1 -->
+  <path d="M60 445 L24 445 L24 109 L56 109" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arY)"/>
+  <rect x="6" y="268" width="56" height="16" rx="4" fill="#0f1117"/>
+  <text x="34" y="279" text-anchor="middle" fill="#f59e0b" font-size="9" font-weight="500">Korrektur</text>
+
+  <!-- Legend -->
+  <rect x="200" y="720" width="400" height="80" rx="10" fill="#ffffff06" stroke="#ffffff10" stroke-width="1"/>
+  <circle cx="240" cy="742" r="8" fill="#3b82f650"/>
+  <text x="260" y="747" fill="#94a3b8" font-size="12">Schritte durch den Menschen</text>
+  <circle cx="240" cy="767" r="8" fill="#10b98150"/>
+  <text x="260" y="772" fill="#94a3b8" font-size="12">Schritte durch den KI-Agenten</text>
+  <line x1="230" y1="790" x2="250" y2="790" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="260" y="795" fill="#94a3b8" font-size="12">Korrekturschleife (bei Bedarf)</text>
+</svg>
