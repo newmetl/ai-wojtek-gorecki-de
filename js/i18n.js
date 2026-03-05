@@ -167,9 +167,14 @@ const translations = {
     caseCost4Amount: 'Kostenlos',
     caseCostTotal: 'Gesamt (erster Monat)',
     caseCostNote: 'Die laufenden Kosten beschränken sich auf das VPS-Hosting (7,99 €/Monat). Token-Kosten fallen nur bei aktiver Nutzung des KI-Agenten an — etwa bei Änderungen oder Erweiterungen der Website.',
+    // Deployment Workflow Section
+    caseDeployTitle: 'Vom Chat zum Deployment',
+    caseDeployIntro: 'Diese Website wird über einen vollautomatisierten Workflow weiterentwickelt — ohne IDE, ohne lokalen Rechner. Eine Chat-Nachricht genügt, um Änderungen auf die Staging-Umgebung zu bringen, dort zu prüfen und nach Freigabe auf Production zu deployen.',
+    caseDeployArchCaption: 'Die technische Infrastruktur: Docker-Container, Git-Branches, Staging- und Production-Server.',
+    caseDeployChatCaption: 'So sieht der Workflow in der Praxis aus — eine einfache Chat-Konversation steuert den gesamten Prozess.',
+
     caseChatTitle: 'Steuerung per Messenger',
-    caseChatText: 'Eine Besonderheit dieses Setups: Änderungen an der Website können direkt über Telegram an den KI-Agenten geschickt werden. Der Agent empfängt die Nachricht, versteht die Anforderung, setzt sie um und bestätigt die Umsetzung — alles in Echtzeit. Das macht den Workflow extrem niedrigschwellig: Kein IDE öffnen, kein Deployment-Prozess, kein Git-Push. Einfach eine Nachricht schreiben.',
-    caseChatText2: 'Seit kurzem ist auch ein vollständiger Deployment-Workflow integriert: Änderungen werden zunächst auf einer Staging-Umgebung umgesetzt, wo sie vorab geprüft werden können. Nach Freigabe deployt der Agent die Änderung auf Production — vollständig automatisiert. Das alles passiert ohne lokalen Computer, ohne IDE, ohne manuelles Git-Handling. Einfach nur durch Konversation.',
+    caseChatText3: 'Eine Besonderheit dieses Setups: Änderungen an der Website können direkt über Telegram oder den Web-Chat an den KI-Agenten geschickt werden. Der Agent empfängt die Nachricht, versteht die Anforderung und setzt sie um — alles in Echtzeit. Einfach eine Nachricht schreiben, den Rest erledigt der Agent.',
     caseCtaTitle: 'Neugierig geworden?',
     caseCtaText: 'Lassen Sie uns über Ihr Projekt sprechen — vielleicht ist ein KI-gestützter Ansatz auch für Sie der richtige Weg.',
 
@@ -378,9 +383,14 @@ const translations = {
     caseCost4Amount: 'Free',
     caseCostTotal: 'Total (first month)',
     caseCostNote: 'Ongoing costs are limited to VPS hosting (€7.99/month). Token costs only apply when actively using the AI agent — for changes or extensions to the website.',
+    // Deployment Workflow Section
+    caseDeployTitle: 'From Chat to Deployment',
+    caseDeployIntro: 'This website is continuously developed through a fully automated workflow — no IDE, no local machine. A single chat message is enough to push changes to the staging environment, review them, and deploy to production after approval.',
+    caseDeployArchCaption: 'The technical infrastructure: Docker containers, Git branches, staging and production servers.',
+    caseDeployChatCaption: 'This is what the workflow looks like in practice — a simple chat conversation controls the entire process.',
+
     caseChatTitle: 'Control via Messenger',
-    caseChatText: "A key feature of this setup: changes to the website can be sent directly to the AI agent via Telegram. The agent receives the message, understands the requirement, implements it, and confirms completion — all in real time. This makes the workflow extremely accessible: no IDE, no deployment process, no git push. Just send a message.",
-    caseChatText2: 'Recently, a complete deployment workflow was integrated: changes are first implemented on a staging environment where they can be reviewed beforehand. After approval, the agent deploys the changes to production — fully automated. All of this happens without a local computer, without an IDE, without manual Git handling. Simply through conversation.',
+    caseChatText3: 'A key feature of this setup: changes to the website can be sent directly to the AI agent via Telegram or web chat. The agent receives the message, understands the requirement, and implements it — all in real time. Just send a message, the agent takes care of the rest.',
     caseCtaTitle: 'Curious?',
     caseCtaText: "Let's talk about your project — perhaps an AI-powered approach is the right way for you too.",
 
