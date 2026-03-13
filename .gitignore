@@ -35,6 +35,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# Claude Code (lokale Laufzeitdaten, nicht versionieren)
+.claude/
+
 # SSL-Zertifikate (werden auf dem Server hinterlegt)
 nginx/ssl/*.pem
 nginx/ssl/*.key

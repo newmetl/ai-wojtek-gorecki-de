@@ -36,10 +36,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de" className="dark">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen flex flex-col`}
-      >
+    <html
+      lang="de"
+      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased min-h-screen flex flex-col">
         <Navbar />
         {children}
         <Footer />
