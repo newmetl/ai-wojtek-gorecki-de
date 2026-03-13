@@ -1,0 +1,102 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Kategorien (gemeinsam für alle Tools) ───
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  type      String   // "trending" | "usecase" | "prompt"
+  emoji     String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  trendingTechs TrendingTech[]
+  useCases      UseCase[]
+  prompts       Prompt[]
+}
+
+// ─── Trending AI Tech ───
+
+model TrendingTech {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  description   String   // 1-2 Sätze
+  emoji         String?
+  sourceUrl     String?
+  sourceName    String?  // "github" | "producthunt" | "hackernews" | "arxiv" | "blog"
+  trendStatus   String   @default("new") // "new" | "rising" | "stable"
+  reviewStatus  String   @default("pending") // "pending" | "approved" | "hidden"
+  trendScore    Int      @default(0)
+  lastScrapedAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([trendStatus])
+  @@index([reviewStatus])
+}
+
+// ─── AI Use Cases (Phase 2) ───
+
+model UseCase {
+  id              String   @id @default(cuid())
+  title           String
+  slug            String   @unique
+  categoryId      String
+  category        Category @relation(fields: [categoryId], references: [id])
+  description     String
+  exampleCompany  String?
+  complexity      String   @default("medium") // "simple" | "medium" | "complex"
+  aiTechnology    String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([complexity])
+}
+
+// ─── Prompt Library (Phase 3) ───
+
+model Prompt {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  promptText    String
+  usageHints    String?
+  exampleOutput String?
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([categoryId])
+}
+
+// ─── Scraping-Log ───
+
+model ScrapingLog {
+  id           String   @id @default(cuid())
+  source       String   // "github" | "producthunt" | "hackernews" | "arxiv" | "blogs" | "all"
+  runAt        DateTime @default(now())
+  itemsFound   Int      @default(0)
+  itemsNew     Int      @default(0)
+  itemsUpdated Int      @default(0)
+  status       String   @default("running") // "running" | "success" | "error"
+  errorMessage String?
+  durationMs   Int?
+}

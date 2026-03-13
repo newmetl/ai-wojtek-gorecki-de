@@ -3,7 +3,9 @@
 > **Version:** 1.0 — März 2026
 > **Basiert auf:** Konzeptdokument Website-Relaunch v1.1
 > **Zweck:** Technische Spezifikation als Grundlage für die Umsetzung mit Claude Code
-
+> **Fachliches Konzept:** Siehe `docs/konzept.md` für Vision, Zielgruppe, 
+> Seitenbeschreibungen, Design-Vorgaben und inhaltliche Details.
+> Dieses Dokument hier enthält die technische Umsetzungsspezifikation.
 ---
 
 ## 1. Projektübersicht
