@@ -7,86 +7,96 @@ import LanguageBar from "@/components/cv/LanguageBar";
 export const metadata: Metadata = {
   title: "About Me — Wojtek Gorecki, Product Owner",
   description:
-    "Lebenslauf und Profil von Wojtek Gorecki — Product Owner und Digitalexperte mit Fokus auf KI-Integration, Agile Methoden und Digital Transformation.",
+    "Lebenslauf und Profil von Wojtek Gorecki — erfahrener Product Owner, Softwareentwickler und Diplom-Informatiker mit über 15 Jahren Erfahrung in der Entwicklung digitaler Produkte.",
 };
 
 const experience = [
   {
-    role: "Personal Development Consulting",
+    role: "Beratung für persönliche Entwicklung",
     company: "Selbstständig",
     period: "04/2025 – heute",
     description:
-      "Beratung und Coaching im Bereich persönliche und organisationale Entwicklung. Entwicklung dieser KI-Plattform als Praxisprojekt.",
-    tags: ["Coaching", "KI-Integration", "Next.js", "Claude API"],
+      "Begleitung von Einzelpersonen in Veränderungsprozessen. Konzeption und Durchführung von Vortrags- und Dialogformaten. Aufbau und Positionierung eines eigenständigen Beratungsangebots.",
+    tags: ["Coaching", "Beratung", "KI-Integration"],
   },
   {
-    role: "Product Owner / Dev Team Lead / Project Portfolio Manager",
-    company: "Shift Digital / publicplan GmbH",
+    role: "Product Owner / Dev-Teamleiter / Projektportfoliomanager",
+    company: "Shift Digital · publicplan GmbH",
     period: "05/2023 – 03/2025",
     description:
-      "Leitung von Entwicklungsteams, strategische Produktentwicklung und Portfolio-Management für digitale Verwaltungsprodukte. KI-Integration in bestehende Produkte und Prozesse.",
-    tags: ["Product Ownership", "Scrum", "LLM-Integration", "Team Lead"],
+      "Konzeption und Weiterentwicklung webbasierter Empfangssysteme für digitale Verwaltungsanträge. Disziplinarische Leitung eines Entwicklungsteams, fachliche Verantwortung für ein Projektportfolio und inhaltliche Steuerung eines 13-köpfigen interdisziplinären Teams.",
+    tags: ["Product Ownership", "Scrum", "Team Lead", "Öffentliche Verwaltung"],
   },
   {
-    role: "Co-Founder & Mentor",
+    role: "Co-Founder und Mentor",
     company: "let's lead",
     period: "09/2020 – 05/2022",
     description:
-      "Mitgründung und Aufbau eines Programms zur Führungskräfteentwicklung. Konzeption und Durchführung von Workshops und Coachings.",
+      "Mitgründer eines Beratungsunternehmens. Durchführung 12-monatiger Entwicklungsprogramme für Führungskräfte. Begleitung von Transformationsprozessen in Unternehmen.",
     tags: ["Leadership", "Coaching", "Unternehmertum"],
   },
   {
-    role: "Organizational & Personal Development Consultant",
+    role: "Berater für Organisations- und Persönlichkeitsentwicklung",
     company: "Selbstständig",
     period: "11/2018 – 04/2023",
     description:
-      "Beratungsprojekte für Organisationsentwicklung und digitale Transformation in verschiedenen Branchen.",
-    tags: ["Organisationsentwicklung", "Change Management", "Agilität"],
+      "Beratung von Start-ups und Mittelständlern beim Aufbau agiler und selbstorganisierter Strukturen. Coaching von Gründer:innen und Führungskräften.",
+    tags: ["Organisationsentwicklung", "Agilität", "Change Management"],
   },
   {
-    role: "JavaScript / TypeScript / React Trainer",
-    company: "workshops.de",
+    role: "Trainer für JavaScript, TypeScript und React",
+    company: "Freiberuflich · workshops.de",
     period: "11/2018 – 08/2020",
     description:
-      "Konzeption und Durchführung von Entwickler-Workshops zu modernen Web-Technologien.",
-    tags: ["TypeScript", "React", "Training", "JavaScript"],
+      "Durchführung mehrtägiger Schulungen für moderne Web-Technologien.",
+    tags: ["TypeScript", "React", "JavaScript", "Training"],
   },
   {
-    role: "Web Developer & Team Lead",
+    role: "Web-Entwickler und Team-Lead",
     company: "9elements GmbH",
     period: "02/2011 – 10/2018",
     description:
-      "Entwicklung und Leitung von Web-Projekten für internationale Kunden. Aufbau und Führung von Entwicklungsteams.",
+      "Entwicklung komplexer Web-Anwendungen als Full-Stack Entwickler. Fachliche Leitung von Projektteams (bis 6 Personen). Konzeption digitaler Produkte für unterschiedliche Branchen.",
     tags: ["Ruby on Rails", "JavaScript", "React", "Team Lead"],
   },
   {
-    role: "Consulting & Web Development",
+    role: "Consulting und Web-Entwicklung",
     company: "e-Spirit AG",
     period: "12/2009 – 01/2011",
     description:
-      "Beratung und Entwicklung im Bereich Content-Management-Systeme.",
-    tags: ["Java", "CMS", "Consulting"],
+      "Umsetzung von Web-Projekten mit FirstSpirit CMS und Schulung von Kunden.",
+    tags: ["CMS", "Consulting", "Web-Entwicklung"],
   },
 ];
 
+const focuses = [
+  "Strategische Schärfung und Operationalisierung von Produktvisionen",
+  "Konzeption digitaler Produkte und Features von der Idee bis zur Umsetzungsreife",
+  "Übersetzung von Business- und Experience-Zielen in technisch tragfähige Lösungen",
+  "Integration von KI-Funktionalitäten und neuen Technologien in bestehende Produktkontexte",
+  "Strukturierung, Priorisierung und Roadmap-Gestaltung in komplexen Umfeldern",
+  "Enge Zusammenarbeit mit Entwicklungsteams bei Architektur- und Umsetzungsentscheidungen",
+  "Entwicklung sinnvoller Test- und Qualitätsstrategien (Testability by Design)",
+  "Weiterentwicklung von Team- und Zusammenarbeitsstrukturen im Produkt- und Projektkontext",
+];
+
 const technicalSkills = [
-  "TypeScript", "JavaScript", "React", "Next.js", "Node.js",
-  "Angular", "Ruby on Rails", "PostgreSQL", "SQLite", "Prisma",
-  "REST APIs", "GraphQL", "Docker", "Git",
+  "TypeScript", "JavaScript", "React", "Angular",
+  "Ruby on Rails", "PostgreSQL", "REST APIs", "Git",
 ];
 
 const productSkills = [
   "Product Ownership", "Scrum / Kanban", "Stakeholder Management",
-  "Roadmap Planning", "Agile Methods", "KI-Integration", "Prompt Engineering",
-  "LLM Integration", "Digital Transformation", "Testability by Design",
-  "Organizational Development", "Leadership & Coaching",
+  "Roadmap Planning", "Agile Methoden", "KI-Integration", "Prompt Engineering",
+  "LLM Integration", "Digitale Transformation", "Testability by Design",
+  "Organisationsentwicklung", "Leadership & Coaching",
 ];
 
 const languages = [
   { name: "Deutsch", level: "Muttersprache", percent: 100 },
-  { name: "Englisch", level: "Fließend (C1)", percent: 85 },
-  { name: "Polnisch", level: "Grundkenntnisse (A2)", percent: 30 },
-  { name: "Französisch", level: "Grundkenntnisse (A1)", percent: 15 },
+  { name: "Englisch", level: "Verhandlungssicher", percent: 90 },
+  { name: "Polnisch", level: "Grundkenntnisse", percent: 25 },
+  { name: "Französisch", level: "Grundkenntnisse", percent: 15 },
 ];
 
 export default function CVPage() {
@@ -102,6 +112,7 @@ export default function CVPage() {
             name: "Wojtek Gorecki",
             jobTitle: "Product Owner",
             url: "https://ai.wojtek-gorecki.de/cv",
+            email: "hallo@wojtek-gorecki.de",
             image: "https://ai.wojtek-gorecki.de/images/profile.jpg",
             sameAs: ["https://www.linkedin.com/in/wojtek-gorecki/"],
             alumniOf: {
@@ -138,13 +149,13 @@ export default function CVPage() {
                 Wojtek Gorecki
               </h1>
               <p className="mt-1 text-lg text-primary font-medium">
-                Product Owner · Digitalexperte · KI-Enthusiast
+                Product Owner · Diplom-Informatiker · 15+ Jahre Erfahrung
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                Mit über 15 Jahren Erfahrung in Web-Entwicklung und Produktmanagement
-                begleite ich Teams und Organisationen an der Schnittstelle von Technologie,
-                Produktstrategie und KI-Integration. Mein Fokus liegt auf praxisnaher
-                Umsetzung — vom Konzept bis zur produktionsreifen Lösung.
+                Erfahrener Product Owner und Softwareentwickler mit über 15 Jahren Erfahrung
+                in der Entwicklung digitaler Produkte. Ich verbinde technisches
+                Tiefenverständnis mit strategischer Produktverantwortung und
+                Führungserfahrung — in Start-ups, Mittelstand und öffentlicher Verwaltung.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
@@ -168,15 +179,43 @@ export default function CVPage() {
             </div>
           </div>
 
-          {/* Ausbildung */}
+          {/* Tätigkeitsschwerpunkte */}
+          <section className="mb-12">
+            <h2 className="text-xl font-bold text-foreground mb-5">Tätigkeitsschwerpunkte</h2>
+            <div className="rounded-xl border border-white/10 bg-card p-6">
+              <ul className="space-y-2.5">
+                {focuses.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <span className="mt-0.5 h-4 w-4 shrink-0 text-primary">
+                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* Ausbildung & Fortbildung */}
           <section className="mb-12">
             <h2 className="text-xl font-bold text-foreground mb-4">Ausbildung</h2>
-            <div className="rounded-xl border border-white/10 bg-card p-5">
-              <p className="text-xs font-medium text-primary/80 mb-1">2009</p>
-              <h3 className="font-semibold text-foreground">Diplom-Informatiker</h3>
-              <p className="text-sm text-muted-foreground mt-0.5">
-                Technische Universität Dortmund
-              </p>
+            <div className="space-y-3">
+              <div className="rounded-xl border border-white/10 bg-card p-5">
+                <p className="text-xs font-medium text-primary/80 mb-1">2009</p>
+                <h3 className="font-semibold text-foreground">Diplom-Informatiker</h3>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  Technische Universität Dortmund
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-card p-5">
+                <p className="text-xs font-medium text-primary/80 mb-1">2019 · Fortbildung</p>
+                <h3 className="font-semibold text-foreground">Future Leadership Consultant</h3>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  Intrinsify Akademie
+                </p>
+              </div>
             </div>
           </section>
 
@@ -190,8 +229,8 @@ export default function CVPage() {
           <section className="mb-12">
             <h2 className="text-xl font-bold text-foreground mb-6">Kenntnisse</h2>
             <div className="rounded-xl border border-white/10 bg-card p-6 space-y-7">
-              <SkillTags title="Technisch" skills={technicalSkills} variant="primary" />
-              <SkillTags title="Fachlich" skills={productSkills} variant="secondary" />
+              <SkillTags title="Technischer Hintergrund" skills={technicalSkills} variant="primary" />
+              <SkillTags title="Kompetenzen" skills={productSkills} variant="secondary" />
             </div>
           </section>
 
