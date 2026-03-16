@@ -119,12 +119,36 @@ export async function researchTrendingAI(): Promise<RawScrapedItem[]> {
     throw new Error("[research] Keine Text-Antwort von Claude erhalten");
   }
 
-  const jsonMatch = textBlock.text.match(/\[[\s\S]*\]/);
-  if (!jsonMatch) {
+  const rawText = textBlock.text;
+  console.log(`[research] Antwort (erste 300 Zeichen): ${rawText.slice(0, 300)}`);
+
+  // Robustes JSON-Parsing: mehrere Muster probieren
+  // 1. Markdown-Codeblock: ```json [...] ``` oder ``` [...] ```
+  // 2. Direktes Array: [...]
+  // 3. Objekt mit items-Key: {"items": [...]}
+  let jsonStr: string | null = null;
+
+  const codeBlockMatch = rawText.match(/```(?:json)?\s*(\[[\s\S]*?\])\s*```/);
+  if (codeBlockMatch) {
+    jsonStr = codeBlockMatch[1];
+  } else {
+    // Letztes vollständiges Array-Fragment suchen (greedy, von hinten)
+    const arrayMatch = rawText.match(/\[[\s\S]*\]/);
+    if (arrayMatch) {
+      jsonStr = arrayMatch[0];
+    } else {
+      // Objekt mit items-Array
+      const objMatch = rawText.match(/"items"\s*:\s*(\[[\s\S]*?\])/);
+      if (objMatch) jsonStr = objMatch[1];
+    }
+  }
+
+  if (!jsonStr) {
+    console.error("[research] Vollständige Antwort:", rawText);
     throw new Error("[research] Kein JSON-Array in Claude-Antwort gefunden");
   }
 
-  const parsed = JSON.parse(jsonMatch[0]) as Array<{
+  const parsed = JSON.parse(jsonStr) as Array<{
     name: string;
     description: string;
     url: string;
