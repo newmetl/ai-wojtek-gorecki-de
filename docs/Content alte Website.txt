@@ -1,0 +1,269 @@
+Website Content der alten Website-Version:
+
+Home:
+(Profilbild)
+KI-gestützter Product Owner
+
+Hallo, ich bin Wojtek Gorecki
+Product Owner mit Leidenschaft für künstliche Intelligenz und digitale Transformation. Über 15 Jahre Erfahrung in der Entwicklung digitaler Produkte — an der Schnittstelle von Strategie, Technologie und Führung.
+
+🤖 KI-gestützte Produktentwicklung
+Erfahrung in der Integration von KI-Lösungen in bestehende Produktlandschaften — von der Ideation bis zum Go-Live.
+
+🚀 Agile Methoden & Leadership
+Langjährige Erfahrung als Product Owner in agilen Teams mit Fokus auf Stakeholder-Management und Roadmap-Entwicklung.
+
+⚡ Technisches Verständnis
+Brücke zwischen Business und Technik. Verständnis für APIs, Datenarchitekturen und moderne Softwareentwicklung.
+
+CV:
+Wojtek Gorecki
+Product Owner · Diplom-Informatiker · 15+ Jahre Erfahrung
+Erfahrener Product Owner und Diplom-Informatiker mit über 15 Jahren Erfahrung in der Entwicklung digitaler Produkte. Ich verbinde technisches Tiefenverständnis mit strategischer Produktverantwortung und Führungserfahrung — in Start-ups, Mittelstand und öffentlicher Verwaltung.
+
+🎯 Tätigkeitsschwerpunkte
+
+🎯 Strategische Schärfung und Operationalisierung von Produktvisionen
+💡 Konzeption digitaler Produkte und Features von der Idee bis zur Umsetzungsreife
+🔗 Übersetzung von Business- und Experience-Zielen in technisch tragfähige Lösungen
+🤖 Integration von KI-Funktionalitäten und neuen Technologien in bestehende Produktkontexte
+🗺️ Strukturierung, Priorisierung und Roadmap-Gestaltung in komplexen Umfeldern
+⚙️ Enge Zusammenarbeit mit Entwicklungsteams bei Architektur- und Umsetzungsentscheidungen
+✅ Entwicklung sinnvoller Test- und Qualitätsstrategien (Testability by Design)
+👥 Weiterentwicklung von Team- und Zusammenarbeitsstrukturen im Produkt- und Projektkontext
+
+💼 Berufserfahrung
+
+Beratung für persönliche Entwicklung
+Selbstständig · 04/2025 – heute
+Begleitung von Einzelpersonen in Veränderungsprozessen. Konzeption und Durchführung von Vortrags- und Dialogformaten. Aufbau eines eigenständigen Beratungsangebots.
+
+Product Owner / Dev-Teamleiter / Projektportfoliomanager
+Shift Digital · publicplan GmbH · 05/2023 – 03/2025
+Konzeption und Weiterentwicklung webbasierter Empfangssysteme für digitale Verwaltungsanträge. Disziplinarische Leitung eines Entwicklungsteams, fachliche Verantwortung für ein Projektportfolio und inhaltliche Steuerung eines 13-köpfigen interdisziplinären Teams.
+
+Co-Founder und Mentor
+let's lead · 09/2020 – 05/2022
+Mitgründer eines Beratungsunternehmens. Durchführung 12-monatiger Entwicklungsprogramme für Führungskräfte. Begleitung von Transformationsprozessen in Unternehmen.
+
+Berater für Organisations- und Persönlichkeitsentwicklung
+Selbstständig · 11/2018 – 04/2023
+Beratung von Start-ups und Mittelständlern beim Aufbau agiler und selbstorganisierter Strukturen. Coaching von Gründer:innen und Führungskräften.
+
+Trainer für JavaScript, TypeScript und React
+Freiberuflich bei workshops.de · 11/2018 – 08/2020
+Durchführung mehrtägiger Schulungen für moderne Web-Technologien.
+
+Web-Entwickler und Team-Lead
+9elements GmbH · 02/2011 – 10/2018
+Entwicklung komplexer Web-Anwendungen als Full-Stack Entwickler. Fachliche Leitung von Projektteams (bis 6 Personen). Konzeption digitaler Produkte für unterschiedliche Branchen.
+
+Consulting und Web-Entwicklung
+e-Spirit AG · 12/2009 – 01/2011
+Umsetzung von Web-Projekten mit FirstSpirit CMS und Schulung von Kunden.
+
+🎓 Ausbildung
+Diplom-Informatiker
+Technische Universität Dortmund · Abschluss 2009
+Studium der Informatik mit Schwerpunkt auf Softwaretechnik.
+
+⚡ Technischer Hintergrund
+Mehrjährige Erfahrung in der Entwicklung moderner Web-Anwendungen und API-basierter Systeme. Sicher im Umgang mit Frontend- und Backend-Technologien sowie in Architektur- und Umsetzungsfragen.
+
+TypeScript
+JavaScript
+React
+Angular
+Ruby on Rails
+PostgreSQL
+REST APIs
+Git
+
+🧠 Kompetenzen
+Product Ownership
+Scrum / Kanban
+Stakeholder Management
+Künstliche Intelligenz
+Prompt Engineering
+LLM Integration
+Roadmap Planning
+Organisationsentwicklung
+Leadership & Coaching
+Digitale Transformation
+Testability by Design
+Agile Methoden
+
+🌍 Sprachen
+Deutsch — Muttersprache
+Englisch — Verhandlungssicher
+Polnisch — Grundkenntnisse
+Französisch — Grundkenntnisse
+Interesse geweckt?
+Lassen Sie uns über Ihr Projekt sprechen.
+
+Case Study:
+Wie diese Website entstanden ist
+Eine statische Website, erstellt und betrieben durch einen KI-Agenten — vollständig per Chat gesteuert.
+
+OpenClaw
+Docker
+Hostinger
+
+🤖 Was ist OpenClaw?
+OpenClaw ist ein Open-Source-Framework, das KI-Modelle als persönliche Agenten einsetzt. Es läuft als Hintergrundprozess und kann über verschiedene Messaging-Kanäle (Telegram, WhatsApp, Signal, Discord, Web-Chat) gesteuert werden. Der Agent hat Zugriff auf Dateisystem, Shell, Browser und weitere Tools — und kann damit eigenständig Aufgaben ausführen.
+
+In diesem Projekt läuft OpenClaw mit dem KI-Modell Claude Opus 4 von Anthropic — einem der leistungsstärksten Sprachmodelle für Codegenerierung und komplexe Aufgaben.
+
+⚙️ Wie funktioniert es?
+1 Infrastruktur aufsetzen
+Ein Hostinger VPS mit Docker-Container bildet die Grundlage. OpenClaw läuft innerhalb des Containers als dauerhafter Agent-Prozess.
+
+2 Anforderungen per Chat
+Über Telegram (oder den Web-Chat) werden Änderungswünsche direkt an den KI-Agenten übermittelt — in natürlicher Sprache, ohne Code schreiben zu müssen.
+
+3 KI setzt um
+Der Agent erstellt und bearbeitet HTML-, CSS- und JavaScript-Dateien, startet den Webserver und prüft das Ergebnis — alles eigenständig.
+
+4 Review & Iteration
+Das Ergebnis wird direkt im Browser geprüft. Korrekturen und Erweiterungen werden wieder per Chat-Nachricht in Auftrag gegeben.
+
+🚀 Vom Chat zum Deployment
+Diese Website wird über einen vollautomatisierten Workflow weiterentwickelt — ohne IDE, ohne lokalen Rechner. Eine Chat-Nachricht genügt, um Änderungen auf die Staging-Umgebung zu bringen, dort zu prüfen und nach Freigabe auf Production zu deployen.
+
+Deployment Workflow Diagramm
+Architektur-Diagramm
+Die technische Infrastruktur: Docker-Container, Git-Branches, Staging- und Production-Server.
+
+Chat-Mockup
+So sieht der Workflow in der Praxis aus — eine einfache Chat-Konversation steuert den gesamten Prozess.
+
+🛠️ Eingesetzte Technologien
+OpenClaw
+KI-Agent-Framework — steuert den gesamten Entwicklungsprozess
+
+Claude Opus 4 (Anthropic)
+Large Language Model von Anthropic für Codegenerierung und natürliche Sprachverarbeitung
+
+Docker
+Containerisierung für isolierte und reproduzierbare Laufzeitumgebung
+
+Hostinger VPS
+Virtual Private Server als Hosting-Infrastruktur
+
+Python SimpleHTTPServer
+Leichtgewichtiger Webserver zum Ausliefern der statischen Seite
+
+HTML / CSS / JavaScript
+Statische Website mit responsivem Design, Mehrsprachigkeit und Formspree-Integration
+
+Formspree
+E-Mail-Versand für das Kontaktformular ohne eigenes Backend
+
+Telegram
+Messenger-Kanal zur Kommunikation mit dem KI-Agenten
+
+⚖️ Vorteile & Limitierungen
+
+✅ Vorteile
+Schnelle Umsetzung — von der Idee zur fertigen Seite in Stunden statt Tagen
+Keine Entwicklerkenntnisse nötig — Steuerung in natürlicher Sprache
+Isolierte Umgebung — der Container schützt das Host-System
+Flexible Erreichbarkeit — Änderungen von überall per Messenger
+Niedrige Einstiegskosten — kein teures Entwickler-Team erforderlich
+Reproduzierbar — Container kann jederzeit neu aufgesetzt werden
+
+⚠️ Limitierungen
+KI-Kontext ist begrenzt — bei sehr komplexen Projekten kann der Agent den Überblick verlieren
+Token-Kosten steigen mit Komplexität — längere Sessions verbrauchen mehr Budget
+Container-Neustart löscht Prozesse — der Webserver muss ggf. neu gestartet werden
+Kein persistenter Datenbank-Support im Container ohne zusätzliche Konfiguration
+Review nötig — KI-generierter Code sollte auf Qualität und Sicherheit geprüft werden
+
+💰
+Kostenübersicht
+Position	Kosten	Art
+Hostinger VPS (Docker)	7,99 € / Monat	Laufend
+Initiale Erstellung (Token-Kosten)	~60,00 €	Einmalig
+Kontinuierliche Weiterentwicklung (Token-Kosten)	variabel	Laufend
+Domain & SSL	Vorhanden	—
+Formspree (Kontaktformular)	Kostenlos	—
+
+Die laufenden Kosten beschränken sich auf das VPS-Hosting (7,99 €/Monat). Token-Kosten fallen nur bei aktiver Nutzung des KI-Agenten an — etwa bei Änderungen oder Erweiterungen der Website.
+
+Kontakt:
+
+Kontakt
+Haben Sie Interesse an einer Zusammenarbeit? Schreiben Sie mir eine Nachricht oder kontaktieren Sie mich direkt über einen der folgenden Kanäle.
+
+Nachricht senden
+Name
+E-Mail
+Nachricht
+Absenden
+
+
+💬 WhatsApp
+Nachricht schreiben
+(https://wa.me/491632787167)
+
+✈️ Telegram
+Nachricht schreiben
+(https://t.me/wojtekgorecki)
+
+📞 Anrufen
+Jetzt anrufen
+(tel:+491632787167)
+
+📅 Zoom-Call buchen
+60 Minuten via Calendly
+(https://calendly.com/wojtek-gorecki/60-minuten-gesprach)
+
+📧 E-Mail
+hallo@wojtek-gorecki.de
+(mailto:hallo@wojtek-gorecki.de)
+
+Impressum:
+Impressum
+Angaben gemäß § 5 TMG
+Adalbert Gorecki
+Holtroper Straße 3f
+50129 Bergheim
+
+Kontakt
+Telefon: +49 163 2787167
+E-Mail: hallo@wojtek-gorecki.de
+
+Streitschlichtung
+Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+
+Haftung für Inhalte
+Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+
+Haftung für Links
+Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+
+Datenschutz:
+Datenschutzerklärung
+1. Datenschutz auf einen Blick
+Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
+
+2. Verantwortlicher
+Adalbert Gorecki
+Holtroper Straße 3f
+50129 Bergheim
+E-Mail: hallo@wojtek-gorecki.de
+
+3. Hosting
+Diese Website wird bei Hostinger gehostet. Beim Besuch werden automatisch technische Daten erhoben. Dies ist für den Betrieb technisch erforderlich (Art. 6 Abs. 1 lit. f DSGVO).
+
+4. Kontaktformular
+Ihre Angaben im Kontaktformular werden über Formspree übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.
+
+5. Google Fonts
+Diese Seite nutzt Google Fonts. Dabei wird Ihre IP-Adresse an Google übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
+
+6. Externe Links
+Diese Website enthält Links zu externen Diensten. Beim Klick gelten die Datenschutzbestimmungen der jeweiligen Anbieter.
+
+7. Ihre Rechte
+Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Sperrung oder Löschung Ihrer gespeicherten personenbezogenen Daten.

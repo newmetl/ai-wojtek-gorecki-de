@@ -1,0 +1,511 @@
+# AI-Technologien & Trends für Product Owner – März 2026
+
+**Der wichtigste Trend in einem Satz: Agentic AI dominiert 2026 die gesamte AI-Landschaft** – von Microsoft über Salesforce bis SAP reorganisieren alle großen Plattformen ihre Produkte um autonome AI Agents. Für Product Owner im DACH-Raum bedeutet das: Wer Agents, MCP, RAG und den EU AI Act versteht, hat einen strategischen Vorsprung bei Produktentwicklung, Kundenberatung und Teamführung. Diese Übersicht liefert die **10 wichtigsten Kategorien mit insgesamt über 100 Tools, Plattformen und Trends**, die jeder technisch versierte PO kennen sollte.
+
+---
+
+## 1. AI-Modelle & Plattformen
+
+Die Foundation-Model-Landschaft hat sich 2025/26 dramatisch weiterentwickelt. Context Windows von **1 Million+ Tokens** sind Standard, multimodale Fähigkeiten (Text, Bild, Audio, Video) sind in allen führenden Modellen integriert, und die Kostensenkung durch Open-Source-Modelle wie DeepSeek hat den gesamten Markt unter Preisdruck gesetzt.
+
+### 1.1 OpenAI (GPT-5.x, o1/o3, Sora 2)
+- **URL:** https://openai.com
+- **Beschreibung:** Marktführer mit GPT-5.2 (Dezember 2025), das ein **1M Token Context Window** bietet und Halluzinationen um 33% reduziert. Sora 2 für Video-Generierung, o3 für fortgeschrittenes Reasoning und ChatGPT als am schnellsten wachsende Consumer-App der Geschichte. Unverzichtbar als Referenzpunkt für jeden PO.
+
+### 1.2 Anthropic (Claude Opus 4.6, Sonnet 4.6, Claude Code)
+- **URL:** https://www.anthropic.com
+- **Beschreibung:** Claude Opus 4.6 (März 2026) ist der neue technische Leader mit **75,6% auf SWE-bench**. Claude Sonnet 4.6 bietet 1M Context Window und wird in Claude Code 59% der Zeit gegenüber Opus bevorzugt. Besonders stark bei Reasoning, Coding und Enterprise-Safety – und Erfinder des MCP-Protokolls.
+
+### 1.3 Google (Gemini 3.x, Gemma)
+- **URL:** https://deepmind.google/technologies/gemini/
+- **Beschreibung:** Gemini 3.1 Pro (März 2026) bietet einen massiven Performance-Sprung mit **77,1% ARC-AGI-2 Score**. Nativ multimodal mit 1M Token Context. Tief integriert in Google Workspace (2 Mrd. AI Assists/Monat) und Vertex AI. Gemma-Modelle für lokale Nutzung verfügbar.
+
+### 1.4 Meta (Llama 4)
+- **URL:** https://ai.meta.com/llama/
+- **Beschreibung:** Llama 4 (April 2025) mit den Varianten Scout und Maverick liefert branchenführende Open-Source-Modelle mit einem **10M Token Context Window**. Maverick übertrifft GPT-4o in vielen Benchmarks. Ideal für Enterprises, die Open-Source-AI in eigener Infrastruktur deployen wollen – vollständig kostenlos nutzbar.
+
+### 1.5 Mistral AI
+- **URL:** https://mistral.ai
+- **Beschreibung:** Europas führendes AI-Startup (Bewertung ~14 Mrd. €). Mistral Large 3 (675B Parameter MoE) und Devstral 2 (72,2% SWE-bench, bis zu **7× kosteneffizienter** als Claude Sonnet) unter Apache 2.0 Lizenz. Stark positioniert für den europäischen Enterprise-Markt mit Fokus auf Multilingual und DSGVO-Konformität.
+
+### 1.6 DeepSeek
+- **URL:** https://www.deepseek.com
+- **Beschreibung:** Chinesisches AI-Lab mit DeepSeek-V3.2, das auf **GPT-5-Niveau** performt – bei dramatisch niedrigeren Kosten (Input ab $0,27/1M Tokens). Innovationen wie Sparse Attention und Mixture-of-Experts (671B Parameter, 37B aktiv) haben den gesamten Markt preislich unter Druck gesetzt. Kostenloser Zugang via chat.deepseek.com.
+
+### 1.7 xAI (Grok)
+- **URL:** https://x.ai
+- **Beschreibung:** Elon Musks AI-Unternehmen mit Grok 4.1, das 1483 Elo auf LMArena erreicht. Echtzeit-Datenanbindung an X (Twitter) und Grok Imagine 1.0 für Text-to-Video. Grok 5 (6 Billionen Parameter) wird für Q1 2026 erwartet.
+
+### 1.8 Perplexity AI
+- **URL:** https://www.perplexity.ai
+- **Beschreibung:** AI-gestützte Suchmaschine mit über **100 Mio. monatlich aktiven Usern** und 780 Mio. Queries/Monat. Liefert synthetisierte Antworten mit verifizierbaren Quellzitaten. Pro Search führt Multi-Step-Research durch. Bewertung: $20 Mrd. Unverzichtbares Research-Tool für POs.
+
+### 1.9 Cohere
+- **URL:** https://cohere.com
+- **Beschreibung:** Enterprise-fokussiert (ARR 240 Mio. $) mit Command (Textgenerierung), Embed (Semantic Search) und Rerank 4. North ist die Agentic-AI-Plattform für sichere Enterprise-Workflows; Model Vault ermöglicht VPC-isoliertes Deployment. IPO für 2026 erwartet.
+
+### 1.10 Qwen (Alibaba Cloud)
+- **URL:** https://qwenlm.github.io
+- **Beschreibung:** Alibabas Open-Source-Modellfamilie, deren Qwen3-Max nahe an Gemini 3 Pro und GPT-5.2 heranreicht. Vorreiter bei Hybrid-Reasoning (Toggle zwischen Reasoning- und Non-Reasoning-Modus). Attraktiv für Self-Hosting und besonders stark in asiatischen Sprachen.
+
+### 1.11 Stability AI
+- **URL:** https://stability.ai
+- **Beschreibung:** Führend bei generativen Medienmodellen: Stable Diffusion 3.5 (Bildgenerierung), Stable Audio 2.5, Stable Video 4D 2.0 und SPAR3D (2D-zu-3D in unter 1 Sekunde). API-basiertes B2B-Modell auf AWS Bedrock und Azure. Strategische Partnerschaften mit Universal Music und EA.
+
+---
+
+## 2. AI-Tools für Produktentwicklung & Workflow
+
+Die Tool-Landschaft für Produktteams hat sich 2025/26 grundlegend gewandelt. **„Vibe Coding"** – die Entwicklung von Software durch natürlichsprachliche Prompts – ist vom Experiment zum produktiven Workflow geworden. Geschätzt **40% der Enterprise-Software** werden 2026 mittels AI-gestütztem Coding erstellt.
+
+### 2.1 Cursor
+- **URL:** https://cursor.com
+- **Beschreibung:** KI-nativer Code-Editor auf VS-Code-Basis mit Agent Mode, Background Agents und Multi-Model-Support. Von über der Hälfte der Fortune 500 genutzt, **$2 Mrd.+ ARR** und $29,3 Mrd. Bewertung. Der meistverbreitete AI Code Editor 2026. Pro ab $20/Monat.
+
+### 2.2 v0 by Vercel
+- **URL:** https://v0.dev
+- **Beschreibung:** AI-gestütztes UI-Generierungstool, das aus natürlichsprachlichen Prompts produktionsreife React-Komponenten mit Tailwind CSS erzeugt. Tief integriert in das Next.js/Vercel-Ökosystem mit Preview-URLs und Supabase-Integration. Free Tier mit $5 monatlichen Credits.
+
+### 2.3 Bolt.new (by StackBlitz)
+- **URL:** https://bolt.new
+- **Beschreibung:** Prompt-to-Fullstack App Builder, der aus einem einzigen Prompt komplette Anwendungen (React, Node.js, Prisma) generiert. Vollständige In-Browser-IDE mit Live Preview und GitHub-Integration. Free Tier mit 1M Tokens/Monat.
+
+### 2.4 Replit
+- **URL:** https://replit.com
+- **Beschreibung:** Cloud-basierte AI-Entwicklungsumgebung mit dem Replit Agent, der aus natürlicher Sprache komplette Full-Stack-Anwendungen erstellt. **40 Millionen App-Ersteller** weltweit, 50+ Programmiersprachen und One-Click-Deployment. Core ab $20/Monat.
+
+### 2.5 Lovable (ehemals GPT Engineer)
+- **URL:** https://lovable.dev
+- **Beschreibung:** AI App Builder, der produktionsreifen Full-Stack-Code (React, Tailwind, Vite) generiert und direkt zu GitHub synct. Schnellstes europäisches Startup mit **$20M ARR in nur 2 Monaten**. Multiplayer-Modus für Team-Kollaboration. Pro ab $25/Monat.
+
+### 2.6 Notion AI
+- **URL:** https://www.notion.com/product/ai
+- **Beschreibung:** Seit Notion 3.0 (September 2025) vollständig autonome AI Agents, die mehrstufige Workflows über den gesamten Workspace hinweg ausführen. Custom Agents mit Triggern/Schedules, Multi-Model-Zugang (GPT-5, Claude, o3). AI im Business-Plan ($20/User/Monat) inkludiert.
+
+### 2.7 Linear (mit AI Features)
+- **URL:** https://linear.app
+- **Beschreibung:** Modernes Issue-Tracking für Software-Produktteams mit Triage Intelligence (automatische Kategorisierung, Priorisierung, Duplicate-Erkennung), MCP-Server-Integration und der Möglichkeit, AI Agents direkt als Teammates einzusetzen. Keyboard-first mit extrem schneller Performance.
+
+### 2.8 Miro AI
+- **URL:** https://miro.com
+- **Beschreibung:** AI-gestützter Innovation Workspace mit über **100 Millionen Nutzern**. Miro Assist generiert Sticky Notes, Flowcharts, Mind Maps und Diagramme aus Prompts. AI-gestützte Zusammenfassungen und Sidekicks wie der Agile Coach – ideal für Workshops und Produktplanung.
+
+### 2.9 Figma AI / Figma Make
+- **URL:** https://www.figma.com/ai/
+- **Beschreibung:** Umfassende AI-Suite mit Figma Make (Prompt-to-App für interaktive High-Fidelity-Prototypen), AI Image Generation, Code Layers und dem Figma MCP Server für Design-to-Code-Workflows mit VS Code und Cursor. Seit Juli 2025 aus der Beta.
+
+### 2.10 Windsurf (ehemals Codeium)
+- **URL:** https://windsurf.com
+- **Beschreibung:** Agentic AI IDE mit der Cascade-Engine für tiefes Codebase-Verständnis und autonome Multi-File-Edits. Im Dezember 2025 von Cognition AI für ~$250M übernommen. **Ranking #1 in den LogRocket AI Dev Tool Power Rankings** (Feb 2026). Free Tier verfügbar, Pro ab $15/Monat.
+
+---
+
+## 3. AI für Coding & Software-Entwicklung
+
+Die AI-Coding-Landschaft hat 2026 eine kritische Masse erreicht: Laut Windsurf-Daten werden **~94% des Codes** in AI-gestützten IDEs durch AI geschrieben. Für Product Owner ist das Verständnis dieser Tools entscheidend, da sie Velocity, Team-Strukturen und Entwicklungsprozesse fundamental verändern.
+
+### 3.1 GitHub Copilot (inkl. Workspace & Agent Mode)
+- **URL:** https://github.com/features/copilot
+- **Beschreibung:** Industriestandard mit breiter IDE-Unterstützung, Agent Mode für Repo-Level Tasks und Copilot Workspace für natürlichsprachliche Planung. Free Tier (2.000 Completions/Monat), Pro $10/Monat, Business $19/User/Monat.
+
+### 3.2 Claude Code
+- **URL:** https://docs.anthropic.com/en/docs/claude-code
+- **Beschreibung:** Anthropics agentisches Terminal-Coding-Tool mit Agent Teams (parallele Claude-Instanzen), Checkpoint-System und nativer Git-Integration. Wird häufig als das **intelligenteste Tool für Deep Reasoning und Debugging** beschrieben. Kann über 30 Stunden an komplexen Multi-Step-Tasks arbeiten.
+
+### 3.3 Devin (by Cognition AI)
+- **URL:** https://devin.ai
+- **Beschreibung:** Autonomer AI Software Engineer, der End-to-End-Engineering-Tasks parallel in Cloud-Sandboxes ausführt. **67% der PRs werden gemergt** (vs. 34% im Vorjahr), 4× schneller beim Problemlösen. Cognition hat $400M+ bei $10,2 Mrd. Bewertung eingesammelt.
+
+### 3.4 Cline
+- **URL:** https://cline.bot
+- **Beschreibung:** Autonomer Coding Agent als VS Code Extension mit **58.600+ GitHub Stars** – die größte Community unter Open-Source Coding Agents. Human-in-the-Loop bei jeder Aktion. Arbeitet mit jedem LLM via BYOK, Enterprise-Angebot mit SSO und Audit Trails.
+
+### 3.5 OpenHands
+- **URL:** https://openhands.dev
+- **Beschreibung:** Führender Open-Source AI Coding Agent (**68.900+ GitHub Stars**), der wie ein vollwertiger Developer agiert. Model-agnostisch mit Sandboxed Docker Runtimes, Self-Hosting und CI/CD-Integration. Konsistent top auf SWE-bench.
+
+### 3.6 Aider
+- **URL:** https://aider.chat
+- **Beschreibung:** Open-Source Terminal-basierter AI Pair Programmer mit exzellenter Git-Integration und automatischen Commit Messages. 93 Releases und 13.100+ Commits. Kostenlos (nur API-Kosten). Ideal für Terminal-affine Entwickler.
+
+### 3.7 Tabnine
+- **URL:** https://www.tabnine.com
+- **Beschreibung:** Privacy-first AI Code Assistant mit Zero-Knowledge-Architektur und vollständiger On-Premise-Deployment-Option. HIPAA/SOC 2 compliant. Besonders beliebt in **regulierten Branchen** (Finanzen, Gesundheit). Enterprise ab $39/User/Monat.
+
+### 3.8 Amazon Q Developer
+- **URL:** https://aws.amazon.com/q/developer/
+- **Beschreibung:** AWS' AI Coding Assistant mit tiefem AWS-Ökosystem-Verständnis, autonomen Agents für Feature-Implementierung und Security Scanning. Free Tier verfügbar, Pro ab $19/User/Monat mit IP Indemnity.
+
+### 3.9 Cody by Sourcegraph
+- **URL:** https://sourcegraph.com/cody
+- **Beschreibung:** AI Coding Assistant mit RAG-basierter Multi-Repository-Kontextabfrage (bis 10 Repos) und Amp Engine für autonomes Reasoning. Besonders stark bei **großen Enterprise-Codebases** (1M+ Zeilen).
+
+### 3.10 Qodo (ehemals CodiumAI)
+- **URL:** https://www.qodo.ai
+- **Beschreibung:** Code-Integrity-Plattform für automatisierte Code Reviews, Test-Generierung und PR-Validierung. Gartner Visionary (Sept 2025), SOC 2 zertifiziert. Open-Source PR-Agent mit 9.900+ GitHub Stars.
+
+### 3.11 JetBrains AI Assistant
+- **URL:** https://www.jetbrains.com/ai/
+- **Beschreibung:** Nativ in alle JetBrains IDEs integriert (IntelliJ, PyCharm, WebStorm), nutzt die vorhandene Language Intelligence der IDE. Kontextbewusste Code-Generierung, Refactoring-Vorschläge und seit 2026 auch agentisches Windsurf-Plugin (Cascade).
+
+### 3.12 Continue.dev
+- **URL:** https://continue.dev
+- **Beschreibung:** Open-Source AI Code Assistant (Apache 2.0) für VS Code und JetBrains, der beliebige LLMs (Cloud oder lokal via Ollama) einbinden kann. Volle Datenkontrolle. Besonders beliebt bei **Privacy-bewussten Teams** und Self-Hosting-Organisationen.
+
+---
+
+## 4. AI-Infrastruktur & Entwickler-Frameworks
+
+Die Infrastruktur-Ebene hat 2025/26 eine konsolidierende Phase durchlaufen: Microsoft hat Semantic Kernel und AutoGen zum **Agent Framework** zusammengelegt, LangChain hat sich mit LangGraph als Multi-Agent-Orchestrierung etabliert, und neue All-in-One-Plattformen wie Dify demokratisieren den Zugang zu AI-App-Entwicklung.
+
+### 4.1 LangChain / LangGraph
+- **URL:** https://www.langchain.com
+- **Beschreibung:** Das am weitesten verbreitete Framework für LLM-basierte Applikationen mit modularer Architektur für Chains, Agents, Memory und Tool-Integration. LangGraph erweitert das Framework um **Graph-basierte Multi-Agent-Orchestrierung** mit integriertem Tracing via LangSmith.
+
+### 4.2 LlamaIndex
+- **URL:** https://www.llamaindex.ai
+- **Beschreibung:** Spezialisiertes Framework für RAG und datengesteuerte LLM-Applikationen. Leistungsstarke Abstraktionen für Daten-Ingestion, Indexierung und Querying über diverse Datenquellen. Top-10-AI-Agent-Framework in 2026.
+
+### 4.3 Hugging Face
+- **URL:** https://huggingface.co
+- **Beschreibung:** Das zentrale Hub-Ökosystem der AI-Community mit über **4,3 Millionen AI-Repositories**. Primäre Distributions-Plattform für Open-Source-Modelle von DeepSeek, Meta, Mistral und Stability AI. Transformers-Bibliothek, Datasets, Spaces und Inference API.
+
+### 4.4 Ollama
+- **URL:** https://ollama.com
+- **Beschreibung:** Framework zum **lokalen Ausführen von LLMs** – ohne externe Datenübertragung, vollständig offline-fähig. Unterstützt Llama, Mistral, Gemma, DeepSeek. Desktop-Apps für macOS und Windows. Backbone der „Local AI"-Bewegung, ideal mit Open WebUI für self-hosted ChatGPT-Alternativen.
+
+### 4.5 CrewAI
+- **URL:** https://www.crewai.com
+- **Beschreibung:** Framework für Multi-Agent-Orchestrierung, bei dem Entwickler AI-Agents als spezialisierte Teammitglieder (Planner, Researcher, Writer) definieren. Visual Builder für Agent-Teams, unterstützt GPT, Claude, Gemini und RAG-Tools.
+
+### 4.6 Dify
+- **URL:** https://dify.ai
+- **Beschreibung:** Production-ready **Open-Source-Plattform** für Agentic Workflow-Entwicklung mit visuellem Workflow Builder, integriertem RAG-Pipeline-Management, MCP-Integration und Multi-Provider-Support. Besonders wertvoll für Teams, die schnell AI-Services aufsetzen wollen.
+
+### 4.7 Microsoft Agent Framework (Semantic Kernel + AutoGen)
+- **URL:** https://github.com/microsoft/agent-framework
+- **Beschreibung:** Microsoft hat Semantic Kernel und AutoGen zum neuen Agent Framework zusammengeführt (GA Q1 2026). Multi-Agent-Orchestrierung, MCP/A2A-Support und nahtlose Azure AI Foundry-Integration. Für C#-, Python- und Java-Entwickler.
+
+### 4.8 Vercel AI SDK
+- **URL:** https://ai-sdk.dev
+- **Beschreibung:** Open-Source TypeScript-Toolkit für AI-powered Applications mit React, Next.js, Vue und Svelte. AI SDK 6 bietet eine **Unified API für alle großen LLM-Provider**, SSE-Streaming und Agentic Loop Control. Ideal für Frontend-/Fullstack-Entwickler.
+
+### 4.9 Pinecone (Vector Database)
+- **URL:** https://www.pinecone.io
+- **Beschreibung:** Vollständig verwaltete, serverlose Vector Database mit konsistenten **Sub-50ms-Latenzen** bei Milliarden-Scale-Deployments. SOC 2 Type II, GDPR-konform. Die Enterprise-Wahl für RAG-Pipelines und Semantic Search.
+
+### 4.10 Weaviate (Vector Database)
+- **URL:** https://weaviate.io
+- **Beschreibung:** Open-Source Vector Database mit Hybrid-Search (Dense Vectors + BM25 Keyword Search). Schema-basiert mit Knowledge-Graph-Capabilities und GraphQL-Interface. Flexible Deployment-Optionen – ideal für **regulierte Industrien** in der DACH-Region.
+
+### 4.11 Weights & Biases (W&B)
+- **URL:** https://wandb.ai
+- **Beschreibung:** Führende MLOps-Plattform für Experiment-Tracking, Model-Registry und Hyperparameter-Optimierung. Standard für ML-Teams weltweit mit Fokus auf Reproduzierbarkeit und Observability.
+
+### 4.12 vLLM
+- **URL:** https://vllm.ai
+- **Beschreibung:** Hochperformante Open-Source-Inference-Engine für LLMs mit PagedAttention-Technologie. Semantic Router v0.1 „Iris" (Januar 2026) bietet intelligentes LLM-Routing und integrierte Halluzinations-Erkennung (HaluGate).
+
+---
+
+## 5. Branchentrends & strategische Themen
+
+Diese Kategorie ist für Product Owner die **strategisch wichtigste**: Hier liegen die Konzepte und Architekturmuster, die Produktentscheidungen der nächsten 2–3 Jahre prägen werden. Agentic AI, MCP und Compound AI Systems sind keine abstrakten Konzepte mehr, sondern produktionsreife Patterns.
+
+### 5.1 AI Agents / Agentic AI
+- **URL:** https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html
+- **Beschreibung:** Autonome KI-Systeme, die eigenständig planen, ausführen und iterieren. Gartner prognostiziert, dass bis Ende 2026 **40% der Enterprise-Applikationen** AI Agents integrieren (vs. <5% in 2025). Der Markt wird auf 7,8 Mrd. USD (2025) bis 52 Mrd. USD (2030) geschätzt. **DER dominierende Trend 2026.**
+
+### 5.2 MCP (Model Context Protocol)
+- **URL:** https://modelcontextprotocol.io
+- **Beschreibung:** Von Anthropic eingeführter Open Standard für die Anbindung von LLM-Applikationen an externe Tools via JSON-RPC 2.0 – jetzt **de-facto-Industriestandard**, adoptiert von OpenAI, Google, Microsoft und AWS. Seit Dezember 2025 unter Linux Foundation Governance. Über 5.800 MCP-Server, 300+ Clients, 97 Mio.+ monatliche SDK-Downloads.
+
+### 5.3 A2A (Agent-to-Agent Protocol)
+- **URL:** https://github.com/a2aproject/A2A
+- **Beschreibung:** Von Google lanciertes offenes Protokoll für die **Kommunikation zwischen AI Agents** – komplementär zu MCP (Agent↔Tool). Capability Discovery via „Agent Cards", Task Management mit Lifecycle-States. 150+ Organisationen unterstützen A2A, seit Juni 2025 unter Linux Foundation.
+
+### 5.4 RAG (Retrieval-Augmented Generation)
+- **URL:** https://aws.amazon.com/what-is/retrieval-augmented-generation/
+- **Beschreibung:** Kombination von LLMs mit Echtzeit-Retrieval aus externen Wissensquellen für halluzinationsarme, quellenbasierte Antworten. 2026 ist RAG von experimentellen Pilots zur **produktionskritischen Enterprise-Architektur** geworden. Hybrid Retrieval und Agentic RAG sind die dominierenden Patterns.
+
+### 5.5 Compound AI Systems
+- **URL:** https://machinelearningmastery.com/7-agentic-ai-trends-to-watch-in-2026/
+- **Beschreibung:** Architekturansatz mit mehreren KI-Komponenten (LLMs, Retriever, Tools, Guardrails) als integriertes System – statt einem einzelnen Modell. Dominierendes Muster 2026: spezialisierte Agents + Orchestration Layer + deterministische Guardrails + Human-in-the-Loop.
+
+### 5.6 Fine-Tuning & Custom Models (LoRA, QLoRA)
+- **URL:** https://huggingface.co/docs/transformers
+- **Beschreibung:** Anpassung vortrainierter Models an domänenspezifische Anforderungen. Parameter-effiziente Methoden wie **LoRA und QLoRA** ermöglichen Fine-Tuning mit deutlich reduzierten Compute-Kosten. Ergänzt RAG: RAG liefert Kontextwissen, Fine-Tuning passt Ton, Stil und Domänenwissen an.
+
+### 5.7 Multi-Modal AI
+- **URL:** https://openai.com
+- **Beschreibung:** Modelle, die Text, Bild, Audio und Video nativ verarbeiten und generieren. Gemini, GPT-4o und Claude unterstützen dies ab Werk. Für Produkte bedeutet das: **ein einziges Modell** kann Nutzeranfragen über alle Modalitäten hinweg verstehen und beantworten.
+
+### 5.8 Small Language Models (SLMs) / Edge AI
+- **URL:** https://www.dell.com/en-us/blog/the-power-of-small-edge-ai-predictions-for-2026/
+- **Beschreibung:** Kompakte Modelle (1–13 Mrd. Parameter) für Edge-Geräte und Smartphones. Gartner prognostiziert, dass Unternehmen bis 2027 SLMs **dreimal häufiger** einsetzen als General-Purpose LLMs. Edge-AI-Markt: 66,5 Mrd. USD bis 2030. Entscheidend für Data Privacy und Latenz-sensitive Anwendungen.
+
+### 5.9 Vibe Coding
+- **URL:** https://thenewstack.io/5-key-trends-shaping-agentic-development-in-2026/
+- **Beschreibung:** Softwareentwicklung durch natürlichsprachliche Prompts statt manuellem Code. Bis 2026 werden geschätzt **40% der Enterprise-Software** so erstellt. Für POs bedeutet dies schnelleres Prototyping, erfordert aber weiterhin erfahrene Engineers für Qualitätssicherung.
+
+### 5.10 Open Source vs. Closed Source AI
+- **URL:** https://huggingface.co
+- **Beschreibung:** Strategische Debatte mit realen Implikationen: Open-Source-Modelle (Llama, Mistral, Qwen, DeepSeek) bieten **Vendor-Unabhängigkeit, Customization und Data Sovereignty**, erfordern aber mehr Engineering. Für DACH-Unternehmen mit strengen Datenschutzanforderungen oft die bessere Wahl.
+
+### 5.11 Function Calling / Tool Use
+- **URL:** https://www.anthropic.com/engineering/code-execution-with-mcp
+- **Beschreibung:** Fähigkeit von LLMs, strukturiert externe APIs aufzurufen – **Kernmechanismus für Agentic AI**. Das Modell generiert einen Tool Call (Funktionsname + Parameter), der vom Host-System ausgeführt wird. MCP standardisiert diese Interaktion plattformübergreifend.
+
+### 5.12 Synthetic Data
+- **URL:** https://www.startus-insights.com/innovators-guide/new-technology-trends/
+- **Beschreibung:** Künstlich generierte Daten, die reale Muster nachbilden, ohne personenbezogene Informationen zu enthalten. Entscheidend für die **DACH-Region**, wo strenge DSGVO-Anforderungen den Zugang zu Trainingsdaten limitieren. Zunehmend für Training, Testing und Evaluation eingesetzt.
+
+---
+
+## 6. AI für Design, UX & Kreativ-Arbeit
+
+Die kreative AI-Landschaft ist 2026 in eine Reifephase eingetreten. **Video-Generierung** hat den größten Sprung gemacht – Sora 2, Runway Gen-4.5 und Kling 3.0 liefern cinematische Qualität. Für POs relevant: Diese Tools verändern, wie Prototypen, Marketing-Assets und Produktvisualisierungen erstellt werden.
+
+### 6.1 Midjourney
+- **URL:** https://www.midjourney.com
+- **Beschreibung:** Führendes Text-to-Image-Tool für konzeptuelle Visuals. Generiert hochwertige, stilistisch vielfältige Bilder für Ideation, Moodboarding und Illustration. Besonders stark bei künstlerischen und stimmungsvollen Outputs.
+
+### 6.2 Adobe Firefly
+- **URL:** https://www.adobe.com/products/firefly.html
+- **Beschreibung:** Adobes generative AI Engine, tief integriert in Photoshop, Illustrator und Express. Trainiert ausschließlich auf Adobe Stock und Public-Domain-Material – damit die **sicherste Option für kommerzielle Nutzung**. Generative Fill, Scene to Image und Vektor-Generierung.
+
+### 6.3 Canva AI (Magic Studio)
+- **URL:** https://www.canva.com/magic/
+- **Beschreibung:** Magic Studio bündelt AI-Features für Content-Erstellung: Magic Design, Magic Edit, Magic Animate und Brand Kit Integration. Ideal für Marketing-Teams, die schnell **on-brand Social-Media- und Kampagnen-Assets** benötigen. Free Plan verfügbar, Pro ab $120/Jahr.
+
+### 6.4 Runway ML (Video Generation)
+- **URL:** https://runwayml.com
+- **Beschreibung:** Führende Plattform für AI-Video und VFX mit Gen-4.5 (2026), Motion Brushes und über 30 Built-in Tools. Favorit für Filmemacher und Creative Professionals. Ab $12/Monat.
+
+### 6.5 Sora 2 (OpenAI Video)
+- **URL:** https://sora.com
+- **Beschreibung:** OpenAIs Sora 2 (September 2025) setzt den Benchmark für realistische AI-Videogenerierung mit natürlicher Physik-Simulation und **synchronisiertem Audio** bis 25 Sekunden. Disney-Partnerschaft für Character Cameos seit Anfang 2026.
+
+### 6.6 Kling AI (Video)
+- **URL:** https://klingai.com
+- **Beschreibung:** ByteDances AI-Video-Generator in Version 3.0 mit **4K-Output** und „Cinematic Series Mode" für Multi-Shot-Konsistenz. Realistisches Human Motion und Lip-Sync. Ideal für UGC, Social Media und Performance Marketing. Free Tier verfügbar.
+
+### 6.7 ElevenLabs (Voice AI)
+- **URL:** https://elevenlabs.io
+- **Beschreibung:** Die führende Plattform für AI Voice Synthesis mit den realistischsten Stimmen am Markt. Text-to-Speech in **29+ Sprachen**, Voice Cloning, Dubbing Studio und seit August 2025 AI Music Generation mit kommerziellen Lizenzen. Ab $5/Monat.
+
+### 6.8 Synthesia (AI Video Avatars)
+- **URL:** https://www.synthesia.io
+- **Beschreibung:** #1 Enterprise-Plattform für AI-Avatar-Videos. 240+ Avatare, Ganzkörperbewegung, Voice Cloning und 1-Click-Übersetzung in **160+ Sprachen**. 90% der Fortune 100 nutzen Synthesia für Training und Onboarding. Free Plan: 10 Min/Monat.
+
+### 6.9 Ideogram (Typografie & Design)
+- **URL:** https://ideogram.ai
+- **Beschreibung:** Text-to-Image mit branchenführender **Typografie-Fähigkeit** – Text wird akkurat in Bilder gerendert. Besonders stark für Logos, Poster und Branding. Style References, Character Consistency und Batch Generation (bis 500 Prompts). Free Tier mit 40 Generierungen/Tag.
+
+### 6.10 Galileo AI / Stitch (UI Design)
+- **URL:** https://www.usegalileo.ai
+- **Beschreibung:** Generiert komplette UI Designs für Mobile und Web aus Text-Prompts. Ideal für schnelle **Design-Ideation und Prototyping** – z.B. „Dashboard für Fitness-App mit Steps, Kalorien und Wochenverlauf" ergibt ein High-Fidelity-Mockup.
+
+### 6.11 Suno AI (Music Generation)
+- **URL:** https://suno.com
+- **Beschreibung:** Der führende AI Music Generator mit fast **100 Mio. Nutzern**. Generiert komplette Songs mit Vocals, Instrumentierung und Lyrics in unter 60 Sekunden. v4.5/v5 bietet DAW-Integration und Songs bis 8 Minuten.
+
+---
+
+## 7. AI für Datenanalyse & Business Intelligence
+
+Der BI-Markt (ca. **$41 Mrd. in 2026**) wird durch AI fundamental transformiert. Natural Language Queries ersetzen zunehmend Dashboard-Navigation, und AI Agents werden zum „First Stop" für Insights. Für POs relevant: Datengetriebene Entscheidungen werden durch diese Tools dramatisch beschleunigt.
+
+### 7.1 Microsoft Copilot in Power BI
+- **URL:** https://www.microsoft.com/en-us/power-platform/products/power-bi
+- **Beschreibung:** Power BI dominiert den BI-Markt (~20% Marktanteil) mit Natural Language Queries, automatischer Anomaly Detection und Forecasting. Copilot ermöglicht **340% schnellere Time-to-Value**. Pro ab $10/User/Monat.
+
+### 7.2 Tableau AI (Salesforce)
+- **URL:** https://www.tableau.com
+- **Beschreibung:** Gold-Standard für interaktive Data Visualization (~16,4% Marktanteil) mit Agentforce-Integration, Tableau Agent, Pulse (proaktive Insights) und MCP-Unterstützung. Automatisch generierte Trend-Insights reduzieren manuellen Analyseaufwand.
+
+### 7.3 Databricks AI/BI
+- **URL:** https://www.databricks.com/product/business-intelligence
+- **Beschreibung:** Nativ in die Lakehouse-Plattform integriert mit Genie (Conversational Analytics), Unity Catalog für Governance und Unified Semantic Layer. **Keine Per-Seat-Lizenzkosten** für BI. Genie ist über API in Slack und Teams einbettbar.
+
+### 7.4 Google Gemini Enterprise
+- **URL:** https://cloud.google.com/gemini-enterprise
+- **Beschreibung:** AI über Gmail, Docs, Sheets, Slides und Meet mit über **2 Mrd. AI Assists pro Monat**. Agentic AI Platform mit No-Code-Agent-Builder, Deep Research und Connector zu Microsoft 365 und Salesforce.
+
+### 7.5 Snowflake Cortex
+- **URL:** https://www.snowflake.com/en/data-cloud/cortex/
+- **Beschreibung:** AI direkt in SQL-Workflows innerhalb der Snowflake Data Cloud – ohne Datenbewegung. LLM Functions (Summarize, Classify, Translate), Forecasting und Anomaly Detection, alles **via SQL aufrufbar**. Ideal für bestehende Snowflake-Kunden.
+
+### 7.6 ThoughtSpot
+- **URL:** https://www.thoughtspot.com
+- **Beschreibung:** Branchenführende **Natural Language Search für BI** – Nutzer stellen Fragen in Alltagssprache und erhalten sofortige Visualisierungen. ThoughtSpot Sage nutzt Generative AI, Embedded Analytics lassen sich in Salesforce und eigene Apps integrieren.
+
+### 7.7 Julius AI
+- **URL:** https://julius.ai
+- **Beschreibung:** AI Data Scientist für konversationelle Datenanalyse. Verbindet sich mit Postgres, Snowflake, BigQuery und beantwortet Fragen durch automatisch generierten Python/R-Code. SOC 2 Type II. Pro ab $20/Monat.
+
+### 7.8 Hex
+- **URL:** https://hex.tech
+- **Beschreibung:** Kollaborative Analytics-Plattform mit Notebook-Style Interfaces (SQL + Python + No-Code). $70M Series C (Mai 2025). Kunden berichten **60% schnellere Time-to-Insight**. Nutzer: Notion, Reddit, Twilio.
+
+### 7.9 DataRobot
+- **URL:** https://www.datarobot.com
+- **Beschreibung:** Enterprise AI Platform für den gesamten AI Lifecycle: AutoML, Agentic AI, Predictive und Generative AI mit Built-in Governance. Besonders stark in **regulierten Branchen** durch Compliance-Fokus und Explainability.
+
+### 7.10 H2O.ai
+- **URL:** https://h2o.ai
+- **Beschreibung:** Open-Source AutoML mit Enterprise-Grade Generative AI. Starkes AutoML für tabellarische Daten und Model Explainability. Besonders geeignet für Unternehmen mit strikten **Data-Sovereignty-Anforderungen** und On-Premise-Deployments.
+
+---
+
+## 8. AI im Enterprise-Bereich / B2B SaaS
+
+Alle großen Enterprise-Plattformen haben 2025/26 ihre gesamte Produktstrategie um Agentic AI reorganisiert. Der Pricing-Trend verschiebt sich von **Seat-based zu Consumption-based/Outcome-based** Modellen (AI Units, Flex Credits, Task-basiert). Enterprise AI Spend lag 2025 bei $37 Mrd. mit 3,2× YoY-Wachstum.
+
+### 8.1 Microsoft Copilot Ecosystem
+- **URL:** https://www.microsoft.com/en-us/microsoft-365/copilot
+- **Beschreibung:** Umfassendes Ökosystem mit M365 Copilot, Copilot Studio für Custom Agents und Azure AI Foundry. „Agent 365" ermöglicht zentrale Registrierung und Steuerung von AI Agents mit **Interoperability zu SAP, ServiceNow und Adobe**. $30–42,50/User/Monat.
+
+### 8.2 Salesforce Agentforce 360
+- **URL:** https://www.salesforce.com/agentforce/
+- **Beschreibung:** Salesforces gesamtes Ökosystem ist um Agentforce reorganisiert. Die Atlas Reasoning Engine ermöglicht **autonome Multi-Step-Aktionen** in Sales, Service und Marketing. Neues AELA-Lizenzmodell mit Flat-Fee-Pricing. Agentforce ab $125/User/Monat.
+
+### 8.3 SAP AI – Joule & Business AI
+- **URL:** https://www.sap.com/products/artificial-intelligence/ai-assistant.html
+- **Beschreibung:** Joule ist der generative AI-Assistent in S/4HANA, SuccessFactors, Concur und Ariba. Joule Studio (Agent Builder) seit Q1 2026 GA. Über **400 AI-gestützte Use Cases** in SAP-Applikationen. Integration mit Microsoft 365 Copilot. Pricing basiert auf „AI Units".
+
+### 8.4 Google Vertex AI
+- **URL:** https://cloud.google.com/vertex-ai
+- **Beschreibung:** Vollständig verwaltete AI-Plattform mit Zugang zu Gemini 3-Modellen, 200+ Foundation Models, Agent Builder und Agent Engine. Nutzung im vergangenen Jahr um das **20-fache gestiegen**.
+
+### 8.5 ServiceNow AI (inkl. Moveworks)
+- **URL:** https://www.servicenow.com
+- **Beschreibung:** Agentic AI für IT-, HR- und Customer-Service-Workflows. Im März 2025 wurde Moveworks für **$2,85 Mrd.** akquiriert. AI Agents übernehmen Incident Resolution, Change Management und Employee Self-Service.
+
+### 8.6 Intercom Fin (AI Customer Service)
+- **URL:** https://www.intercom.com/fin
+- **Beschreibung:** AI Agent für Customer Service über Chat, Voice, E-Mail, WhatsApp in 45+ Sprachen. Über **36 Mio. Conversations bearbeitet** mit 65% Resolution Rate. Funktioniert auch als unabhängiger AI Layer für Zendesk und Salesforce.
+
+### 8.7 Glean (Enterprise AI Search)
+- **URL:** https://www.glean.com
+- **Beschreibung:** AI-Plattform für Enterprise Search über 100+ SaaS-Applikationen mit LLMs und Enterprise Knowledge Graph. Skalierte von ~$4M auf **>$100M ARR in unter drei Jahren**. Fast Company's 2025 Most Innovative Companies.
+
+### 8.8 UiPath (AI + RPA)
+- **URL:** https://www.uipath.com/ai
+- **Beschreibung:** Marktführer für RPA, erweitert um Agentic AI. Maestro (Agentic Orchestration), Autopilot und Agent Builder verbinden klassische RPA-Bots mit AI Agents. Document Understanding und Process Mining inklusive.
+
+### 8.9 Writer (Enterprise AI Platform)
+- **URL:** https://writer.com
+- **Beschreibung:** Enterprise-AI-Plattform mit eigenem Foundation Model (Palmyra), Custom Knowledge Graphs und Governance Features. Besonders für regulierte Branchen relevant, die **Datensouveränität** benötigen.
+
+### 8.10 Slack AI / Zendesk AI / HubSpot AI
+- **URL:** https://slack.com/features/ai | https://www.zendesk.com/service/ai/ | https://www.hubspot.com/artificial-intelligence
+- **Beschreibung:** Alle drei Plattformen haben AI tief integriert: Slack als „Agentic Operating System" (Salesforce), Zendesk auf 18 Mrd. Service-Interaktionen vortrainiert, HubSpot mit AI-gesteuertem Lead Scoring und Content-Erstellung. Gemeinsamer Trend: **AI als eingebettete Basisfunktionalität**, nicht als Add-on.
+
+---
+
+## 9. AI Governance, Safety & Ethics
+
+Für Product Owner im DACH-Raum ist diese Kategorie **geschäftskritisch**: Der EU AI Act erreicht im August 2026 seine vollständige Anwendung für High-Risk-Systeme. 95% der GenAI-Piloten scheitern laut DACH-Studien – oft wegen fehlender Governance-Strategie. Maximale Bußgelder: **35 Mio. EUR oder 7% des weltweiten Jahresumsatzes**.
+
+### 9.1 EU AI Act
+- **URL:** https://artificialintelligenceact.eu/implementation-timeline/
+- **Beschreibung:** Weltweit erste umfassende KI-Regulierung mit gestaffelter Anwendung: Verbotene Praktiken seit Feb. 2025, GPAI-Pflichten seit Aug. 2025, **vollständige Anwendung für High-Risk-Systeme ab 2. August 2026**. In Deutschland wird die Bundesnetzagentur voraussichtlich die zentrale AI-Aufsichtsbehörde. Der Digital Omnibus (Nov. 2025) vereinfacht die Umsetzung.
+
+### 9.2 ISO/IEC 42001 (AI Management System)
+- **URL:** https://www.iso.org/standard/81230.html
+- **Beschreibung:** Weltweit erster **zertifizierbarer Standard für AI Management Systems** mit 10 Klauseln und 38 Controls. Strukturiert wie ISO 27001. ISO/IEC 42005:2025 ergänzt mit Guidance für AI Impact Assessments. Deutschland entwickelt BSI-Toolsets auf Basis von ISO 42001.
+
+### 9.3 AI TRiSM (Gartner Framework)
+- **URL:** https://www.gartner.com/en/articles/ai-trust-and-ai-risk
+- **Beschreibung:** Gartner-Framework mit vier Schichten: AI Governance, Runtime Inspection, Information Governance, Infrastructure. Laut Gartner werden bis 2026 mind. **80% unautorisierter AI-Transaktionen durch interne Policy-Verletzungen** verursacht (nicht durch externe Angriffe).
+
+### 9.4 NIST AI Risk Management Framework
+- **URL:** https://www.nist.gov/artificial-intelligence
+- **Beschreibung:** Flexibles, risikobasiertes Framework mit vier Kernfunktionen: Govern, Map, Measure, Manage. Nicht zertifizierbar, aber zunehmend als Basis für Enterprise AI Governance genutzt – auch in Europa. **Crosswalk zu ISO 42001** vereinfacht parallele Compliance.
+
+### 9.5 BSI – Leitlinien für KI-Sicherheit
+- **URL:** https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html
+- **Beschreibung:** Umfangreiche KI-Richtlinien des BSI: Chancen und Risiken generativer AI, Whitepaper zu Bias, Evasion Attacks auf LLMs und **deutsch-französische Empfehlungen für AI Coding Assistants** (mit ANSSI). De-facto-Standards für sichere AI-Nutzung in Deutschland.
+
+### 9.6 C2PA (Content Authenticity / AI Watermarking)
+- **URL:** https://c2pa.org
+- **Beschreibung:** Offener Standard für digitale Content-Provenienz, unterstützt von Adobe, Google und Microsoft. Der EU AI Act macht Content-Marking zur **Compliance-Anforderung für generative KI** (Art. 50 ab Aug. 2026). Ergänzt durch Googles SynthID für Invisible Watermarking.
+
+### 9.7 Hallucination Mitigation
+- **URL:** https://squirro.com/squirro-blog/state-of-rag-genai
+- **Beschreibung:** Hauptansätze 2026: RAG (Grounding in verifizierten Quellen), Self-RAG, Chain-of-Verification, Confidence Scoring und Post-hoc Fact-Checking. Generative Modelle optimieren für **Plausibilität statt Wahrheit** – aktive Gegenmaßnahmen sind daher essentiell für Produktionssysteme.
+
+### 9.8 Agentic AI Foundation (Linux Foundation)
+- **URL:** https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+- **Beschreibung:** Im Dezember 2025 gegründet, co-founded von Anthropic, Block und OpenAI, mit Support von Google, Microsoft und AWS. Steuert die Governance von **MCP und A2A als vendor-neutrale Open Standards**. Wichtiger Indikator für Industriekonvergenz bei AI-Standards.
+
+---
+
+## 10. AI für Product Management, Automatisierung & Weiterbildung
+
+Diese Kategorie adressiert direkt den Arbeitsalltag eines Product Owners: PM-spezifische AI-Tools, No-Code-Automatisierung, AI-Search als neues Paradigma und **relevante Konferenzen im DACH-Raum**.
+
+### 10.1 Productboard AI
+- **URL:** https://www.productboard.com/product/ai-for-product-management/
+- **Beschreibung:** Automatisiert Kategorisierung von Customer Feedback und verknüpft es mit Feature Ideas. AI-powered Search für verwandte User Insights und automatische Trend-Erkennung. Ein Kunde berichtet **80% Verbesserung beim Feedback-Processing**. Ab $19/Maker/Monat.
+
+### 10.2 airfocus (AI-gestütztes Roadmapping)
+- **URL:** https://airfocus.com
+- **Beschreibung:** Modulare PM-Plattform mit AI Assist für Scoring, Prioritization und Roadmap-Planung. 2025 von Lucid Software akquiriert. AI empfiehlt Impact- und Effort-Scores, unterstützt Natural Language Querying und generiert Roadmap-Entwürfe. Integration mit Jira und Azure DevOps.
+
+### 10.3 ChatPRD
+- **URL:** https://www.chatprd.ai
+- **Beschreibung:** #1 AI-Plattform für Product Manager zum Erstellen von PRDs, User Stories und technischen Specs. Von über **100.000 PMs** genutzt, reduziert Dokumentenerstellungszeit um 80%. SOC 2, GDPR-konform.
+
+### 10.4 Zapier AI
+- **URL:** https://zapier.com
+- **Beschreibung:** Von Workflow-Automation zur AI Orchestration Platform mit **8.000+ App-Integrationen**, AI Agents, MCP-Support und Chatbots. SOC 2 Type II, GDPR. Ideal für Non-Technical Teams. Free (100 Tasks/Monat), Pro ab $19,99/Monat.
+
+### 10.5 n8n (Open-Source AI Workflow)
+- **URL:** https://n8n.io
+- **Beschreibung:** Open-Source Workflow-Automation mit ~70 dedizierten AI-Nodes via LangChain. **Self-Hosting für volle Datensouveränität**, RAG-Setups und Multi-Agent-Orchestrierung. Besonders beliebt in der DACH-Region für datensensible Anwendungen. Execution-basiertes Pricing (günstiger als Zapier bei komplexen Workflows).
+
+### 10.6 Make (ehemals Integromat)
+- **URL:** https://www.make.com
+- **Beschreibung:** Visueller Scenario Builder mit Branching, Iteratoren und Data Transformations. AI-Connectors für OpenAI und Agent Builder (Beta). Grid-Funktion für Enterprise-Übersicht über Agents und Workflows. Ab $9/Monat.
+
+### 10.7 Google AI Overviews / AI Search
+- **URL:** https://blog.google/products/search/
+- **Beschreibung:** AI Overviews bei **16–25% aller Google-Suchen**, 1,5 Mrd. User monatlich. AI Mode: 93% der Suchen enden ohne Click. Gartner prognostiziert, dass AI-Assistenten bis 2026 rund 25% aller Suchanfragen bearbeiten. Fundamentale Verschiebung für SEO und Content-Strategie.
+
+### 10.8 OpenAI Platform / GPT Store
+- **URL:** https://platform.openai.com
+- **Beschreibung:** GPT Store als Marketplace für Custom GPTs. AgentKit (Oktober 2025) als Toolkit für AI Agents. **3+ Mrd. Prompts monatlich** via ChatGPT. De-facto-Standard für AI-Prototyping. ChatGPT Plus $20/Monat.
+
+### 10.9 NVIDIA AI Hardware
+- **URL:** https://www.nvidia.com/en-us/ai/
+- **Beschreibung:** Dominiert den AI-Hardware-Markt mit der **Blackwell GPU-Architektur**. CUDA-Ökosystem (seit 2006) mit Millionen Entwicklern ist der entscheidende Wettbewerbsvorteil. AI-Hardware-Investitionen treiben das IT-Spending von >$6 Billionen (2026).
+
+### 10.10 Wichtige DACH-Konferenzen 2026
+
+| Konferenz | Datum | Ort | URL |
+|-----------|-------|-----|-----|
+| AI Conference: Science × Business | 14.–15. April | Heidelberg | https://ai-conference.com |
+| Rise of AI (10-jähriges Jubiläum) | 5.–6. Mai | Berlin | https://riseof.ai/conference-2026/ |
+| Big Data & AI World | 6.–7. Mai | Frankfurt | Teil der Tech Show Frankfurt |
+| Product at Heart | Juni 2026 | Hamburg | PM-Konferenz mit AI-Fokus |
+| TDWI München | 23.–25. Juni | München | https://www.tdwi-konferenz.de/ |
+| AI & Data Summit (Bitkom) | 22.–23. Sept. | Berlin | ~2.200 Teilnehmer |
+| Agentic AI DACH Konferenz | 2026 | DACH | https://www.aidataanalytics.network/ |
+
+---
+
+## Fazit: Fünf strategische Prioritäten für Product Owner 2026
+
+Die schiere Breite der AI-Landschaft kann überwältigend wirken. Aus der Gesamtschau der Recherche kristallisieren sich **fünf konkrete Handlungsprioritäten** heraus:
+
+**Erstens: Agentic AI verstehen und einsetzen.** Alle großen Plattformen konvergieren auf autonome AI Agents. MCP und A2A als offene Protokolle sind dabei die „HTTP-Momente" der Agent-Ära – wer sie versteht, versteht die Architektur der nächsten Produktgeneration.
+
+**Zweitens: Den EU AI Act operationalisieren.** Mit vollständiger Anwendung ab August 2026 ist Compliance kein Zukunftsthema mehr. ISO 42001, BSI-Leitlinien und AI TRiSM bieten die Frameworks – POs müssen sicherstellen, dass ihre Produkte die Transparenz- und Dokumentationsanforderungen erfüllen.
+
+**Drittens: AI-Coding-Tools in den Entwicklungsprozess integrieren.** Cursor, Claude Code und GitHub Copilot verändern Velocity und Team-Strukturen fundamental. Die Frage ist nicht mehr ob, sondern wie diese Tools produktiv eingesetzt werden.
+
+**Viertens: RAG und Compound AI Systems als Architekturmuster beherrschen.** Einzelne LLM-Calls sind 2026 Commodity. Der Mehrwert liegt in der Orchestrierung von Modellen, Retrieval-Pipelines, Tools und Guardrails zu integrierten Systemen.
+
+**Fünftens: Die Open-Source-Alternative ernst nehmen.** DeepSeek, Llama 4, Mistral und Qwen bieten Frontier-Performance bei einem Bruchteil der Kosten. Für DACH-Unternehmen mit strengen Datenschutzanforderungen sind selbst gehostete Modelle oft die einzig gangbare Option – und mit Ollama und vLLM einfacher denn je umsetzbar.

@@ -1,0 +1,80 @@
+CV Wojtek Gorecki
+
+Profil
+Wojtek Gorecki ist erfahrener Product Owner, Softwareentwickler und Diplom-Informatiker mit über 15 Jahren Erfahrung in der Entwicklung digitaler Produkte. Er verbindet technisches Tiefenverständnis mit strategischer Produktverantwortung und Führungserfahrung.
+Sein Schwerpunkt liegt in der Konzeption und Entwicklung komplexer Web-Anwendungen – mit Erfahrung im Umfeld von Start-ups, mittelständischen Unternehmen und der öffentlichen Verwaltung. Er kennt die Unterschiede zwischen projektorientierter Umsetzung und nachhaltiger Produktentwicklung und gestaltet beide Kontexte souverän.
+Er leitete interdisziplinäre Entwicklungsteams und verantwortete Produktportfolios sowie strategische Weiterentwicklungen. Durch seine Expertise in Organisationsentwicklung und Leadership bringt er ausgeprägte Kompetenzen im Stakeholder-Management und in Transformationsprozessen mit. Er steht für technisch fundierte, nutzerorientierte und organisatorisch wirksame Produktentwicklung.
+
+
+Berufserfahrung
+
+04/2025 – heute
+Selbstständig: Beratung für persönliche Entwicklung
+Begleitung von Einzelpersonen in Veränderungsprozessen. Konzeption und Durchführung von Vortrags- und Dialogformaten. Aufbau und Positionierung eines eigenständigen Beratungsangebots.
+
+
+05/2023 – 03/2025
+Shift Digital: Product Owner
+publicplan GmbH: Dev-Teamleiter / Projektportfoliomanager
+Konzeption und Weiterentwicklung webbasierter Empfangssysteme für digitale Verwaltungsanträge.
+- Disziplinarische Leitung eines Entwicklungsteams
+- Fachliche Verantwortung für ein Projektportfolio bei publicplan
+- Inhaltliche Steuerung eines 13-köpfigen interdisziplinären Teams
+- Abstimmung zwischen Fachbereich, Architektur und Entwicklung
+
+
+09/2020 – 05/2022
+let’s lead: Co-Founder und Mentor
+Mitgründer eines Beratungsunternehmens. Durchführung 12-monatiger Entwicklungsprogramme für Führungskräfte. Begleitung von Transformationsprozessen in Unternehmen.
+
+
+11/2018 – 04/2023
+Selbstständig: Berater für Organisations- und Persönlichkeitsentwicklung
+Beratung von Start-ups und Mittelständlern beim Aufbau agiler und selbstorganisierter Strukturen. Coaching von Gründer:innen und Führungskräften.
+
+Referenzen: voltavision.de, pflegix.de, shift-studio.de, eshop-guide.de, voll.digital, ifi-ge.de, moduldrei.de
+
+
+11/2018 – 08/2020
+Freiberuflich: Trainer für JavaScript, TypeScript und React
+Durchführung mehrtägiger Schulungen für Web-Technologien bei workshops.de.
+
+
+02/2011 – 10/2018
+9elements GmbH: Web-Entwicklung, Team-Lead
+Entwicklung komplexer Web-Anwendungen als Full-Stack Entwickler. Fachliche Leitung von Projektteams (bis 6 Personen). Konzeption digitaler Produkte für unterschiedliche Branchen.
+
+
+12/2009 – 01/2011
+e-Spirit AG: Consulting, Web-Entwicklung
+Umsetzung von Web-Projekten mit FirstSpirit CMS und Schulung von Kunden.
+Tätigkeitsschwerpunkte
+Strategische Schärfung und Operationalisierung von Produktvisionen
+Konzeption digitaler Produkte und Features von der Idee bis zur Umsetzungsreife
+Übersetzung von Business- und Experience-Zielen in technisch tragfähige Lösungen
+Integration von KI-Funktionalitäten und neuen Technologien in bestehende Produktkontexte
+Strukturierung, Priorisierung und Roadmap-Gestaltung in komplexen Umfeldern
+Enge Zusammenarbeit mit Entwicklungsteams bei Architektur- und Umsetzungsentscheidungen
+Entwicklung sinnvoller Test- und Qualitätsstrategien (Testability by Design)
+Weiterentwicklung von Team- und Zusammenarbeitsstrukturen im Produkt- und Projektkontext
+
+Technischer Hintergrund
+Mehrjährige Erfahrung in der Entwicklung moderner Web-Anwendungen und API-basierter Systeme. Sicher im Umgang mit Frontend- und Backend-Technologien sowie in Architektur- und Umsetzungsfragen.
+Technologien (Auswahl): TypeScript, JavaScript, React, Ruby on Rails, Angular, PostgreSQL, REST, Git.
+
+Ausbildung
+Technische Universität Dortmund – Dipl. Informatik, 2009
+
+Fortbildung
+Intrinsify Akademie – Future Leadership Consultant, 2019
+
+Sprachen
+Deutsch, Muttersprache
+English, Verhandlungssicher
+Polnisch, Grundkenntnisse
+Französisch, Grundkenntnisse
+
+Kontakt
+✉️ hallo@wojtek-gorecki.de
+📱+49 163 2787167
+🔗 ai.wojtek-gorecki.de
