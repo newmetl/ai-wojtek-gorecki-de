@@ -2,10 +2,7 @@ import { db } from "@/lib/db";
 import { slugify } from "@/lib/utils";
 import { dedup } from "./dedup";
 import { categorizeItems } from "./categorize";
-import { scrapeGitHub } from "./github";
-import { scrapeHackerNews } from "./hackernews";
-import { scrapeArXiv } from "./arxiv";
-import { scrapeRSS } from "./rss";
+import { researchTrendingAI } from "./research";
 import type { RawScrapedItem, CategorizedItem } from "./types";
 
 // Re-exports für externe Nutzung
@@ -16,7 +13,6 @@ export type { RawScrapedItem, CategorizedItem };
 /**
  * Speichert kategorisierte Items als TrendingTech-Einträge.
  * Upsert-Strategie: Neu → reviewStatus "pending"; Vorhanden → Score + Datum updaten.
- * Rückgabe: Anzahl neuer und aktualisierter Einträge.
  */
 async function saveTrendingItems(
   items: CategorizedItem[]
@@ -25,7 +21,6 @@ async function saveTrendingItems(
   let updatedCount = 0;
 
   for (const item of items) {
-    // Kategorie aus DB laden
     const category = await db.category.findUnique({
       where: { slug: item.categorySlug },
     });
@@ -36,24 +31,21 @@ async function saveTrendingItems(
     }
 
     const slug = slugify(item.originalName);
-
     const existing = await db.trendingTech.findUnique({ where: { slug } });
 
     if (existing) {
-      // Vorhandenen Eintrag aktualisieren (Score + Zeitstempel)
       await db.trendingTech.update({
         where: { slug },
         data: {
           trendScore: item.trendScore,
           lastScrapedAt: new Date(),
-          // Beschreibung + Emoji nur überschreiben, wenn leer
-          ...(existing.description ? {} : { description: item.description }),
-          ...(existing.emoji ? {} : { emoji: item.emoji }),
+          // Beschreibung + Emoji überschreiben (Research liefert immer aktuelle Infos)
+          description: item.description,
+          ...(item.emoji ? { emoji: item.emoji } : {}),
         },
       });
       updatedCount++;
     } else {
-      // Neuen Eintrag anlegen (pending → manuell freigeben)
       await db.trendingTech.create({
         data: {
           name: item.originalName,
@@ -80,48 +72,37 @@ async function saveTrendingItems(
 
 /**
  * Führt die vollständige Trending-Pipeline aus:
- * Scrape → Dedup → Kategorisierung → Speichern
+ * Claude Research (web_search) → Dedup → Claude Kategorisierung → Speichern
  *
- * Fehlertoleranz: Jeder Scraper scheitert isoliert (Promise.allSettled).
+ * Qualität: Vergleichbar mit manuell erstellten Inhalten via Claude Research,
+ * da dieselbe web_search-Technologie genutzt wird.
+ *
+ * Für Phase 2/3: runUseCaseScrape() / runPromptScrape() nach demselben Muster.
  */
 async function runTrendingScrape(): Promise<{
   found: number;
   newCount: number;
   updatedCount: number;
 }> {
-  console.log("[trending] Starte Scraping...");
+  console.log("[trending] Starte Claude Research Pipeline...");
 
-  // Alle Scraper parallel mit Fehlertoleranz
-  const results = await Promise.allSettled([
-    scrapeGitHub(),
-    scrapeHackerNews(),
-    scrapeArXiv(),
-    scrapeRSS(),
-  ]);
+  // Schritt 1: Recherche via Claude + web_search
+  const rawItems: RawScrapedItem[] = await researchTrendingAI();
+  console.log(`[trending] ${rawItems.length} Items recherchiert`);
 
-  const allItems: RawScrapedItem[] = [];
-  const scraperNames = ["github", "hackernews", "arxiv", "rss"];
+  // Schritt 2: Deduplizierung
+  const deduped = dedup(rawItems);
+  console.log(`[trending] ${deduped.length} Items nach Dedup`);
 
-  for (let i = 0; i < results.length; i++) {
-    const result = results[i];
-    if (result.status === "fulfilled") {
-      allItems.push(...result.value);
-    } else {
-      console.error(`[trending] Scraper "${scraperNames[i]}" fehlgeschlagen:`, result.reason);
-    }
-  }
-
-  console.log(`[trending] ${allItems.length} Items gesamt, starte Dedup...`);
-  const deduped = dedup(allItems);
-  console.log(`[trending] ${deduped.length} Items nach Dedup, starte Kategorisierung...`);
-
+  // Schritt 3: Kategorisierung via Claude (Kategorie, DE-Beschreibung, Emoji, Score)
   const categorized = await categorizeItems(deduped, "trending");
-  console.log(`[trending] ${categorized.length} Items kategorisiert, speichere...`);
+  console.log(`[trending] ${categorized.length} Items kategorisiert`);
 
+  // Schritt 4: In DB speichern (Upsert)
   const { newCount, updatedCount } = await saveTrendingItems(categorized);
   console.log(`[trending] Fertig: ${newCount} neu, ${updatedCount} aktualisiert`);
 
-  return { found: allItems.length, newCount, updatedCount };
+  return { found: rawItems.length, newCount, updatedCount };
 }
 
 // ─── Haupt-Orchestrator ────────────────────────────────────────────────────
