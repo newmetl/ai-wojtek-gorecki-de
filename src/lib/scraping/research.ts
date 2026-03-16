@@ -2,11 +2,10 @@
  * Claude Research — Trending AI Tech
  *
  * Nutzt den Anthropic web_search-Tool (web_search_20260209) um aktuelle
- * KI-Technologien zu recherchieren. Das ist dieselbe Technologie wie
- * Claude Research (claude.ai) — autonomes Suchen + Lesen + Kuratieren.
+ * KI-Technologien zu recherchieren — dieselbe Technologie wie Claude Research.
  *
- * Für Phase 2/3: researchUseCases() und researchPrompts() nach demselben
- * Muster implementieren.
+ * Streaming wird verwendet, damit die Verbindung bei langen Recherchen
+ * (mehrere Minuten, viele Web-Suchen) nicht abbricht.
  */
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -62,6 +61,36 @@ const TOOLS: (WebSearchTool | WebFetchTool)[] = [
 ];
 
 /**
+ * Führt eine einzelne Recherche-Runde aus und gibt die finale Message zurück.
+ * Nutzt Streaming damit die Verbindung bei langen Recherchen (mehrere Minuten)
+ * nicht abbricht — hält die TCP-Verbindung mit kontinuierlichen Events am Leben.
+ */
+async function runResearchRound(
+  messages: Anthropic.MessageParam[]
+): Promise<Anthropic.Message> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const stream = (anthropic.messages as any).stream({
+    model: RESEARCH_MODEL,
+    max_tokens: 8096,
+    system: SYSTEM_PROMPT,
+    tools: TOOLS,
+    messages,
+  });
+
+  // Fortschritt loggen während Claude recherchiert
+  stream.on("text", (text: string) => {
+    if (text.trim()) {
+      process.stdout.write(".");
+    }
+  });
+
+  // finalMessage() wartet auf den vollständigen Response via Streaming
+  const finalMessage = await stream.finalMessage();
+  process.stdout.write("\n");
+  return finalMessage;
+}
+
+/**
  * Recherchiert aktuelle Trending-AI-Tech mit Claude + web_search.
  * Gibt RawScrapedItems zurück, die dann durch dedup + categorize laufen.
  */
@@ -72,14 +101,7 @@ export async function researchTrendingAI(): Promise<RawScrapedItem[]> {
     { role: "user", content: USER_PROMPT },
   ];
 
-  let response = await anthropic.messages.create({
-    model: RESEARCH_MODEL,
-    max_tokens: 8096,
-    system: SYSTEM_PROMPT,
-    // @ts-expect-error — web_search_20260209 ist ein Server-Tool; SDK-Typen noch nicht aktualisiert
-    tools: TOOLS,
-    messages,
-  });
+  let response = await runResearchRound(messages);
 
   // pause_turn-Handling: Wenn der Server-Tool-Loop das Limit (10 Iterationen)
   // erreicht, gibt die API pause_turn zurück → weitermachen
@@ -87,14 +109,7 @@ export async function researchTrendingAI(): Promise<RawScrapedItem[]> {
   while ((response.stop_reason as string) === "pause_turn" && continuations < MAX_CONTINUATIONS) {
     console.log(`[research] pause_turn — setze fort (${continuations + 1}/${MAX_CONTINUATIONS})`);
     messages.push({ role: "assistant", content: response.content });
-    response = await anthropic.messages.create({
-      model: RESEARCH_MODEL,
-      max_tokens: 8096,
-      system: SYSTEM_PROMPT,
-      // @ts-expect-error — web_search_20260209 ist ein Server-Tool
-      tools: TOOLS,
-      messages,
-    });
+    response = await runResearchRound(messages);
     continuations++;
   }
 
