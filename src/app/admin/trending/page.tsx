@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import TrendingTable from "@/components/admin/TrendingTable";
+import ScrapingStatus from "@/components/admin/ScrapingStatus";
 import { TrendingUp, Plus } from "lucide-react";
 import Link from "next/link";
 
@@ -34,6 +35,7 @@ export default async function AdminTrendingPage() {
         </Link>
       </div>
 
+      <ScrapingStatus />
       <TrendingTable initialEntries={entries} categories={categories} />
     </div>
   );
