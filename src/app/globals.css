@@ -72,8 +72,8 @@
   --secondary-foreground: #F8FAFC;
 
   /* Muted */
-  --muted: #334155;             /* Slate 700 */
-  --muted-foreground: #94A3B8;  /* Slate 400 */
+  --muted: #94A3B8;             /* Slate 400 — Sekundärtext */
+  --muted-foreground: #CBD5E1;  /* Slate 300 — Text auf Muted-Hintergrund */
 
   /* Accent: Grün (Trending) */
   --accent: #22C55E;            /* Green 500 */
@@ -113,8 +113,8 @@
   --primary-foreground: #F8FAFC;
   --secondary: #06B6D4;
   --secondary-foreground: #F8FAFC;
-  --muted: #334155;
-  --muted-foreground: #94A3B8;
+  --muted: #94A3B8;             /* Slate 400 */
+  --muted-foreground: #CBD5E1;  /* Slate 300 */
   --accent: #22C55E;
   --accent-foreground: #F8FAFC;
   --destructive: #EF4444;
