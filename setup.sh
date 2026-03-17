@@ -3,7 +3,7 @@
 # Ausführen: curl -fsSL https://raw.githubusercontent.com/<user>/ai-wojtek-gorecki-de/main/setup.sh | bash
 set -e
 
-REPO_URL="https://github.com/adalbertgorecki/ai-wojtek-gorecki-de.git"
+REPO_URL="https://github.com/newmetl/ai-wojtek-gorecki-de.git"
 VPS_IP=$(curl -s ifconfig.me)
 
 echo "=== VPS Setup: ai.wojtek-gorecki.de ==="
