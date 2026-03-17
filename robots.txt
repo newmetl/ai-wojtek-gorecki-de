@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai.wojtek-gorecki.de/sitemap.xml
