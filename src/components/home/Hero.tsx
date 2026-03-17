@@ -65,10 +65,10 @@ export default function Hero() {
               </svg>
             </Link>
             <Link
-              href="/cv"
+              href="/kontakt"
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5"
             >
-              CV ansehen
+              Kontakt
             </Link>
           </div>
         </div>
