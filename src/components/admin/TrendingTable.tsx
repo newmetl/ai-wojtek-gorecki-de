@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { CheckCircle, EyeOff, Clock, Pencil, Trash2, ExternalLink, ChevronDown } from "lucide-react";
+import { CheckCircle, EyeOff, Clock, Pencil, Trash2, ExternalLink, ChevronDown, CheckCheck } from "lucide-react";
 
 type Category = { id: string; name: string; slug: string; emoji: string | null };
 type TrendingEntry = {
@@ -46,6 +46,7 @@ export default function TrendingTable({
   const [filterCategory, setFilterCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [deleting, setDeleting] = useState<string | null>(null);
+  const [bulkApproving, setBulkApproving] = useState(false);
 
   const filtered = entries.filter((e) => {
     if (filterStatus !== "all" && e.reviewStatus !== filterStatus) return false;
@@ -72,6 +73,21 @@ export default function TrendingTable({
     setEntries((prev) => prev.filter((e) => e.id !== id));
     setDeleting(null);
     router.refresh();
+  }
+
+  const pendingCount = entries.filter((e) => e.reviewStatus === "pending").length;
+
+  async function bulkApprove() {
+    if (pendingCount === 0) return;
+    if (!confirm(`Alle ${pendingCount} ausstehenden Einträge freigeben?`)) return;
+    setBulkApproving(true);
+    const res = await fetch("/api/admin/trending/bulk-approve", { method: "POST" });
+    if (res.ok) {
+      setEntries((prev) =>
+        prev.map((e) => (e.reviewStatus === "pending" ? { ...e, reviewStatus: "approved" } : e))
+      );
+    }
+    setBulkApproving(false);
   }
 
   return (
@@ -115,6 +131,17 @@ export default function TrendingTable({
         />
 
         <span className="text-muted text-sm self-center ml-auto">{filtered.length} Einträge</span>
+
+        {pendingCount > 0 && (
+          <button
+            onClick={bulkApprove}
+            disabled={bulkApproving}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/20 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+          >
+            <CheckCheck className="h-4 w-4" />
+            {bulkApproving ? "Wird freigegeben…" : `Alle ${pendingCount} freigeben`}
+          </button>
+        )}
       </div>
 
       {/* Tabelle */}
