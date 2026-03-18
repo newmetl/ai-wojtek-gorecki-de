@@ -4,6 +4,8 @@ import ToolTeaser from "@/components/home/ToolTeaser";
 import LatestTrending from "@/components/home/LatestTrending";
 import ShortProfile from "@/components/home/ShortProfile";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Wojtek Gorecki — KI-gestützter Product Owner",
   description:

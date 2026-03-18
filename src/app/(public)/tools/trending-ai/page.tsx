@@ -4,6 +4,8 @@ import TrendingGrid from "@/components/trending/TrendingGrid";
 import type { CategoryOption } from "@/components/trending/CategoryFilter";
 import { TrendingUp, RefreshCw } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Trending AI Tech — Die wichtigsten KI-Technologien",
   description:
