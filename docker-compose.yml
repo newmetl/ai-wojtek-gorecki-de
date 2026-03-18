@@ -6,6 +6,7 @@ networks:
 
 volumes:
   umami-data:
+  openclaw-data:
 
 services:
 
@@ -62,8 +63,11 @@ services:
     build: /srv/repos/openclaw
     container_name: openclaw
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:18789:18789"   # Gateway nur lokal erreichbar, nicht öffentlich
+    volumes:
+      - openclaw-data:/root/.openclaw  # Persistente Config (Channels, Skills, Sessions)
     networks: [vps_net]
-    # Weitere Config (Ports, Volumes) folgen je nach OpenClaw-Anforderungen
 
   deploy-service:
     build: /srv/deploy-service
