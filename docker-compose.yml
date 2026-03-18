@@ -60,7 +60,7 @@ services:
     networks: [vps_net]
 
   openclaw:
-    build: /srv/repos/openclaw
+    image: node:22-alpine
     container_name: openclaw
     restart: unless-stopped
     ports:
@@ -68,6 +68,7 @@ services:
     volumes:
       - openclaw-data:/root/.openclaw  # Persistente Config (Channels, Skills, Sessions)
     networks: [vps_net]
+    command: sh -c "npm install -g openclaw@latest --silent && openclaw gateway --port 18789"
 
   deploy-service:
     build: /srv/deploy-service
