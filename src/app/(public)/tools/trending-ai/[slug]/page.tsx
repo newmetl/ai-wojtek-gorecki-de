@@ -11,14 +11,6 @@ interface Props {
 
 export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  const items = await db.trendingTech.findMany({
-    where: { reviewStatus: "approved" },
-    select: { slug: true },
-  });
-  return items.map((item) => ({ slug: item.slug }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = await db.trendingTech.findUnique({
