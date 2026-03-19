@@ -6,6 +6,7 @@ const year = new Date().getFullYear();
 const footerLinks = {
   navigation: [
     { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog" },
     { label: "Tools", href: "/tools" },
     { label: "About this Page", href: "/about" },
     { label: "About Me", href: "/cv" },
