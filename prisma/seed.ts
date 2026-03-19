@@ -63,6 +63,20 @@ async function main() {
       emoji: "⚙️",
       sortOrder: 8,
     },
+    {
+      name: "KI-Tools zum Prototyping",
+      slug: "ki-tools-prototyping",
+      type: "trending",
+      emoji: "🛠️",
+      sortOrder: 9,
+    },
+    {
+      name: "Tutorials & Learning",
+      slug: "tutorials-learning",
+      type: "trending",
+      emoji: "📖",
+      sortOrder: 10,
+    },
   ];
 
   for (const category of trendingCategories) {

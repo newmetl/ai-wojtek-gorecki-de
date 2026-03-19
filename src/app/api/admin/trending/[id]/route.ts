@@ -26,11 +26,11 @@ export async function PUT(
 
   const { id } = await params;
   const body = await request.json();
-  const { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore } = body;
+  const { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore, featuredIndex } = body;
 
   const data = await db.trendingTech.update({
     where: { id },
-    data: { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore },
+    data: { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore, featuredIndex: featuredIndex ?? null },
     include: { category: true },
   });
 

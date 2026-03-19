@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Star } from "lucide-react";
 
 type Category = { id: string; name: string; emoji: string | null };
 type TrendingEntry = {
@@ -16,6 +16,7 @@ type TrendingEntry = {
   sourceUrl: string;
   sourceName: string;
   trendScore: number;
+  featuredIndex: number | null;
 };
 
 const TREND_STATUS_OPTIONS = [
@@ -50,7 +51,7 @@ export default function TrendingEditForm({
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
-  function update(field: keyof TrendingEntry, value: string | number) {
+  function update(field: keyof TrendingEntry, value: string | number | null) {
     setForm((prev) => ({ ...prev, [field]: value }));
   }
 
@@ -174,6 +175,45 @@ export default function TrendingEditForm({
             <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
           </div>
         </div>
+      </div>
+
+      {/* Featured-Bereich */}
+      <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <Star className="h-4 w-4 text-amber-400" />
+          <span className="text-sm font-medium text-amber-300">Featured AI Tech</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex-1">
+            <label className="block text-xs text-muted mb-1.5">
+              Position (leer = nicht featured)
+            </label>
+            <input
+              type="number"
+              min={1}
+              value={form.featuredIndex ?? ""}
+              onChange={(e) => {
+                const val = e.target.value;
+                update("featuredIndex", val === "" ? null : parseInt(val));
+              }}
+              placeholder="z.B. 1, 2, 3 …"
+              className="w-full px-3 py-2 bg-background border border-amber-500/30 rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/40 placeholder:text-muted/50"
+            />
+          </div>
+          <p className="flex-1 text-xs text-muted leading-relaxed">
+            Einträge mit einem Positions-Index werden prominent über dem Suchfeld in einem
+            3er-Grid hervorgehoben. Niedrigere Zahlen erscheinen zuerst.
+          </p>
+        </div>
+        {form.featuredIndex !== null && (
+          <button
+            type="button"
+            onClick={() => update("featuredIndex", null)}
+            className="mt-3 text-xs text-muted hover:text-amber-300 transition-colors"
+          >
+            ✕ Featured entfernen
+          </button>
+        )}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

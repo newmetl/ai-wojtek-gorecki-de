@@ -3,6 +3,8 @@ import { slugify } from "@/lib/utils";
 import { dedup } from "./dedup";
 import { categorizeItems } from "./categorize";
 import { researchTrendingAI } from "./research";
+import { scrapeHuggingFace } from "./huggingface";
+import { scrapeReddit } from "./reddit";
 import type { RawScrapedItem, CategorizedItem } from "./types";
 
 // Re-exports für externe Nutzung
@@ -39,8 +41,9 @@ async function saveTrendingItems(
         data: {
           trendScore: item.trendScore,
           lastScrapedAt: new Date(),
-          // Beschreibung + Emoji überschreiben (Research liefert immer aktuelle Infos)
+          // Beschreibung, Erklärung + Emoji überschreiben (Research liefert immer aktuelle Infos)
           description: item.description,
+          ...(item.beginnerExplanation ? { beginnerExplanation: item.beginnerExplanation } : {}),
           ...(item.emoji ? { emoji: item.emoji } : {}),
         },
       });
@@ -52,6 +55,7 @@ async function saveTrendingItems(
           slug,
           categoryId: category.id,
           description: item.description,
+          beginnerExplanation: item.beginnerExplanation || null,
           emoji: item.emoji,
           sourceUrl: item.url,
           sourceName: item.sourceName,
@@ -84,11 +88,30 @@ async function runTrendingScrape(): Promise<{
   newCount: number;
   updatedCount: number;
 }> {
-  console.log("[trending] Starte Claude Research Pipeline...");
+  console.log("[trending] Starte Research Pipeline (Claude + HuggingFace + Reddit)...");
 
-  // Schritt 1: Recherche via Claude + web_search
-  const rawItems: RawScrapedItem[] = await researchTrendingAI();
-  console.log(`[trending] ${rawItems.length} Items recherchiert`);
+  // Schritt 1: Parallel-Recherche — Claude Research + HuggingFace + Reddit
+  const [researchResult, hfResult, redditResult] = await Promise.allSettled([
+    researchTrendingAI(),
+    scrapeHuggingFace(),
+    scrapeReddit(),
+  ]);
+
+  const allRaw: RawScrapedItem[] = [
+    ...(researchResult.status === "fulfilled" ? researchResult.value : []),
+    ...(hfResult.status === "fulfilled" ? hfResult.value : []),
+    ...(redditResult.status === "fulfilled" ? redditResult.value : []),
+  ];
+
+  if (researchResult.status === "rejected")
+    console.error("[trending] Claude Research Fehler:", researchResult.reason);
+  if (hfResult.status === "rejected")
+    console.error("[trending] HuggingFace Fehler:", hfResult.reason);
+  if (redditResult.status === "rejected")
+    console.error("[trending] Reddit Fehler:", redditResult.reason);
+
+  const rawItems = allRaw;
+  console.log(`[trending] ${rawItems.length} Items gesamt (Research + HF + Reddit)`);
 
   // Schritt 2: Deduplizierung
   const deduped = dedup(rawItems);

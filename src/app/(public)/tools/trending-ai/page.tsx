@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default async function TrendingAIPage() {
-  // Nur freigegebene Einträge laden, sortiert nach Score
+  // Alle freigegebenen Einträge + Featured laden
   const [entries, categories, lastUpdated] = await Promise.all([
     db.trendingTech.findMany({
       where: { reviewStatus: "approved" },
@@ -74,6 +74,28 @@ export default async function TrendingAIPage() {
     },
   }));
 
+  // Featured Items: approved + featuredIndex gesetzt, sortiert nach featuredIndex
+  // Hinweis: e.featuredIndex != null (loose) fängt sowohl null als auch undefined ab
+  const featuredItems = entries
+    .filter((e) => e.featuredIndex != null)
+    .sort((a, b) => (a.featuredIndex ?? 0) - (b.featuredIndex ?? 0))
+    .map((entry) => ({
+      id: entry.id,
+      name: entry.name,
+      slug: entry.slug,
+      emoji: entry.emoji,
+      description: entry.description,
+      trendStatus: entry.trendStatus,
+      trendScore: entry.trendScore,
+      sourceUrl: entry.sourceUrl,
+      sourceName: entry.sourceName,
+      featuredIndex: entry.featuredIndex as number,
+      category: {
+        name: entry.category.name,
+        emoji: entry.category.emoji,
+      },
+    }));
+
   return (
     <main className="flex-1 pt-24 pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -112,7 +134,7 @@ export default async function TrendingAIPage() {
             </p>
           </div>
         ) : (
-          <TrendingGrid items={items} categories={categoriesWithCount} />
+          <TrendingGrid items={items} categories={categoriesWithCount} featuredItems={featuredItems} />
         )}
       </div>
     </main>

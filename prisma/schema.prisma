@@ -34,13 +34,15 @@ model TrendingTech {
   slug          String   @unique
   categoryId    String
   category      Category @relation(fields: [categoryId], references: [id])
-  description   String   // 1-2 Sätze
-  emoji         String?
+  description          String   // 1-2 Sätze
+  beginnerExplanation  String?  // Einfache Erklärung für Einsteiger (3-4 Sätze, von Claude)
+  emoji                String?
   sourceUrl     String?
   sourceName    String?  // "github" | "producthunt" | "hackernews" | "arxiv" | "blog"
   trendStatus   String   @default("new") // "new" | "rising" | "stable"
   reviewStatus  String   @default("pending") // "pending" | "approved" | "hidden"
   trendScore    Int      @default(0)
+  featuredIndex Int?     // Wenn gesetzt: wird als Featured angezeigt, Reihenfolge 1, 2, 3, …
   lastScrapedAt DateTime?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
@@ -48,6 +50,7 @@ model TrendingTech {
   @@index([categoryId])
   @@index([trendStatus])
   @@index([reviewStatus])
+  @@index([featuredIndex])
 }
 
 // ─── AI Use Cases (Phase 2) ───

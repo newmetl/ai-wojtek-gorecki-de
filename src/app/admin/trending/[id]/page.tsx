@@ -24,8 +24,8 @@ export default async function AdminTrendingEditPage({
   if (!isNew && !entry) notFound();
 
   const formEntry = isNew
-    ? { name: "", description: "", emoji: "", categoryId: "", trendStatus: "new", reviewStatus: "pending", sourceUrl: "", sourceName: "", trendScore: 50 }
-    : { id: entry!.id, name: entry!.name, description: entry!.description, emoji: entry!.emoji ?? "", categoryId: entry!.categoryId, trendStatus: entry!.trendStatus, reviewStatus: entry!.reviewStatus, sourceUrl: entry!.sourceUrl ?? "", sourceName: entry!.sourceName ?? "", trendScore: entry!.trendScore };
+    ? { name: "", description: "", emoji: "", categoryId: "", trendStatus: "new", reviewStatus: "pending", sourceUrl: "", sourceName: "", trendScore: 50, featuredIndex: null }
+    : { id: entry!.id, name: entry!.name, description: entry!.description, emoji: entry!.emoji ?? "", categoryId: entry!.categoryId, trendStatus: entry!.trendStatus, reviewStatus: entry!.reviewStatus, sourceUrl: entry!.sourceUrl ?? "", sourceName: entry!.sourceName ?? "", trendScore: entry!.trendScore, featuredIndex: entry!.featuredIndex };
 
   return (
     <div className="p-8">

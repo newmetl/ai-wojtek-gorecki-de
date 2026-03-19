@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
   if (!session) return Response.json({ success: false, error: { code: "UNAUTHORIZED", message: "Nicht angemeldet" } }, { status: 401 });
 
   const body = await request.json();
-  const { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore } = body;
+  const { name, description, emoji, categoryId, trendStatus, reviewStatus, sourceUrl, sourceName, trendScore, featuredIndex } = body;
 
   if (!name || !categoryId) {
     return Response.json({ success: false, error: { code: "VALIDATION", message: "Name und Kategorie erforderlich" } }, { status: 400 });
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
   }
 
   const data = await db.trendingTech.create({
-    data: { name, slug, description: description ?? "", emoji, categoryId, trendStatus: trendStatus ?? "new", reviewStatus: reviewStatus ?? "pending", sourceUrl, sourceName, trendScore: trendScore ?? 50 },
+    data: { name, slug, description: description ?? "", emoji, categoryId, trendStatus: trendStatus ?? "new", reviewStatus: reviewStatus ?? "pending", sourceUrl, sourceName, trendScore: trendScore ?? 50, featuredIndex: featuredIndex ?? null },
     include: { category: true },
   });
 

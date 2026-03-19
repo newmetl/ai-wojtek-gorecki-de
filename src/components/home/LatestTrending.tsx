@@ -40,17 +40,17 @@ export default async function LatestTrending() {
           {items.map((item) => (
             <Link
               key={item.id}
-              href="/tools/trending-ai"
+              href={`/tools/trending-ai/${item.slug}`}
               className="group flex flex-col gap-3 rounded-xl border border-white/10 bg-surface p-5 transition-all hover:border-white/20 hover:bg-surface-hover"
             >
               <div className="flex items-start justify-between gap-2">
-                <span className="text-2xl leading-none">{item.emoji ?? "🤖"}</span>
+                <span className="text-2xl leading-none">{item.category.emoji ?? "🤖"}</span>
                 <TrendBadge status={item.trendStatus} />
               </div>
               <div>
                 <p className="font-semibold text-foreground text-sm leading-snug">{item.name}</p>
                 <p className="mt-0.5 text-[11px] font-medium text-primary/70">
-                  {item.category.emoji} {item.category.name}
+                  {item.category.name}
                 </p>
               </div>
               <p className="flex-1 text-xs leading-relaxed text-muted line-clamp-3">

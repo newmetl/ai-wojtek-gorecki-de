@@ -29,6 +29,7 @@ export async function categorizeItems(
       originalName: item.name,
       categorySlug: "",
       description: item.description,
+      beginnerExplanation: "",
       emoji: "🤖",
       trendScore: 50,
       url: item.url,
@@ -72,8 +73,9 @@ ${categoryList}
 Für jedes Item sollst du:
 1. Die passende Kategorie aus der obigen Liste zuweisen (nur den slug verwenden)
 2. Eine deutsche Kurzbeschreibung schreiben (max. 2 prägnante Sätze, für Product Owner verständlich)
-3. Ein passendes Emoji zuweisen
-4. Einen Trend-Score von 1–100 vergeben (100 = sehr relevant und aktuell, 1 = wenig relevant)
+3. Eine einfache Einsteiger-Erklärung schreiben (3–4 Sätze auf Deutsch): Was ist die Technologie in einfachen Worten? Was kann ein Product Owner konkret damit anfangen?
+4. Ein passendes Emoji zuweisen
+5. Einen Trend-Score von 1–100 vergeben (100 = sehr relevant und aktuell, 1 = wenig relevant)
 
 Antworte AUSSCHLIESSLICH mit einem JSON-Array ohne weiteren Text:
 [
@@ -81,6 +83,7 @@ Antworte AUSSCHLIESSLICH mit einem JSON-Array ohne weiteren Text:
     "originalName": "exakter Name wie angegeben",
     "categorySlug": "slug-aus-der-liste",
     "description": "Deutsche Kurzbeschreibung.",
+    "beginnerExplanation": "Einfache Erklärung was das ist und was ein PO damit anfangen kann.",
     "emoji": "🤖",
     "trendScore": 75
   }
@@ -106,6 +109,7 @@ Antworte AUSSCHLIESSLICH mit einem JSON-Array ohne weiteren Text:
       originalName: string;
       categorySlug: string;
       description: string;
+      beginnerExplanation: string;
       emoji: string;
       trendScore: number;
     }>;
@@ -116,6 +120,7 @@ Antworte AUSSCHLIESSLICH mit einem JSON-Array ohne weiteren Text:
         originalName: item.originalName || originalItem.name,
         categorySlug: item.categorySlug || fallbackSlug,
         description: item.description || originalItem.description,
+        beginnerExplanation: item.beginnerExplanation || "",
         emoji: item.emoji || "🤖",
         trendScore: Math.min(100, Math.max(1, item.trendScore || 50)),
         url: originalItem.url,
@@ -128,6 +133,7 @@ Antworte AUSSCHLIESSLICH mit einem JSON-Array ohne weiteren Text:
       originalName: item.name,
       categorySlug: fallbackSlug,
       description: item.description,
+      beginnerExplanation: "",
       emoji: "🤖",
       trendScore: 50,
       url: item.url,
