@@ -1,0 +1,44 @@
+#!/bin/bash
+# deploy — Deployment-Script für ai.wojtek-gorecki.de
+#
+# Installation (einmalig auf dem VPS):
+#   cp /srv/repos/app-stage/scripts/deploy /usr/local/bin/deploy
+#   chmod +x /usr/local/bin/deploy
+#
+# Verwendung:
+#   deploy stage        → Stage deployen
+#   deploy prod         → Prod deployen
+#   deploy status       → Deployment-Status abfragen
+
+set -euo pipefail
+
+ENV="${1:-}"
+
+if [[ -z "$ENV" ]]; then
+  echo "Verwendung: deploy <stage|prod|status>"
+  exit 1
+fi
+
+KEY=$(docker exec deploy-service env | grep DEPLOY_API_KEY | cut -d= -f2)
+
+case "$ENV" in
+  stage|prod)
+    echo "🚀 Starte Deployment: $ENV ..."
+    RESPONSE=$(docker exec nginx curl -s -X POST "http://deploy-service:8080/deploy/$ENV" \
+      -H "X-Api-Key: $KEY")
+    echo "$RESPONSE"
+    echo ""
+    echo "📋 Logs (Strg+C zum Beenden):"
+    docker logs -f deploy-service
+    ;;
+  status)
+    docker exec nginx curl -s "http://deploy-service:8080/status" \
+      -H "X-Api-Key: $KEY"
+    echo ""
+    ;;
+  *)
+    echo "Unbekannte Umgebung: $ENV"
+    echo "Verwendung: deploy <stage|prod|status>"
+    exit 1
+    ;;
+esac
