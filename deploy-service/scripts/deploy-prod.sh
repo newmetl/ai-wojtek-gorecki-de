@@ -7,4 +7,6 @@ docker compose -f /srv/docker-compose.yml build app-prod
 docker compose -f /srv/docker-compose.yml up -d --no-deps --force-recreate app-prod
 docker compose -f /srv/docker-compose.yml exec -T app-prod \
   sh -c "DATABASE_URL=file:/app/data/app.db npx prisma migrate deploy"
+docker compose -f /srv/docker-compose.yml exec -T app-prod \
+  sh -c "DATABASE_URL=file:/app/data/app.db npx tsx /app/prisma/seed.ts"
 echo "=== PROD deployed ✅ ==="
