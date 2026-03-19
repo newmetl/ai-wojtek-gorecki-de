@@ -157,14 +157,38 @@ Internet (Port 80/443)
 
 ## Deployments
 
-Deployments werden über den `deploy-service` ausgelöst, der nur intern im Docker-Netzwerk erreichbar ist. Der OpenClaw AI-Agent triggert sie via HTTP:
+### deploy-Script (auf dem VPS-Host)
+
+Das Repository enthält ein Convenience-Script unter `scripts/deploy`. Einmalige Installation auf dem VPS:
+
+```bash
+cp /srv/repos/app-stage/scripts/deploy /usr/local/bin/deploy
+chmod +x /usr/local/bin/deploy
+```
+
+Danach reicht auf dem VPS:
+
+```bash
+deploy stage      # Stage deployen + Logs folgen
+deploy prod       # Prod deployen + Logs folgen
+deploy status     # Service-Status abfragen
+```
+
+**Script aktualisieren:** Nach Änderungen im Repo die Datei erneut kopieren:
+
+```bash
+git -C /srv/repos/app-stage pull origin main
+cp /srv/repos/app-stage/scripts/deploy /usr/local/bin/deploy
+```
+
+### Wie Deployments funktionieren
+
+Das Script ruft den `deploy-service` auf, der nur intern im Docker-Netzwerk `vps_net` erreichbar ist:
 
 ```http
-POST http://deploy-service:8080/deploy/stage
-X-Api-Key: <DEPLOY_API_KEY>
-
-POST http://deploy-service:8080/deploy/prod
-X-Api-Key: <DEPLOY_API_KEY>
+POST http://deploy-service:8080/deploy/stage   X-Api-Key: <DEPLOY_API_KEY>
+POST http://deploy-service:8080/deploy/prod    X-Api-Key: <DEPLOY_API_KEY>
+GET  http://deploy-service:8080/status         X-Api-Key: <DEPLOY_API_KEY>
 ```
 
 **Was bei einem Deployment passiert:**
@@ -217,6 +241,7 @@ chown 1001:1001 /srv/data/stage/app.db
 ## Features (MVP)
 
 - **Trending AI Tech** — wöchentlich aktualisierte KI-Tool-Übersicht mit Scraping-Pipeline
+- **Blog** — statischer Blog (kein CMS), Posts als TypeScript-Daten in `src/lib/blog.ts`
 - **Admin-Interface** — Content-Pflege, Scraping manuell auslösen, Kategorien verwalten
 - **Statische Seiten** — Home, About, CV/Lebenslauf, Kontakt, Impressum, Datenschutz
 - **SEO** — Metadata API, JSON-LD, Sitemap, robots.txt
