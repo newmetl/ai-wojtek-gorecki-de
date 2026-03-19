@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import ToolTeaser from "@/components/home/ToolTeaser";
 import LatestTrending from "@/components/home/LatestTrending";
+import LatestBlogPosts from "@/components/home/LatestBlogPosts";
 import ShortProfile from "@/components/home/ShortProfile";
 
 export const dynamic = "force-dynamic";
@@ -38,6 +39,7 @@ export default function HomePage() {
         <Hero />
         <ToolTeaser />
         <LatestTrending />
+        <LatestBlogPosts />
         <ShortProfile />
       </main>
     </>
