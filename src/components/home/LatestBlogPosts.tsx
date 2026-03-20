@@ -87,7 +87,7 @@ export default function LatestBlogPosts() {
               <span className="font-headline text-[10px] tracking-[0.2em] text-secondary uppercase mb-4 block">
                 {post2.tags[0]}
               </span>
-              <h4 className="font-headline text-lg md:text-xl font-bold mb-4 group-hover:text-secondary transition-colors leading-snug flex-1">
+              <h4 className="font-headline text-lg md:text-xl font-bold mb-4 group-hover:text-secondary transition-colors leading-snug">
                 {post2.title}
               </h4>
               <p className="text-[#a5abb8] text-sm leading-relaxed line-clamp-3 mb-6">
