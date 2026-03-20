@@ -4,11 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Design System — ai.wojtek-gorecki.de ─── */
+/* ─── Celestial Archive Design System — ai.wojtek-gorecki.de ─── */
 /* Immer Dark Theme (kein Light Mode benötigt) */
 
 @theme inline {
-  /* Shadcn/ui Variablen-Mapping */
+  /* shadcn/ui Variablen-Mapping */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -28,6 +28,29 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Celestial Design Tokens */
+  --color-surface: #080f18;
+  --color-surface-dim: #080f18;
+  --color-surface-bright: #222d3b;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0c141e;
+  --color-surface-container: #121a25;
+  --color-surface-container-high: #17202c;
+  --color-surface-container-highest: #1d2634;
+  --color-surface-variant: #1d2634;
+  --color-on-surface: #e8eefc;
+  --color-on-surface-variant: #a5abb8;
+  --color-on-background: #e8eefc;
+  --color-primary-dim: #00deec;
+  --color-primary-container: #00eefc;
+  --color-on-primary: #005d63;
+  --color-secondary-dim: #b90afc;
+  --color-secondary-container: #9800d0;
+  --color-on-secondary: #390050;
+  --color-tertiary: #7c98ff;
+  --color-outline: #6f7682;
+  --color-outline-variant: #424853;
+
   /* Radien */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -45,90 +68,91 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Schriften */
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+  --font-headline: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 }
 
 /* ─── Dark Theme (Default / einziges Theme) ─── */
 :root {
-  /* Hintergründe */
-  --background: #0F172A;        /* Slate 900 */
-  --foreground: #F8FAFC;        /* Slate 50 */
+  /* Celestial: Deep Obsidian Backgrounds */
+  --background: #080f18;
+  --foreground: #e8eefc;
 
   /* Karten / Oberflächen */
-  --card: #1E293B;              /* Slate 800 */
-  --card-foreground: #F8FAFC;
+  --card: #121a25;
+  --card-foreground: #e8eefc;
 
   /* Popovers */
-  --popover: #1E293B;
-  --popover-foreground: #F8FAFC;
+  --popover: #17202c;
+  --popover-foreground: #e8eefc;
 
-  /* Primary: Blau */
-  --primary: #3B82F6;           /* Blue 500 */
-  --primary-foreground: #F8FAFC;
+  /* Primary: Neon Cyan (Stitch #00F0FF) */
+  --primary: #00F0FF;
+  --primary-foreground: #003f43;
 
-  /* Secondary: Cyan */
-  --secondary: #06B6D4;         /* Cyan 500 */
-  --secondary-foreground: #F8FAFC;
+  /* Secondary: Neon Purple */
+  --secondary: #d575ff;
+  --secondary-foreground: #390050;
 
   /* Muted */
-  --muted: #94A3B8;             /* Slate 400 — Sekundärtext */
-  --muted-foreground: #CBD5E1;  /* Slate 300 — Text auf Muted-Hintergrund */
+  --muted: #17202c;
+  --muted-foreground: #a5abb8;
 
-  /* Accent: Grün (Trending) */
-  --accent: #22C55E;            /* Green 500 */
-  --accent-foreground: #F8FAFC;
+  /* Accent: Neon Cyan */
+  --accent: #00F0FF;
+  --accent-foreground: #003f43;
 
   /* Destructive */
-  --destructive: #EF4444;       /* Red 500 */
+  --destructive: #ff716c;
 
   /* Borders & Inputs */
-  --border: rgba(248, 250, 252, 0.1);
-  --input: #334155;
-  --ring: #3B82F6;
+  --border: rgba(66, 72, 83, 0.3);
+  --input: #17202c;
+  --ring: #00F0FF;
 
   /* Border Radius */
-  --radius: 0.5rem;
+  --radius: 0.375rem;
 
   /* Sidebar */
-  --sidebar: #1E293B;
-  --sidebar-foreground: #F8FAFC;
-  --sidebar-primary: #3B82F6;
-  --sidebar-primary-foreground: #F8FAFC;
-  --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #F8FAFC;
-  --sidebar-border: rgba(248, 250, 252, 0.1);
-  --sidebar-ring: #3B82F6;
+  --sidebar: #0c141e;
+  --sidebar-foreground: #e8eefc;
+  --sidebar-primary: #00F0FF;
+  --sidebar-primary-foreground: #003f43;
+  --sidebar-accent: #17202c;
+  --sidebar-accent-foreground: #e8eefc;
+  --sidebar-border: rgba(66, 72, 83, 0.3);
+  --sidebar-ring: #00F0FF;
 }
 
 /* .dark Klasse = identisch mit :root (Site ist immer dunkel) */
 .dark {
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --card: #1E293B;
-  --card-foreground: #F8FAFC;
-  --popover: #1E293B;
-  --popover-foreground: #F8FAFC;
-  --primary: #3B82F6;
-  --primary-foreground: #F8FAFC;
-  --secondary: #06B6D4;
-  --secondary-foreground: #F8FAFC;
-  --muted: #94A3B8;             /* Slate 400 */
-  --muted-foreground: #CBD5E1;  /* Slate 300 */
-  --accent: #22C55E;
-  --accent-foreground: #F8FAFC;
-  --destructive: #EF4444;
-  --border: rgba(248, 250, 252, 0.1);
-  --input: #334155;
-  --ring: #3B82F6;
-  --sidebar: #1E293B;
-  --sidebar-foreground: #F8FAFC;
-  --sidebar-primary: #3B82F6;
-  --sidebar-primary-foreground: #F8FAFC;
-  --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #F8FAFC;
-  --sidebar-border: rgba(248, 250, 252, 0.1);
-  --sidebar-ring: #3B82F6;
+  --background: #080f18;
+  --foreground: #e8eefc;
+  --card: #121a25;
+  --card-foreground: #e8eefc;
+  --popover: #17202c;
+  --popover-foreground: #e8eefc;
+  --primary: #00F0FF;
+  --primary-foreground: #003f43;
+  --secondary: #d575ff;
+  --secondary-foreground: #390050;
+  --muted: #17202c;
+  --muted-foreground: #a5abb8;
+  --accent: #00F0FF;
+  --accent-foreground: #003f43;
+  --destructive: #ff716c;
+  --border: rgba(66, 72, 83, 0.3);
+  --input: #17202c;
+  --ring: #00F0FF;
+  --sidebar: #0c141e;
+  --sidebar-foreground: #e8eefc;
+  --sidebar-primary: #00F0FF;
+  --sidebar-primary-foreground: #003f43;
+  --sidebar-accent: #17202c;
+  --sidebar-accent-foreground: #e8eefc;
+  --sidebar-border: rgba(66, 72, 83, 0.3);
+  --sidebar-ring: #00F0FF;
 }
 
 @layer base {
@@ -140,15 +164,43 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
   }
 }
 
+/* ─── Celestial Utilities ─── */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(66, 72, 83, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66, 72, 83, 0.05) 1px, transparent 1px);
+}
+
+.glow-sm {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+.glow-button {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+}
+
 /* ─── Blog Prose Styles ─── */
-/* Für dangerouslySetInnerHTML Blog-Content in /blog/[slug] */
 .blog-prose {
-  color: #CBD5E1; /* Slate 300 — angenehmer Lesetext */
+  color: #a5abb8;
   line-height: 1.8;
   font-size: 1rem;
+  font-family: var(--font-sans);
 }
 
 .blog-prose p {
@@ -157,25 +209,27 @@
 
 .blog-prose p.lead {
   font-size: 1.125rem;
-  color: #E2E8F0; /* Slate 200 */
+  color: #e8eefc;
   line-height: 1.75;
   margin-bottom: 1.75rem;
 }
 
 .blog-prose h2 {
+  font-family: var(--font-headline);
   font-size: 1.375rem;
   font-weight: 700;
-  color: #F8FAFC; /* Slate 50 */
+  color: #e8eefc;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+  border-bottom: 1px solid rgba(66, 72, 83, 0.3);
 }
 
 .blog-prose h3 {
+  font-family: var(--font-headline);
   font-size: 1.125rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: #e8eefc;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
@@ -199,45 +253,45 @@
 }
 
 .blog-prose strong {
-  color: #F8FAFC;
+  color: #e8eefc;
   font-weight: 600;
 }
 
 .blog-prose a {
-  color: #3B82F6; /* Blue 500 */
+  color: #00F0FF;
   text-decoration: underline;
-  text-decoration-color: rgba(59, 130, 246, 0.4);
+  text-decoration-color: rgba(0, 240, 255, 0.4);
   text-underline-offset: 3px;
   transition: color 0.15s, text-decoration-color 0.15s;
 }
 
 .blog-prose a:hover {
-  color: #60A5FA; /* Blue 400 */
-  text-decoration-color: rgba(96, 165, 250, 0.6);
+  color: #00deec;
+  text-decoration-color: rgba(0, 222, 236, 0.6);
 }
 
 .blog-prose blockquote {
-  border-left: 3px solid #3B82F6;
+  border-left: 2px solid #00F0FF;
   padding-left: 1.25rem;
   margin: 1.75rem 0;
-  color: #94A3B8;
+  color: #6f7682;
   font-style: italic;
 }
 
 .blog-prose code {
   font-family: var(--font-mono), "JetBrains Mono", monospace;
   font-size: 0.875em;
-  background: rgba(248, 250, 252, 0.08);
-  border: 1px solid rgba(248, 250, 252, 0.1);
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(66, 72, 83, 0.4);
   border-radius: 4px;
   padding: 0.15em 0.4em;
-  color: #93C5FD; /* Blue 300 */
+  color: #00F0FF;
 }
 
 .blog-prose pre {
-  background: #1E293B;
-  border: 1px solid rgba(248, 250, 252, 0.1);
-  border-radius: 0.75rem;
+  background: #0c141e;
+  border: 1px solid rgba(66, 72, 83, 0.3);
+  border-radius: 0.5rem;
   padding: 1.25rem 1.5rem;
   overflow-x: auto;
   margin: 1.75rem 0;
@@ -248,7 +302,7 @@
   border: none;
   padding: 0;
   font-size: 0.875rem;
-  color: #E2E8F0;
+  color: #e8eefc;
 }
 
 /* stretched-link Utility */

@@ -115,7 +115,7 @@ export default function CategoryManager({
                     <input
                       value={editValues.emoji}
                       onChange={(e) => setEditValues((p) => ({ ...p, emoji: e.target.value }))}
-                      className="w-14 px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                      className="w-14 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                     />
                   ) : (
                     <span className="text-xl">{cat.emoji ?? "—"}</span>
@@ -126,7 +126,7 @@ export default function CategoryManager({
                     <input
                       value={editValues.name}
                       onChange={(e) => setEditValues((p) => ({ ...p, name: e.target.value }))}
-                      className="w-full px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                      className="w-full px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                     />
                   ) : (
                     <span className="text-foreground">{cat.name}</span>
@@ -139,7 +139,7 @@ export default function CategoryManager({
                       type="number"
                       value={editValues.sortOrder}
                       onChange={(e) => setEditValues((p) => ({ ...p, sortOrder: parseInt(e.target.value) }))}
-                      className="w-20 px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                      className="w-20 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                     />
                   ) : (
                     <span className="text-muted">{cat.sortOrder}</span>
@@ -183,7 +183,7 @@ export default function CategoryManager({
                     value={newForm.emoji}
                     onChange={(e) => setNewForm((p) => ({ ...p, emoji: e.target.value }))}
                     placeholder="🏷️"
-                    className="w-14 px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                    className="w-14 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                   />
                 </td>
                 <td className="px-4 py-3">
@@ -191,7 +191,7 @@ export default function CategoryManager({
                     value={newForm.name}
                     onChange={(e) => setNewForm((p) => ({ ...p, name: e.target.value }))}
                     placeholder="Kategoriename"
-                    className="w-full px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                    className="w-full px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                   />
                 </td>
                 <td className="px-4 py-3 text-muted text-xs italic">wird generiert</td>
@@ -200,7 +200,7 @@ export default function CategoryManager({
                     type="number"
                     value={newForm.sortOrder}
                     onChange={(e) => setNewForm((p) => ({ ...p, sortOrder: parseInt(e.target.value) }))}
-                    className="w-20 px-2 py-1 bg-background border border-border rounded text-sm text-foreground focus:outline-none"
+                    className="w-20 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
                   />
                 </td>
                 <td className="px-4 py-3">

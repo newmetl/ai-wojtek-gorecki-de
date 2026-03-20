@@ -38,9 +38,9 @@ export default function AdminLoginPage() {
           <p className="text-muted text-sm mt-1">ai.wojtek-gorecki.de</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-surface border border-border rounded-xl p-6 space-y-4">
-          <div>
-            <label htmlFor="password" className="block text-sm text-foreground mb-2">
+        <form onSubmit={handleSubmit} className="space-y-8">
+          <div className="relative group">
+            <label htmlFor="password" className="block font-headline text-[10px] text-[#6f7682] uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
               Passwort
             </label>
             <input
@@ -51,18 +51,18 @@ export default function AdminLoginPage() {
               placeholder="Admin-Passwort eingeben"
               required
               autoFocus
-              className="w-full px-3 py-2 bg-background border border-border rounded-lg text-foreground placeholder:text-muted text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-4 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none"
             />
           </div>
 
           {error && (
-            <p className="text-red-400 text-sm">{error}</p>
+            <p className="text-[#ff716c] text-sm">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-primary hover:bg-primary-hover text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-primary text-[#003f43] font-headline font-bold text-sm tracking-widest py-4 px-8 rounded-md transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] active:scale-95 uppercase disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
           >
             {loading ? "Anmeldung läuft…" : "Anmelden"}
           </button>

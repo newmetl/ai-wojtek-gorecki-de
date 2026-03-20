@@ -39,6 +39,11 @@ const SOURCE_OPTIONS = [
   { value: "blog", label: "Blog" },
 ];
 
+// Shared class strings
+const inputCls = "w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-3 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none";
+const selectCls = "appearance-none w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-3 pr-6 transition-all duration-300 outline-none";
+const labelCls = "block font-headline text-[10px] text-[#6f7682] uppercase tracking-[0.2em] mb-2";
+
 export default function TrendingEditForm({
   entry,
   categories,
@@ -82,97 +87,97 @@ export default function TrendingEditForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm text-foreground mb-2">Name *</label>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Name *</label>
           <input
             required
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={inputCls}
           />
         </div>
-        <div>
-          <label className="block text-sm text-foreground mb-2">Emoji</label>
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Emoji</label>
           <input
             value={form.emoji}
             onChange={(e) => update("emoji", e.target.value)}
             placeholder="z.B. 🤖"
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={inputCls}
           />
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm text-foreground mb-2">Beschreibung</label>
+      <div className="relative group">
+        <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Beschreibung</label>
         <textarea
           rows={3}
           value={form.description}
           onChange={(e) => update("description", e.target.value)}
-          className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+          className={`${inputCls} resize-none`}
         />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm text-foreground mb-2">Kategorie *</label>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Kategorie *</label>
           <div className="relative">
             <select
               required
               value={form.categoryId}
               onChange={(e) => update("categoryId", e.target.value)}
-              className="appearance-none w-full px-3 pr-8 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className={selectCls}
             >
               <option value="">Kategorie wählen…</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>{c.emoji} {c.name}</option>
               ))}
             </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
+            <ChevronDown className="absolute right-0 bottom-3 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm text-foreground mb-2">Trend-Score (1–100)</label>
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Trend-Score (1–100)</label>
           <input
             type="number"
             min={1}
             max={100}
             value={form.trendScore}
             onChange={(e) => update("trendScore", parseInt(e.target.value))}
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={inputCls}
           />
         </div>
 
-        <div>
-          <label className="block text-sm text-foreground mb-2">Trend-Status</label>
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Trend-Status</label>
           <div className="relative">
             <select
               value={form.trendStatus}
               onChange={(e) => update("trendStatus", e.target.value)}
-              className="appearance-none w-full px-3 pr-8 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className={selectCls}
             >
               {TREND_STATUS_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
+            <ChevronDown className="absolute right-0 bottom-3 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm text-foreground mb-2">Review-Status</label>
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Review-Status</label>
           <div className="relative">
             <select
               value={form.reviewStatus}
               onChange={(e) => update("reviewStatus", e.target.value)}
-              className="appearance-none w-full px-3 pr-8 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className={selectCls}
             >
               {REVIEW_STATUS_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
+            <ChevronDown className="absolute right-0 bottom-3 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
           </div>
         </div>
       </div>
@@ -184,8 +189,8 @@ export default function TrendingEditForm({
           <span className="text-sm font-medium text-amber-300">Featured AI Tech</span>
         </div>
         <div className="flex items-center gap-4">
-          <div className="flex-1">
-            <label className="block text-xs text-muted mb-1.5">
+          <div className="flex-1 relative group">
+            <label className={`${labelCls} group-focus-within:text-amber-400 transition-colors`}>
               Position (leer = nicht featured)
             </label>
             <input
@@ -197,10 +202,10 @@ export default function TrendingEditForm({
                 update("featuredIndex", val === "" ? null : parseInt(val));
               }}
               placeholder="z.B. 1, 2, 3 …"
-              className="w-full px-3 py-2 bg-background border border-amber-500/30 rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/40 placeholder:text-muted/50"
+              className="w-full bg-[#1d2634]/40 border-0 border-b-2 border-amber-500/30 focus:border-amber-400 focus:ring-0 text-[#e8eefc] text-sm py-3 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none"
             />
           </div>
-          <p className="flex-1 text-xs text-muted leading-relaxed">
+          <p className="flex-1 text-xs text-[#6f7682] leading-relaxed">
             Einträge mit einem Positions-Index werden prominent über dem Suchfeld in einem
             3er-Grid hervorgehoben. Niedrigere Zahlen erscheinen zuerst.
           </p>
@@ -209,56 +214,56 @@ export default function TrendingEditForm({
           <button
             type="button"
             onClick={() => update("featuredIndex", null)}
-            className="mt-3 text-xs text-muted hover:text-amber-300 transition-colors"
+            className="mt-3 text-xs text-[#6f7682] hover:text-amber-300 transition-colors"
           >
             ✕ Featured entfernen
           </button>
         )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm text-foreground mb-2">Quell-URL</label>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Quell-URL</label>
           <input
             type="url"
             value={form.sourceUrl}
             onChange={(e) => update("sourceUrl", e.target.value)}
             placeholder="https://…"
-            className="w-full px-3 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={inputCls}
           />
         </div>
-        <div>
-          <label className="block text-sm text-foreground mb-2">Quelle</label>
+        <div className="relative group">
+          <label className={`${labelCls} group-focus-within:text-primary transition-colors`}>Quelle</label>
           <div className="relative">
             <select
               value={form.sourceName}
               onChange={(e) => update("sourceName", e.target.value)}
-              className="appearance-none w-full px-3 pr-8 py-2 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className={selectCls}
             >
               <option value="">Keine</option>
               {SOURCE_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
               ))}
             </select>
-            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
+            <ChevronDown className="absolute right-0 bottom-3 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
           </div>
         </div>
       </div>
 
-      {error && <p className="text-red-400 text-sm">{error}</p>}
+      {error && <p className="text-[#ff716c] text-sm">{error}</p>}
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 pt-2">
         <button
           type="submit"
           disabled={saving}
-          className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+          className="bg-primary text-[#003f43] font-headline font-bold text-sm tracking-widest px-8 py-3 rounded-md transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] active:scale-95 uppercase disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
         >
           {saving ? "Speichern…" : "Speichern"}
         </button>
         <button
           type="button"
           onClick={() => router.push("/admin/trending")}
-          className="text-muted hover:text-foreground px-4 py-2 rounded-lg text-sm transition-colors"
+          className="text-[#6f7682] hover:text-[#e8eefc] px-4 py-3 text-sm font-headline tracking-wide transition-colors"
         >
           Abbrechen
         </button>

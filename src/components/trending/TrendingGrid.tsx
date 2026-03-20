@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import CategoryFilter, { type CategoryOption } from "./CategoryFilter";
 import TrendingCard, { type TrendingCardData } from "./TrendingCard";
 import FeaturedCard, { type FeaturedCardData } from "./FeaturedCard";
-import { SlidersHorizontal, Star } from "lucide-react";
+import { SlidersHorizontal, Star, ChevronDown } from "lucide-react";
 
 interface TrendingGridProps {
   items: TrendingCardData[];
@@ -20,14 +20,14 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
   const [activeCategory, setActiveCategory] = useState("");
   const [sortBy, setSortBy] = useState<"score" | "name" | "status">("score");
 
-  // Featured IDs — im Haupt-Grid ausblenden (solange kein Filter aktiv)
+  // Featured IDs — im Haupt-Grid immer ausblenden (werden oben separat angezeigt)
   const featuredIds = useMemo(() => new Set(featuredItems.map((f) => f.id)), [featuredItems]);
 
   const isFiltering = search.trim() !== "" || activeCategory !== "";
 
   const filtered = useMemo(() => {
-    // Ohne Filter: Featured Items nicht doppelt zeigen
-    let result = isFiltering ? items : items.filter((item) => !featuredIds.has(item.id));
+    // Featured Items nie doppelt im Haupt-Grid zeigen
+    let result = items.filter((item) => !featuredIds.has(item.id));
 
     // Kategorie-Filter
     if (activeCategory) {
@@ -71,7 +71,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
   return (
     <div className="space-y-8">
       {/* ── Featured Section ── */}
-      {featuredItems.length > 0 && !isFiltering && (
+      {featuredItems.length > 0 && (
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
@@ -98,16 +98,19 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
           />
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <SlidersHorizontal className="h-4 w-4 text-muted" />
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-            className="rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-foreground focus:border-primary/50 focus:outline-none"
-          >
-            <option value="score">Nach Relevanz</option>
-            <option value="status">Nach Status</option>
-            <option value="name">Nach Name</option>
-          </select>
+          <SlidersHorizontal className="h-4 w-4 text-[#6f7682]" />
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+              className="appearance-none rounded-lg border border-[#424853]/40 bg-[#121a25] py-2 pl-3 pr-8 text-sm text-foreground focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+            >
+              <option value="score">Nach Relevanz</option>
+              <option value="status">Nach Status</option>
+              <option value="name">Nach Name</option>
+            </select>
+            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
+          </div>
         </div>
       </div>
 

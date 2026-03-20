@@ -24,7 +24,7 @@ export default function MobileNav({ pathname }: MobileNavProps) {
           id="mobile-menu-trigger"
           render={
             <button
-              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors cursor-pointer"
+              className="p-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
               aria-label="Menü öffnen"
             />
           }
@@ -33,14 +33,11 @@ export default function MobileNav({ pathname }: MobileNavProps) {
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="w-72 bg-[#1E293B] border-white/10 p-0"
+          className="w-72 bg-[#080f18] border-l border-[#424853]/20 p-0"
         >
-          <SheetHeader className="px-6 pt-6 pb-4 border-b border-white/10">
-            <SheetTitle className="flex items-center gap-1">
-              <span className="font-mono font-bold text-primary">ai.</span>
-              <span className="font-semibold text-foreground text-sm">
-                wojtek&#8209;gorecki.de
-              </span>
+          <SheetHeader className="px-6 pt-6 pb-4">
+            <SheetTitle className="font-headline text-lg font-bold tracking-tighter text-primary">
+              ai.wojtek&#8209;gorecki.de
             </SheetTitle>
           </SheetHeader>
 
@@ -74,10 +71,10 @@ function MobileNavLink({
     <Link
       href={href}
       className={cn(
-        "flex items-center px-3 py-2.5 rounded-md text-sm font-medium transition-colors",
+        "flex items-center px-3 py-3 font-headline text-xs uppercase tracking-widest transition-colors",
         active
-          ? "text-primary bg-primary/10"
-          : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+          ? "text-primary"
+          : "text-foreground/50 hover:text-foreground"
       )}
     >
       {children}

@@ -27,15 +27,15 @@ export default function CategoryFilter({ categories, activeSlug, onChange }: Cat
           <button
             key={cat.slug}
             onClick={() => onChange(cat.slug)}
-            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 ${
               isActive
-                ? "bg-primary text-white"
-                : "bg-surface border border-white/10 text-muted hover:border-white/20 hover:text-foreground"
+                ? "bg-primary/15 border border-primary/60 text-primary"
+                : "bg-[#121a25] border border-[#424853]/30 text-[#a5abb8] hover:border-[#424853]/60 hover:text-[#e8eefc]"
             }`}
           >
             {cat.emoji && <span>{cat.emoji}</span>}
             {cat.name}
-            <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${isActive ? "bg-white/20" : "bg-white/5"}`}>
+            <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${isActive ? "bg-primary/20 text-primary" : "bg-[#1d2634] text-[#6f7682]"}`}>
               {cat.count}
             </span>
           </button>

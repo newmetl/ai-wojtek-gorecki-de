@@ -3,70 +3,55 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[90vh] flex items-center">
-      {/* Hintergrund: Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#0F172A] to-[#1E293B]" />
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%)
-          `,
-        }}
-      />
-      {/* Subtiles Gitter */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.04]"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="1" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#hero-grid)" />
-      </svg>
+      {/* Background: Grid Pattern + Ambient Glows */}
+      <div className="absolute inset-0 bg-grid-pattern" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-secondary/5 blur-[100px] rounded-full -translate-x-1/2 pointer-events-none" />
 
-      {/* Inhalt */}
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
-        <div className="max-w-3xl">
-          {/* Tag-Chip */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            Persönliche Perspektiven zu KI und Wandel
+      {/* Content */}
+      <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 pt-32 pb-40 w-full">
+        <div className="max-w-4xl">
+          {/* Status Chip */}
+          <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-[#1d2634]/50 rounded-full border border-[#424853]/10">
+            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+            <span className="font-headline text-[10px] tracking-[0.2em] uppercase text-primary">
+              Persönliche Perspektiven zu KI & Wandel
+            </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            KI verändert alles —
-            <br />
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              nicht nur die Tech-Branche.
-            </span>
+          <h1 className="font-headline text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none mb-10 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
+            KI verändert alles.
           </h1>
 
           {/* Subline */}
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl leading-relaxed">
-            Hier schreibe ich über Themen, die mich bewegen: Künstliche Intelligenz, technologischer
+          <p className="font-sans text-xl md:text-2xl text-[#a5abb8] leading-relaxed max-w-2xl mb-12">
+            Nicht nur die Tech-Branche. Hier schreibe ich über KI, technologischen
             Wandel und was das für uns als Gesellschaft bedeutet.
           </p>
 
           {/* CTAs */}
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="flex flex-wrap items-center gap-8">
             <Link
-              href="/trending-ai"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 hover:-translate-y-0.5"
+              href="/blog"
+              className="group flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-md font-headline font-bold text-base hover:bg-primary transition-colors duration-300"
             >
-              Trending AI Tech
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              Zum Blog
+              <svg
+                className="h-5 w-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
             <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5"
+              href="/trending-ai"
+              className="font-headline text-sm tracking-widest text-[#a5abb8] hover:text-secondary transition-colors uppercase border-b border-transparent hover:border-secondary pb-1"
             >
-              Zum Blog
+              Trending AI Tech
             </Link>
           </div>
         </div>
