@@ -102,7 +102,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-            className="appearance-none bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-2 px-2 pr-6 transition-all duration-300 outline-none"
+            className="appearance-none rounded-lg border border-[#424853]/40 bg-[#121a25] py-2 pl-3 pr-8 text-sm text-foreground placeholder:text-[#6f7682] focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
           >
             <option value="score">Nach Relevanz</option>
             <option value="status">Nach Status</option>
