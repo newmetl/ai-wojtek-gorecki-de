@@ -98,11 +98,11 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
           />
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <SlidersHorizontal className="h-4 w-4 text-muted" />
+          <SlidersHorizontal className="h-4 w-4 text-[#6f7682]" />
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-            className="rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-foreground focus:border-primary/50 focus:outline-none"
+            className="appearance-none bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-2 px-2 pr-6 transition-all duration-300 outline-none"
           >
             <option value="score">Nach Relevanz</option>
             <option value="status">Nach Status</option>
