@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, formatDate } from "@/lib/blog";
-import { BookOpen, ArrowRight, Calendar, Clock, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog — KI und gesellschaftlicher Wandel | Wojtek Gorecki",
@@ -20,35 +19,33 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="flex-1 pt-24 pb-16">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <main className="flex-1 pt-32 pb-20 relative">
+      <div className="absolute inset-0 bg-grid-pattern -z-10" />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full -translate-x-1/2 -z-10 pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Page Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <BookOpen className="h-5 w-5 text-primary" />
-            </div>
-            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              Blog
-            </div>
+        <div className="mb-16">
+          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-[#1d2634]/50 rounded-full border border-[#424853]/10">
+            <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" />
+            <span className="font-headline text-[10px] tracking-[0.2em] uppercase text-secondary">
+              Artikel & Perspektiven
+            </span>
           </div>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <h1 className="font-headline text-5xl md:text-6xl font-bold tracking-tighter mb-6">
             Gedanken und Perspektiven
           </h1>
-          <p className="mt-3 max-w-2xl text-muted">
-            Artikel über KI, technologischen Wandel und die Fragen, die mich dabei beschäftigen —
-            aus der Überzeugung, dass wir diese Entwicklung verstehen müssen, um sie zu gestalten.
+          <p className="text-[#a5abb8] max-w-2xl text-lg leading-relaxed">
+            Artikel über KI, technologischen Wandel und die Fragen, die mich dabei beschäftigen.
           </p>
         </div>
 
         {/* Post List */}
         {posts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-32 text-center">
-            <p className="text-5xl mb-4">✍️</p>
-            <p className="text-xl font-semibold text-foreground">
-              Noch keine Beiträge
-            </p>
-            <p className="text-muted mt-2 max-w-sm">
+            <p className="text-5xl mb-6">✍️</p>
+            <p className="font-headline text-2xl font-bold text-foreground mb-3">Noch keine Beiträge</p>
+            <p className="text-[#a5abb8] max-w-sm">
               Die ersten Artikel erscheinen bald. Schau bald wieder vorbei!
             </p>
           </div>
@@ -57,14 +54,14 @@ export default function BlogPage() {
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="group relative rounded-2xl border border-white/10 bg-card p-6 transition-all hover:border-primary/40 hover:bg-card/80"
+                className="group relative p-8 rounded-xl bg-[#121a25] border border-[#424853]/5 group-hover:bg-[#17202c] transition-colors"
               >
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {post.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+                      className="font-headline text-[10px] tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/10"
                     >
                       {tag}
                     </span>
@@ -72,36 +69,22 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h2 className="font-headline text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors leading-tight">
                   <Link href={`/blog/${post.slug}`} className="stretched-link">
                     {post.title}
                   </Link>
                 </h2>
 
                 {/* Description */}
-                <p className="text-muted text-sm leading-relaxed mb-5">
+                <p className="text-[#a5abb8] text-sm leading-relaxed mb-6">
                   {post.description}
                 </p>
 
-                {/* Meta + CTA */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-muted">
-                    <span className="flex items-center gap-1.5">
-                      <User className="h-3.5 w-3.5" />
-                      {post.author}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="h-3.5 w-3.5" />
-                      {formatDate(post.publishedAt)}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5" />
-                      {post.readingTimeMinutes} Min. Lesezeit
-                    </span>
-                  </div>
-                  <span className="flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                    Artikel lesen
-                    <ArrowRight className="h-4 w-4" />
+                {/* Meta */}
+                <div className="flex items-center gap-2">
+                  <div className="h-px flex-1 bg-[#424853]/20" />
+                  <span className="font-headline text-[10px] text-[#a5abb8]/40 tracking-widest uppercase">
+                    {formatDate(post.publishedAt)} · {post.readingTimeMinutes} Min. Lesezeit
                   </span>
                 </div>
               </article>

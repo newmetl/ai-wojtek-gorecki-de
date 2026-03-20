@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getAllPosts, formatDate } from "@/lib/blog";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 export default function LatestBlogPosts() {
   const posts = getAllPosts().slice(0, 3);
@@ -8,41 +7,40 @@ export default function LatestBlogPosts() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="py-20 bg-surface/30">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-28 px-6 md:px-12 bg-[#0c141e]/30">
+      <div className="max-w-[1440px] mx-auto">
         {/* Header */}
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex justify-between items-end mb-16">
           <div>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+            <h2 className="font-headline text-4xl font-bold mb-4 tracking-tight">
               Aus dem Blog
             </h2>
-            <p className="mt-2 text-muted">
-              KI-Tools, Methoden und Praxis für Product Owner.
+            <p className="text-[#a5abb8] max-w-md">
+              Gedanken über KI, Technologie und den gesellschaftlichen Wandel.
             </p>
           </div>
           <Link
             href="/blog"
-            className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            className="hidden md:inline-flex font-headline text-xs tracking-widest uppercase text-[#a5abb8] hover:text-secondary transition-colors border-b border-transparent hover:border-secondary pb-1"
           >
             Alle Artikel
-            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         {/* Cards */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col gap-4 rounded-xl border border-white/10 bg-card p-5 transition-all hover:border-primary/40 hover:bg-card/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+              className="group flex flex-col p-8 rounded-xl bg-[#121a25] border border-[#424853]/5 group-hover:bg-[#17202c] transition-colors"
             >
               {/* Tags */}
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {post.tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary"
+                    className="font-headline text-[10px] tracking-[0.15em] uppercase px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary border border-secondary/10"
                   >
                     {tag}
                   </span>
@@ -50,28 +48,34 @@ export default function LatestBlogPosts() {
               </div>
 
               {/* Title */}
-              <h3 className="font-semibold text-foreground text-sm leading-snug group-hover:text-primary transition-colors line-clamp-2">
+              <h3 className="font-headline text-xl font-bold mb-3 group-hover:text-secondary transition-colors leading-tight">
                 {post.title}
               </h3>
 
               {/* Description */}
-              <p className="flex-1 text-xs leading-relaxed text-muted line-clamp-3">
+              <p className="flex-1 text-sm leading-relaxed text-[#a5abb8] mb-6 line-clamp-3">
                 {post.description}
               </p>
 
               {/* Meta */}
-              <div className="flex items-center gap-3 text-[11px] text-muted border-t border-white/10 pt-3">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
+              <div className="flex items-center gap-2">
+                <div className="h-px flex-1 bg-[#424853]/20" />
+                <span className="font-headline text-[10px] text-[#a5abb8]/40 tracking-widest uppercase">
                   {formatDate(post.publishedAt)}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
-                  {post.readingTimeMinutes} Min.
                 </span>
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Mobile link */}
+        <div className="mt-8 md:hidden">
+          <Link
+            href="/blog"
+            className="font-headline text-xs tracking-widest uppercase text-[#a5abb8] hover:text-secondary transition-colors"
+          >
+            Alle Artikel →
+          </Link>
         </div>
       </div>
     </section>

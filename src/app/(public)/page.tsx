@@ -34,7 +34,7 @@ export default function HomePage() {
         }}
       />
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         <Hero />
         <LatestTrending />
         <LatestBlogPosts />

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Star, ExternalLink, ArrowRight } from "lucide-react";
 import TrendBadge from "./TrendBadge";
 
 export interface FeaturedCardData {
@@ -34,57 +33,40 @@ export default function FeaturedCard({ item }: FeaturedCardProps) {
       tabIndex={0}
       onClick={() => router.push(`/trending-ai/${item.slug}`)}
       onKeyDown={(e) => e.key === "Enter" && router.push(`/trending-ai/${item.slug}`)}
-      className="group relative flex flex-col gap-4 rounded-xl p-px cursor-pointer"
-      style={{
-        background: "linear-gradient(135deg, rgba(251,191,36,0.5) 0%, rgba(59,130,246,0.4) 50%, rgba(6,182,212,0.4) 100%)",
-      }}
+      className="group flex flex-col p-8 rounded-xl bg-[#17202c]/40 border border-[#424853]/10 backdrop-blur-sm group-hover:border-secondary/30 transition-all cursor-pointer"
     >
-      {/* Inner card */}
-      <div className="flex flex-col gap-4 rounded-[11px] bg-surface p-5 h-full transition-colors group-hover:bg-surface-hover">
-        {/* Header */}
-        <div className="flex items-start justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 px-2.5 py-1 text-[11px] font-semibold text-amber-300">
-              <Star className="h-3 w-3 fill-amber-300" />
-              Featured
-            </span>
-          </div>
+      {/* Kategorie-Label */}
+      <span className="font-headline text-[10px] tracking-[0.2em] text-secondary uppercase mb-6 block">
+        {item.category.name}
+      </span>
+
+      {/* Name */}
+      <h3 className="font-headline text-2xl font-bold mb-4 group-hover:text-secondary transition-colors">
+        {item.name}
+      </h3>
+
+      {/* Beschreibung */}
+      <p className="text-[#a5abb8] text-sm mb-auto line-clamp-4 leading-relaxed">
+        {item.description}
+      </p>
+
+      {/* Footer */}
+      <div className="mt-8 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl leading-none">{item.category.emoji ?? "🤖"}</span>
           <TrendBadge status={item.trendStatus} />
         </div>
-
-        {/* Emoji + Name */}
-        <div className="flex items-start gap-3">
-          <span className="text-3xl leading-none shrink-0">{item.category.emoji ?? "🤖"}</span>
-          <div>
-            <p className="text-base font-bold text-foreground leading-snug">{item.name}</p>
-            <p className="mt-0.5 text-xs font-medium text-primary/70">{item.category.name}</p>
-          </div>
-        </div>
-
-        {/* Beschreibung */}
-        <p className="flex-1 text-sm leading-relaxed text-muted">{item.description}</p>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-1">
-          {item.sourceUrl ? (
-            <a
-              href={item.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] text-muted hover:text-primary transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ExternalLink className="h-3 w-3" />
-              {item.sourceName ?? "Quelle"}
-            </a>
-          ) : (
-            <span />
-          )}
-          <span className="inline-flex items-center gap-1 text-[11px] text-primary/60 group-hover:text-primary transition-colors">
-            Mehr erfahren
-            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </div>
+        {item.sourceUrl && (
+          <a
+            href={item.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-headline text-[10px] text-[#a5abb8]/50 uppercase tracking-widest hover:text-secondary transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {item.sourceName ?? "Quelle"}
+          </a>
+        )}
       </div>
     </div>
   );

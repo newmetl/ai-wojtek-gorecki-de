@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import TrendingGrid from "@/components/trending/TrendingGrid";
 import type { CategoryOption } from "@/components/trending/CategoryFilter";
-import { TrendingUp, RefreshCw } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -96,36 +95,39 @@ export default async function TrendingAIPage() {
     }));
 
   return (
-    <main className="flex-1 pt-24 pb-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <main className="flex-1 pt-32 pb-20 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid-pattern -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Page Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <TrendingUp className="h-5 w-5 text-primary" />
-            </div>
+        <div className="mb-16">
+          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-[#1d2634]/50 rounded-full border border-[#424853]/10">
+            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+            <span className="font-headline text-[10px] tracking-[0.2em] uppercase text-primary">
+              Wöchentlich kuratiert
+            </span>
           </div>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <h1 className="font-headline text-5xl md:text-6xl font-bold tracking-tighter mb-6">
             Trending AI Tech
           </h1>
-          <p className="mt-3 max-w-2xl text-muted">
-            Die wichtigsten KI-Technologien, Tools und Entwicklungen — wöchentlich recherchiert
-            und kuratiert.
+          <p className="text-[#a5abb8] max-w-2xl text-lg leading-relaxed">
+            Die wichtigsten KI-Technologien, Tools und Entwicklungen — recherchiert und eingeordnet.
           </p>
           {lastUpdatedStr && (
-            <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
-              <RefreshCw className="h-3.5 w-3.5" />
+            <p className="mt-4 font-headline text-[10px] tracking-[0.2em] uppercase text-[#a5abb8]/50">
               Letzte Aktualisierung: {lastUpdatedStr}
-            </div>
+            </p>
           )}
         </div>
 
-        {/* Inhalt */}
+        {/* Content */}
         {entries.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-32 text-center">
-            <p className="text-5xl mb-4">🔍</p>
-            <p className="text-xl font-semibold text-foreground">Noch keine Einträge</p>
-            <p className="text-muted mt-2 max-w-sm">
+            <p className="text-5xl mb-6">🔍</p>
+            <p className="font-headline text-2xl font-bold text-foreground mb-3">Noch keine Einträge</p>
+            <p className="text-[#a5abb8] max-w-sm">
               Die Trending-Liste wird wöchentlich aktualisiert. Schau bald wieder vorbei!
             </p>
           </div>

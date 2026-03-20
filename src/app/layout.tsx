@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -14,11 +21,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Wojtek Gorecki — KI-gestützter Product Owner",
+    default: "Wojtek Gorecki — KI & Gesellschaftlicher Wandel",
     template: "%s — ai.wojtek-gorecki.de",
   },
   description:
-    "Tools und Ressourcen für Product Owner und Digitalexperten. Trending AI Tech, Use Cases, Prompt Library und mehr.",
+    "Persönliche Website zu KI, Technologie und gesellschaftlichem Wandel. Trending AI Tech, Blog und mehr.",
   metadataBase: new URL("https://ai.wojtek-gorecki.de"),
   openGraph: {
     type: "website",
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${spaceGrotesk.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased min-h-screen flex flex-col">
