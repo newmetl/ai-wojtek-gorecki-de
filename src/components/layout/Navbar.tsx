@@ -29,7 +29,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10 font-headline tracking-tight text-xs uppercase">
+        <div className="hidden md:flex items-center gap-10 font-headline tracking-tight text-sm uppercase">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
