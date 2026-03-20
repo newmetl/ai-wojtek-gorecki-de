@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useLayoutEffect } from "react";
+import { useState, useMemo } from "react";
 import SearchBar from "./SearchBar";
 import CategoryFilter, { type CategoryOption } from "./CategoryFilter";
 import TrendingCard, { type TrendingCardData } from "./TrendingCard";
@@ -20,33 +20,14 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
   const [activeCategory, setActiveCategory] = useState("");
   const [sortBy, setSortBy] = useState<"score" | "name" | "status">("score");
 
-  // Scroll-Anker: verhindert Sprung wenn Featured-Section ein-/ausblendet
-  const filterBarRef = useRef<HTMLDivElement>(null);
-  const scrollOffsetRef = useRef<number | null>(null);
-
-  const handleCategoryChange = (slug: string) => {
-    if (filterBarRef.current) {
-      scrollOffsetRef.current = filterBarRef.current.getBoundingClientRect().top;
-    }
-    setActiveCategory(slug);
-  };
-
-  useLayoutEffect(() => {
-    if (filterBarRef.current && scrollOffsetRef.current !== null) {
-      const newTop = filterBarRef.current.getBoundingClientRect().top;
-      window.scrollBy(0, newTop - scrollOffsetRef.current);
-      scrollOffsetRef.current = null;
-    }
-  });
-
-  // Featured IDs — im Haupt-Grid ausblenden (solange kein Filter aktiv)
+  // Featured IDs — im Haupt-Grid immer ausblenden (werden oben separat angezeigt)
   const featuredIds = useMemo(() => new Set(featuredItems.map((f) => f.id)), [featuredItems]);
 
   const isFiltering = search.trim() !== "" || activeCategory !== "";
 
   const filtered = useMemo(() => {
-    // Ohne Filter: Featured Items nicht doppelt zeigen
-    let result = isFiltering ? items : items.filter((item) => !featuredIds.has(item.id));
+    // Featured Items nie doppelt im Haupt-Grid zeigen
+    let result = items.filter((item) => !featuredIds.has(item.id));
 
     // Kategorie-Filter
     if (activeCategory) {
@@ -90,7 +71,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
   return (
     <div className="space-y-8">
       {/* ── Featured Section ── */}
-      {featuredItems.length > 0 && !isFiltering && (
+      {featuredItems.length > 0 && (
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
@@ -108,7 +89,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
       )}
 
       {/* ── Suche + Sortierung ── */}
-      <div ref={filterBarRef} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex-1">
           <SearchBar
             value={search}
@@ -137,7 +118,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
       <CategoryFilter
         categories={categoriesWithCount}
         activeSlug={activeCategory}
-        onChange={handleCategoryChange}
+        onChange={setActiveCategory}
       />
 
       {/* ── Ergebnis-Info ── */}
