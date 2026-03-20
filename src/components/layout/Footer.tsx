@@ -3,6 +3,7 @@ import Link from "next/link";
 const year = new Date().getFullYear();
 
 const footerLinks = [
+  { label: "Home", href: "/" },
   { label: "Trending AI", href: "/trending-ai" },
   { label: "Blog", href: "/blog" },
   { label: "About Me", href: "/cv" },
