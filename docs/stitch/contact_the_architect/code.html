@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CELESTIAL ARCHIVE | CONTACT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#9800d0",
+                        "tertiary": "#7c98ff",
+                        "error": "#ff716c",
+                        "surface-container-high": "#17202c",
+                        "primary-container": "#00eefc",
+                        "on-primary-fixed": "#003f43",
+                        "on-secondary": "#390050",
+                        "on-primary": "#005d63",
+                        "tertiary-fixed": "#98adff",
+                        "on-secondary-fixed": "#58007a",
+                        "secondary-fixed": "#f0c1ff",
+                        "surface-bright": "#222d3b",
+                        "outline-variant": "#424853",
+                        "on-surface-variant": "#a5abb8",
+                        "surface-container": "#121a25",
+                        "error-container": "#9f0519",
+                        "surface": "#080f18",
+                        "secondary-dim": "#b90afc",
+                        "secondary": "#d575ff",
+                        "on-background": "#e8eefc",
+                        "primary-fixed": "#00eefc",
+                        "on-primary-container": "#005359",
+                        "inverse-on-surface": "#4f5561",
+                        "surface-variant": "#1d2634",
+                        "on-tertiary-fixed-variant": "#002e94",
+                        "background": "#080f18",
+                        "on-tertiary": "#00195b",
+                        "tertiary-fixed-dim": "#849eff",
+                        "secondary-fixed-dim": "#eaaeff",
+                        "on-tertiary-container": "#ffffff",
+                        "inverse-surface": "#f8f9ff",
+                        "on-secondary-container": "#fff5fc",
+                        "surface-dim": "#080f18",
+                        "on-surface": "#e8eefc",
+                        "surface-container-highest": "#1d2634",
+                        "on-primary-fixed-variant": "#005e64",
+                        "primary-fixed-dim": "#00deec",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-dim": "#3367ff",
+                        "surface-container-low": "#0c141e",
+                        "on-secondary-fixed-variant": "#8300b4",
+                        "on-error-container": "#ffa8a3",
+                        "error-dim": "#d7383b",
+                        "outline": "#6f7682",
+                        "on-error": "#490006",
+                        "on-tertiary-fixed": "#001248",
+                        "primary": "#8ff5ff",
+                        "primary-dim": "#00deec",
+                        "inverse-primary": "#006a71",
+                        "surface-tint": "#8ff5ff",
+                        "tertiary-container": "#1858f6"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(66, 72, 83, 0.1) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .glow-sm { box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+        .glow-primary { box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TOP NAVIGATION BAR -->
+<nav class="fixed top-0 w-full z-50 bg-[#080f18]/80 backdrop-blur-xl bg-gradient-to-b from-[#0c141e] to-transparent shadow-[0_4px_30px_rgba(0,240,255,0.05)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1440px] mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#00F0FF] font-headline uppercase cursor-pointer active:scale-95 duration-200">
+                CELESTIAL_ARCHIVE
+            </div>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-headline tracking-tight text-sm uppercase text-[#e8eefc]/60 hover:text-[#e8eefc] transition-colors duration-300 cursor-pointer active:scale-95" href="#">ARCHIVE</a>
+<a class="font-headline tracking-tight text-sm uppercase text-[#e8eefc]/60 hover:text-[#e8eefc] transition-colors duration-300 cursor-pointer active:scale-95" href="#">SOCIETY</a>
+<a class="font-headline tracking-tight text-sm uppercase text-[#e8eefc]/60 hover:text-[#e8eefc] transition-colors duration-300 cursor-pointer active:scale-95" href="#">THE_VOID</a>
+<a class="font-headline tracking-tight text-sm uppercase text-[#e8eefc]/60 hover:text-[#e8eefc] transition-colors duration-300 cursor-pointer active:scale-95" href="#">ABOUT</a>
+<a class="font-headline tracking-tight text-sm uppercase text-[#00F0FF] border-b border-[#00F0FF] pb-1 cursor-pointer active:scale-95" href="#">CONTACT</a>
+</div>
+<button class="font-headline tracking-tight text-sm uppercase bg-primary text-on-primary px-6 py-2 rounded-md hover:glow-sm transition-all cursor-pointer active:scale-95 duration-200">
+                SUBSCRIBE
+            </button>
+</div>
+</nav>
+<!-- MAIN CONTENT -->
+<main class="relative min-h-screen pt-40 pb-20 px-6 md:px-12 bg-grid-pattern overflow-hidden">
+<!-- Background Ambient Glows -->
+<div class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
+<!-- Headline Section -->
+<div class="lg:col-span-12 mb-8">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-primary"></span>
+<span class="font-headline text-primary tracking-[0.3em] text-[10px] uppercase">Direct Transmission Protocol</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-background uppercase mb-4">
+                    SEND_SIGNAL
+                </h1>
+<p class="text-on-surface-variant max-w-xl font-body text-lg leading-relaxed">
+                    Initiate a direct link to the central archive. Messages are encrypted and transmitted across the static void at light-speed.
+                </p>
+</div>
+<!-- Contact Form Section (Left) -->
+<div class="lg:col-span-7">
+<div class="bg-surface-variant/40 backdrop-blur-2xl p-8 md:p-12 rounded-xl border border-primary/20 shadow-[0_0_50px_rgba(0,240,255,0.05)] relative overflow-hidden">
+<!-- Subtle Corner Accent -->
+<div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent pointer-events-none"></div>
+<form class="space-y-8 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Name Field -->
+<div class="space-y-2 group">
+<label class="font-headline text-[10px] tracking-widest text-on-surface-variant uppercase ml-1">Name (Input_Label)</label>
+<input class="w-full bg-surface-container-highest/50 border-0 border-b border-outline-variant/30 py-3 px-4 focus:ring-0 focus:border-primary transition-all text-on-surface placeholder:text-outline/40 font-headline tracking-tight" placeholder="ARCHIVIST_NAME" type="text"/>
+</div>
+<!-- Email Field -->
+<div class="space-y-2 group">
+<label class="font-headline text-[10px] tracking-widest text-on-surface-variant uppercase ml-1">Void_Address (Email)</label>
+<input class="w-full bg-surface-container-highest/50 border-0 border-b border-outline-variant/30 py-3 px-4 focus:ring-0 focus:border-primary transition-all text-on-surface placeholder:text-outline/40 font-headline tracking-tight" placeholder="SIGNAL@VOID.SPACE" type="email"/>
+</div>
+</div>
+<!-- Subject Field -->
+<div class="space-y-2 group">
+<label class="font-headline text-[10px] tracking-widest text-on-surface-variant uppercase ml-1">Frequency (Subject)</label>
+<input class="w-full bg-surface-container-highest/50 border-0 border-b border-outline-variant/30 py-3 px-4 focus:ring-0 focus:border-primary transition-all text-on-surface placeholder:text-outline/40 font-headline tracking-tight" placeholder="ENCRYPTED_TOPIC" type="text"/>
+</div>
+<!-- Message Field -->
+<div class="space-y-2 group">
+<label class="font-headline text-[10px] tracking-widest text-on-surface-variant uppercase ml-1">Message_Transmission (Textarea)</label>
+<textarea class="w-full bg-surface-container-highest/50 border-0 border-b border-outline-variant/30 py-3 px-4 focus:ring-0 focus:border-primary transition-all text-on-surface placeholder:text-outline/40 font-headline tracking-tight resize-none" placeholder="ENTER_ENCODED_MESSAGE_HERE..." rows="5"></textarea>
+</div>
+<!-- CTA Button -->
+<div class="pt-4">
+<button class="group relative w-full md:w-auto overflow-hidden rounded-lg bg-gradient-to-br from-primary to-primary-container px-12 py-4 font-headline font-bold tracking-tight text-on-primary-fixed uppercase hover:glow-primary transition-all duration-300 active:scale-95" type="submit">
+<span class="relative z-10">INITIALIZE_TRANSMISSION</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Communication Channels Sidebar (Right) -->
+<div class="lg:col-span-5 space-y-12 lg:pl-8">
+<section>
+<div class="mb-6">
+<h3 class="font-headline text-xl font-bold text-on-surface tracking-tight uppercase flex items-center gap-3">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                            COMMUNICATION_CHANNELS
+                        </h3>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- X / Twitter -->
+<a class="flex items-center justify-between group p-5 bg-surface-container-low/40 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all duration-500" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<span class="font-headline text-sm tracking-widest text-on-surface group-hover:text-secondary transition-colors uppercase">X_TERMS</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 group-hover:text-secondary transition-all">north_east</span>
+</a>
+<!-- Discord -->
+<a class="flex items-center justify-between group p-5 bg-surface-container-low/40 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all duration-500" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<span class="font-headline text-sm tracking-widest text-on-surface group-hover:text-secondary transition-colors uppercase">DISCORD_ARRAY</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 group-hover:text-secondary transition-all">north_east</span>
+</a>
+<!-- GitHub -->
+<a class="flex items-center justify-between group p-5 bg-surface-container-low/40 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all duration-500" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<span class="font-headline text-sm tracking-widest text-on-surface group-hover:text-secondary transition-colors uppercase">GITHUB_SOURCE</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 group-hover:text-secondary transition-all">north_east</span>
+</a>
+</div>
+</section>
+<section class="bg-surface-container-highest/20 p-8 rounded-xl border-l-2 border-secondary/40">
+<h4 class="font-headline text-sm font-bold text-on-surface tracking-widest uppercase mb-4">Transmission Status</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-[10px] font-headline text-on-surface-variant uppercase">
+<span>Signal Integrity</span>
+<span class="text-primary">99.9%</span>
+</div>
+<div class="w-full bg-outline-variant/20 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[99.9%]"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] font-headline text-on-surface-variant uppercase pt-2">
+<span>Latency Delay</span>
+<span class="text-secondary">0.04 MS</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full border-t border-[#424853]/15 bg-[#080f18]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-20 gap-8 max-w-[1440px] mx-auto">
+<div class="text-lg font-black text-[#e8eefc] font-headline uppercase">
+                CELESTIAL_ARCHIVE
+            </div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#e8eefc]/40 hover:text-[#00F0FF] hover:tracking-[0.3em] transition-all duration-500" href="#">TERMINAL</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#e8eefc]/40 hover:text-[#00F0FF] hover:tracking-[0.3em] transition-all duration-500" href="#">MANIFESTO</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#e8eefc]/40 hover:text-[#00F0FF] hover:tracking-[0.3em] transition-all duration-500" href="#">PRIVACY</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#d575ff] hover:text-[#00F0FF] hover:tracking-[0.3em] transition-all duration-500" href="#">SIGNAL</a>
+</div>
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-[#e8eefc]/40 text-center md:text-right">
+                © 2024 CELESTIAL ARCHIVE. ENGINEERED FOR THE VOYAGE.
+            </div>
+</div>
+</footer>
+</body></html>

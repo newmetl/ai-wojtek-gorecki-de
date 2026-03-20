@@ -24,9 +24,10 @@ export default function ShortProfile() {
             <p className="text-muted-foreground text-base leading-relaxed">
               Ich bin{" "}
               <span className="font-semibold text-foreground">Wojtek Gorecki</span>
-              {" "}— Product Owner mit Leidenschaft für KI und digitale Transformation.
-              Über 15 Jahre Erfahrung in der Entwicklung digitaler Produkte, an der
-              Schnittstelle von Strategie, Technologie und Führung.
+              {" "}— ich beschäftige mich mit KI und dem Wandel, den sie in Technologie
+              und Gesellschaft auslöst. Hier teile ich meine Perspektiven, kuratiere
+              wöchentlich die wichtigsten KI-Trends und schreibe über die Fragen,
+              die mich dabei bewegen.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link

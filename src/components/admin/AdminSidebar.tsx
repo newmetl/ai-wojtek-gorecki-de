@@ -3,17 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { LayoutDashboard, TrendingUp, Tag, LogOut, FlaskConical, BookOpen } from "lucide-react";
+import { LayoutDashboard, TrendingUp, Tag, LogOut } from "lucide-react";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { href: "/admin/trending", label: "Trending AI Tech", icon: TrendingUp },
   { href: "/admin/categories", label: "Kategorien", icon: Tag },
-];
-
-const comingSoon = [
-  { label: "Use Cases", icon: FlaskConical },
-  { label: "Prompts", icon: BookOpen },
 ];
 
 export default function AdminSidebar() {
@@ -56,23 +51,6 @@ export default function AdminSidebar() {
           );
         })}
 
-        <div className="pt-4 pb-2">
-          <p className="text-xs text-muted px-3 uppercase tracking-wider font-medium">
-            Phase 2 &amp; 3
-          </p>
-        </div>
-        {comingSoon.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={item.label}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted opacity-40 cursor-not-allowed select-none"
-            >
-              <Icon className="h-4 w-4 shrink-0" />
-              {item.label}
-            </div>
-          );
-        })}
       </nav>
 
       <div className="p-4 border-t border-border">

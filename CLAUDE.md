@@ -1,50 +1,60 @@
 # Technische Konzeption — ai.wojtek-gorecki.de
 
-> **Version:** 1.0 — März 2026
-> **Basiert auf:** Konzeptdokument Website-Relaunch v1.1
+> **Version:** 1.1 — März 2026
 > **Zweck:** Technische Spezifikation als Grundlage für die Umsetzung mit Claude Code
-> **Fachliches Konzept:** Siehe `docs/konzept.md` für Vision, Zielgruppe, 
-> Seitenbeschreibungen, Design-Vorgaben und inhaltliche Details.
-> Dieses Dokument hier enthält die technische Umsetzungsspezifikation.
+
 ---
 
 ## 1. Projektübersicht
 
 ### 1.1 Was wird gebaut?
 
-Eine Next.js-basierte Plattform unter `ai.wojtek-gorecki.de` mit:
+Wojtek Goreckis persönliche Website unter `ai.wojtek-gorecki.de` — kein Tool-Hub, sondern eine persönliche Plattform zu KI und gesellschaftlichem Wandel:
 
-- **Statischen Seiten:** Home, About this Page, About Me (CV), Kontakt, Impressum, Datenschutz
-- **Dynamischen Tools:** Trending AI Tech, AI Use Cases, Prompt Library, User Story Generator
-- **Admin-Interface:** Geschützter Bereich zur Content-Pflege
-- **Automatisiertes Scraping:** Wöchentliche Datenerfassung für Trending AI Tech
+- **Statische Seiten:** Home, About Me (CV), Kontakt, Impressum, Datenschutz
+- **Blog:** Statisch (HTML in `src/lib/blog.ts`), kein CMS
+- **Trending AI Tech:** Wöchentlich kuratierte KI-Trends unter `/trending-ai` (Hauptfeature)
+- **Admin-Interface:** Geschützter Bereich zur Content-Pflege (Trending, Kategorien, Scraping)
+- **Automatisiertes Scraping:** Wöchentliche Datenerfassung via Claude Research, HuggingFace, Reddit
 - **Analytics:** Self-hosted Umami
 
 ### 1.2 Tech-Stack
 
 | Komponente | Technologie |
 |---|---|
-| Framework | Next.js 14+ (App Router), TypeScript |
-| Styling | Tailwind CSS |
-| UI-Komponenten | shadcn/ui |
+| Framework | Next.js 16+ (App Router), TypeScript |
+| Styling | Tailwind CSS v4 (CSS-basiert via globals.css) |
+| UI-Komponenten | shadcn/ui v4 |
 | Datenbank | SQLite via Prisma ORM |
 | KI-Integration | Anthropic Claude API (claude-sonnet-4-20250514) |
-| Scraping | Cheerio (HTML), node-cron (Scheduling) |
+| Scraping | Claude Research (web_search), HuggingFace API, Reddit JSON API, node-cron |
 | Analytics | Umami (self-hosted) |
 | SEO | Next.js Metadata API, next-sitemap, JSON-LD |
 | Auth (Admin) | NextAuth.js mit Credentials Provider |
 | Hosting | Hostinger VPS, Docker Compose, Nginx + SSL |
 
-### 1.3 MVP-Scope (Phase 1)
+### 1.3 Aktuelle Seiten-Struktur
 
-Phase 1 umfasst:
+**Öffentliche Routes:**
+- `/` — Home (Hero, Trending-Vorschau, Blog-Vorschau, Kurzprofil)
+- `/trending-ai` — Trending AI Tech (Hauptfeature)
+- `/trending-ai/[slug]` — Detail-Seite eines Eintrags
+- `/blog` — Blog-Übersicht
+- `/blog/[slug]` — Blog-Artikel (statisch via `src/lib/blog.ts`)
+- `/cv` — About Me / Lebenslauf
+- `/kontakt` — Kontaktformular
+- `/impressum` + `/datenschutz` — Rechtliches
 
-- Alle statischen Seiten im neuen Design
-- Trending AI Tech (komplett mit Scraping-Pipeline)
-- Admin-Interface (Basis: Trending verwalten, Scraping auslösen)
-- Tools-Übersichtsseite mit Platzhaltern
-- Docker-Setup mit Nginx, SSL, Umami
-- SEO-Grundlagen
+**Admin Routes (geschützt):**
+- `/admin` — Dashboard
+- `/admin/trending` — Trending CRUD + Scraping-Trigger
+- `/admin/trending/[id]` — Einzeleintrag bearbeiten
+- `/admin/categories` — Kategorien CRUD
+
+### 1.4 Navigation
+
+Hauptnavigation: **Home → Trending AI Tech → Blog → About Me → Kontakt**
+Kein Tools-Dropdown, keine /tools-Seite.
 
 ---
 
@@ -69,29 +79,27 @@ ai-wojtek-gorecki/
 │   └── robots.txt
 ├── src/
 │   ├── app/                      # Next.js App Router
-│   │   ├── layout.tsx            # Root Layout (Nav, Footer, Analytics)
-│   │   ├── page.tsx              # Home
-│   │   ├── globals.css           # Tailwind + Custom CSS
-│   │   ├── tools/
-│   │   │   ├── page.tsx          # Tools-Übersicht
+│   │   ├── layout.tsx            # Root Layout (minimal)
+│   │   ├── globals.css           # Tailwind v4 + Custom CSS
+│   │   ├── (public)/             # Route Group mit Navbar + Footer
+│   │   │   ├── layout.tsx        # Public Layout
+│   │   │   ├── page.tsx          # Home
 │   │   │   ├── trending-ai/
-│   │   │   │   └── page.tsx      # Trending AI Tech
-│   │   │   ├── ai-use-cases/
-│   │   │   │   └── page.tsx      # AI Use Cases (Phase 2)
-│   │   │   ├── prompt-library/
-│   │   │   │   └── page.tsx      # Prompt Library (Phase 3)
-│   │   │   └── user-story-generator/
-│   │   │       └── page.tsx      # User Story Generator (Phase 4)
-│   │   ├── about/
-│   │   │   └── page.tsx          # About this Page
-│   │   ├── cv/
-│   │   │   └── page.tsx          # About Me / CV
-│   │   ├── kontakt/
-│   │   │   └── page.tsx          # Kontakt
-│   │   ├── impressum/
-│   │   │   └── page.tsx          # Impressum
-│   │   ├── datenschutz/
-│   │   │   └── page.tsx          # Datenschutz
+│   │   │   │   ├── page.tsx      # Trending AI Tech
+│   │   │   │   └── [slug]/
+│   │   │   │       └── page.tsx  # Detail-Seite
+│   │   │   ├── blog/
+│   │   │   │   ├── page.tsx      # Blog-Übersicht
+│   │   │   │   └── [slug]/
+│   │   │   │       └── page.tsx  # Blog-Artikel
+│   │   │   ├── cv/
+│   │   │   │   └── page.tsx      # About Me / CV
+│   │   │   ├── kontakt/
+│   │   │   │   └── page.tsx      # Kontakt
+│   │   │   ├── impressum/
+│   │   │   │   └── page.tsx      # Impressum
+│   │   │   └── datenschutz/
+│   │   │       └── page.tsx      # Datenschutz
 │   │   ├── admin/
 │   │   │   ├── layout.tsx        # Admin Layout (Auth-Guard)
 │   │   │   ├── page.tsx          # Admin Dashboard
@@ -101,62 +109,34 @@ ai-wojtek-gorecki/
 │   │   │   │   ├── page.tsx      # Trending verwalten
 │   │   │   │   └── [id]/
 │   │   │   │       └── page.tsx  # Einzelnen Eintrag bearbeiten
-│   │   │   ├── use-cases/
-│   │   │   │   └── page.tsx      # Use Cases verwalten (Phase 2)
-│   │   │   ├── prompts/
-│   │   │   │   └── page.tsx      # Prompts verwalten (Phase 3)
 │   │   │   └── categories/
 │   │   │       └── page.tsx      # Kategorien verwalten
 │   │   └── api/
-│   │       ├── auth/
-│   │       │   └── [...nextauth]/
-│   │       │       └── route.ts  # NextAuth.js Handler
+│   │       ├── auth/[...nextauth]/route.ts
 │   │       ├── admin/
-│   │       │   ├── trending/
-│   │       │   │   ├── route.ts  # CRUD Trending
-│   │       │   │   └── [id]/
-│   │       │   │       └── route.ts
-│   │       │   ├── categories/
-│   │       │   │   └── route.ts  # CRUD Kategorien
-│   │       │   ├── use-cases/
-│   │       │   │   └── route.ts  # CRUD Use Cases (Phase 2)
-│   │       │   ├── prompts/
-│   │       │   │   └── route.ts  # CRUD Prompts (Phase 3)
-│   │       │   └── scraping/
-│   │       │       └── trigger/
-│   │       │           └── route.ts  # Scraping manuell auslösen
-│   │       ├── trending/
-│   │       │   └── route.ts      # Öffentliche API: Trending-Daten
-│   │       ├── user-story/
-│   │       │   └── route.ts      # Claude API Proxy (Phase 4)
-│   │       └── contact/
-│   │           └── route.ts      # Kontaktformular
+│   │       │   ├── trending/route.ts + [id]/route.ts + bulk-approve/route.ts
+│   │       │   ├── categories/route.ts + [id]/route.ts
+│   │       │   └── scraping/trigger/route.ts
+│   │       ├── trending/route.ts + [slug]/route.ts
+│   │       └── contact/route.ts
 │   ├── components/
 │   │   ├── ui/                   # shadcn/ui Komponenten
 │   │   ├── layout/
-│   │   │   ├── Navbar.tsx
+│   │   │   ├── Navbar.tsx        # Hauptnavigation
 │   │   │   ├── MobileNav.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── Container.tsx
+│   │   │   └── Footer.tsx
 │   │   ├── home/
 │   │   │   ├── Hero.tsx
-│   │   │   ├── ToolTeaser.tsx
-│   │   │   ├── ToolCard.tsx
 │   │   │   ├── ShortProfile.tsx
-│   │   │   └── LatestTrending.tsx
+│   │   │   ├── LatestTrending.tsx
+│   │   │   └── LatestBlogPosts.tsx
 │   │   ├── trending/
 │   │   │   ├── TrendingGrid.tsx
 │   │   │   ├── TrendingCard.tsx
+│   │   │   ├── FeaturedCard.tsx
 │   │   │   ├── CategoryFilter.tsx
 │   │   │   ├── SearchBar.tsx
 │   │   │   └── TrendBadge.tsx
-│   │   ├── cv/
-│   │   │   ├── ExperienceTimeline.tsx
-│   │   │   ├── SkillTags.tsx
-│   │   │   └── LanguageBar.tsx
-│   │   ├── contact/
-│   │   │   ├── ContactForm.tsx
-│   │   │   └── ContactLinks.tsx
 │   │   ├── admin/
 │   │   │   ├── AdminSidebar.tsx
 │   │   │   ├── TrendingTable.tsx
@@ -165,34 +145,24 @@ ai-wojtek-gorecki/
 │   │   │   ├── ScrapingStatus.tsx
 │   │   │   └── DashboardStats.tsx
 │   │   └── shared/
-│   │       ├── SectionHeading.tsx
-│   │       ├── Badge.tsx
-│   │       ├── LoadingSpinner.tsx
-│   │       └── SEO.tsx
+│   │       └── SectionHeading.tsx
 │   ├── lib/
 │   │   ├── db.ts                 # Prisma Client Singleton
 │   │   ├── auth.ts               # NextAuth.js Konfiguration
-│   │   ├── claude.ts             # Claude API Client
+│   │   ├── blog.ts               # Statische Blog-Posts (Array)
 │   │   ├── scraping/
-│   │   │   ├── index.ts          # Scraping-Orchestrierung
-│   │   │   ├── github.ts         # GitHub Trending Scraper
-│   │   │   ├── producthunt.ts    # Product Hunt API Client
-│   │   │   ├── hackernews.ts     # Hacker News API Client
-│   │   │   ├── arxiv.ts          # arXiv API Client
-│   │   │   ├── rss.ts            # RSS/Tech-Blog Scraper
+│   │   │   ├── index.ts          # Orchestrator (runFullScrape)
+│   │   │   ├── research.ts       # Claude Research via web_search
+│   │   │   ├── huggingface.ts    # HuggingFace Papers + Models
+│   │   │   ├── reddit.ts         # Reddit (r/MachineLearning, r/LocalLLaMA)
 │   │   │   ├── dedup.ts          # Deduplizierung
-│   │   │   └── categorize.ts     # KI-Kategorisierung (Claude)
-│   │   ├── cron.ts               # Cron-Job Setup
+│   │   │   ├── categorize.ts     # KI-Kategorisierung (Claude API)
+│   │   │   └── types.ts          # RawScrapedItem, CategorizedItem
 │   │   └── utils.ts              # Hilfsfunktionen (slugify, etc.)
-│   └── types/
-│       ├── trending.ts           # TypeScript Types für Trending
-│       ├── usecase.ts            # Types für Use Cases
-│       ├── prompt.ts             # Types für Prompts
-│       └── scraping.ts           # Types für Scraping-Pipeline
+│   └── instrumentation.ts        # Cron-Job Initialisierung
 ├── next.config.ts
-├── tailwind.config.ts
 ├── tsconfig.json
-├── next-sitemap.config.js        # Sitemap-Konfiguration
+├── next-sitemap.config.js
 ├── package.json
 └── README.md
 ```
@@ -337,7 +307,6 @@ Die Seed-Datei (`prisma/seed.ts`) legt die initialen Kategorien an:
 | GET | `/api/trending` | Alle freigegebenen Trending-Einträge (mit optionalen Query-Params: `category`, `search`, `status`) |
 | GET | `/api/trending/[slug]` | Einzelner Trending-Eintrag |
 | POST | `/api/contact` | Kontaktformular absenden |
-| POST | `/api/user-story` | User Story Generator — Claude API Proxy (Phase 4) |
 
 ### 4.2 Admin API (geschützt via NextAuth Session)
 
@@ -354,8 +323,6 @@ Die Seed-Datei (`prisma/seed.ts`) legt die initialen Kategorien an:
 | PUT | `/api/admin/categories/[id]` | Kategorie aktualisieren |
 | DELETE | `/api/admin/categories/[id]` | Kategorie löschen |
 
-Phase 2 ergänzt: `/api/admin/use-cases` (CRUD)
-Phase 3 ergänzt: `/api/admin/prompts` (CRUD)
 
 ### 4.3 API-Antwortformat
 
@@ -1081,29 +1048,11 @@ const config: Config = {
 
 ---
 
-## 14. Spätere Phasen (Referenz)
+## 14. Mögliche spätere Erweiterungen
 
-### Phase 2: AI Use Cases
-- Datenmodell steht bereits (UseCase in Prisma-Schema)
-- Admin-CRUD für Use Cases + Kategorie-Pflege
-- Frontend: Filter, Suche, Karten-Layout
-- Aktualisierung: monatlich (manuell + KI-unterstützt)
+Die Website ist bewusst schlank gehalten. Mögliche spätere Ergänzungen:
 
-### Phase 3: Prompt Library
-- Datenmodell steht bereits (Prompt in Prisma-Schema)
-- Admin-CRUD für Prompts
-- Frontend: Kategorie-Nav, Suche, Expand, Copy-to-Clipboard
-- Aktualisierung: monatlich
-
-### Phase 4: User Story Generator
-- API-Route: POST `/api/user-story` → Claude API
-- Frontend: Eingabeformular, Ladeanimation, strukturierte Ausgabe
-- Export: Copy + Markdown-Download
-- Kostenkontrolle: Rate-Limiting, Token-Begrenzung, ggf. Captcha
-- Details werden bei Beginn dieser Phase festgelegt
-
-### Phase 5: Internationalisierung (i18n)
-- next-intl oder next-i18next einrichten
-- Routing: `/de/...` und `/en/...`
-- Übersetzungsdateien für alle statischen Texte
-- Tool-Inhalte: Datenbank-Felder für EN-Übersetzungen ergänzen
+- **Mehr Blog-Inhalte:** Neue Artikel in `src/lib/blog.ts` eintragen
+- **Scraper-Erweiterungen:** Neue Quellen in `src/lib/scraping/` hinzufügen
+- **Internationalisierung:** next-intl für `/de/` und `/en/` Routing
+- **Newsletter:** E-Mail-Abonnement für neue KI-Trends und Blog-Posts

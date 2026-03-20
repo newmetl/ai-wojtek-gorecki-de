@@ -31,8 +31,8 @@ export default function TrendingCard({ item }: TrendingCardProps) {
     <div
       role="link"
       tabIndex={0}
-      onClick={() => router.push(`/tools/trending-ai/${item.slug}`)}
-      onKeyDown={(e) => e.key === "Enter" && router.push(`/tools/trending-ai/${item.slug}`)}
+      onClick={() => router.push(`/trending-ai/${item.slug}`)}
+      onKeyDown={(e) => e.key === "Enter" && router.push(`/trending-ai/${item.slug}`)}
       className="group flex flex-col gap-3 rounded-xl border border-white/10 bg-surface p-5 transition-all hover:border-white/20 hover:bg-surface-hover cursor-pointer"
     >
       {/* Header: Kategorie-Emoji + Badge */}

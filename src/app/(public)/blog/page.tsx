@@ -4,13 +4,13 @@ import { getAllPosts, formatDate } from "@/lib/blog";
 import { BookOpen, ArrowRight, Calendar, Clock, User } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog — KI für Product Owner | Wojtek Gorecki",
+  title: "Blog — KI und gesellschaftlicher Wandel | Wojtek Gorecki",
   description:
-    "Artikel über KI-Tools, Methoden und Praxis für Product Owner. Praktisches Wissen aus dem Alltag eines KI-affinen POs.",
+    "Gedanken und Perspektiven zu KI, technologischem Wandel und den Fragen, die mich dabei beschäftigen.",
   openGraph: {
-    title: "Blog — KI für Product Owner",
+    title: "Blog — Wojtek Gorecki",
     description:
-      "Artikel über KI-Tools, Methoden und Praxis für Product Owner.",
+      "Gedanken und Perspektiven zu KI, technologischem Wandel und den Fragen, die mich dabei beschäftigen.",
     type: "website",
     url: "https://ai.wojtek-gorecki.de/blog",
   },
@@ -33,11 +33,11 @@ export default function BlogPage() {
             </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
-            KI für Product Owner
+            Gedanken und Perspektiven
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
-            Praktische Artikel über KI-Tools, Methoden und echte Anwendungsfälle —
-            aus der Perspektive eines Product Owners.
+            Artikel über KI, technologischen Wandel und die Fragen, die mich dabei beschäftigen —
+            aus der Überzeugung, dass wir diese Entwicklung verstehen müssen, um sie zu gestalten.
           </p>
         </div>
 

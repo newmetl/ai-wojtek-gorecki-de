@@ -165,20 +165,19 @@ export default async function BlogPostPage({ params }: Props) {
               Nächste Schritte
             </p>
             <h2 className="text-xl font-bold text-foreground mb-2">
-              Tools direkt ausprobieren
+              Mehr entdecken
             </h2>
             <p className="text-muted text-sm mb-6">
-              Die im Artikel erwähnten Tools — Trending AI Tech, Prompt Library und User Story
-              Generator — findest du direkt auf dieser Seite.
+              Das im Artikel erwähnte Trending AI Tech — wöchentlich kuratierte KI-Technologien — findest du direkt auf dieser Seite.
             </p>
             <div className="flex flex-wrap gap-3">
               {/* Primary CTA */}
               <Link
-                href="/tools"
+                href="/trending-ai"
                 className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
               >
                 <Wrench className="h-4 w-4" />
-                Zu den Tools
+                Trending AI Tech
                 <ArrowRight className="h-4 w-4" />
               </Link>
               {/* Secondary CTA */}

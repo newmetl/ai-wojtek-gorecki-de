@@ -10,7 +10,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { navLinks, tools } from "./Navbar";
+import { navLinks } from "./Navbar";
 
 interface MobileNavProps {
   pathname: string;
@@ -49,38 +49,11 @@ export default function MobileNav({ pathname }: MobileNavProps) {
               <MobileNavLink
                 key={link.href}
                 href={link.href}
-                active={pathname === link.href}
+                active={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))}
               >
                 {link.label}
               </MobileNavLink>
             ))}
-
-            {/* Tools Section */}
-            <div className="mt-4 pt-4 border-t border-white/10">
-              <p className="px-3 mb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                Tools
-              </p>
-              {tools.map((tool) => (
-                <MobileNavLink
-                  key={tool.href}
-                  href={tool.href}
-                  active={pathname === tool.href}
-                >
-                  <span className="flex items-center justify-between w-full">
-                    <span>{tool.label}</span>
-                    {tool.status === "live" ? (
-                      <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-accent/20 text-accent">
-                        Live
-                      </span>
-                    ) : (
-                      <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-white/5 text-muted-foreground">
-                        Soon
-                      </span>
-                    )}
-                  </span>
-                </MobileNavLink>
-              ))}
-            </div>
           </nav>
         </SheetContent>
       </Sheet>

@@ -32,8 +32,8 @@ export default function FeaturedCard({ item }: FeaturedCardProps) {
     <div
       role="link"
       tabIndex={0}
-      onClick={() => router.push(`/tools/trending-ai/${item.slug}`)}
-      onKeyDown={(e) => e.key === "Enter" && router.push(`/tools/trending-ai/${item.slug}`)}
+      onClick={() => router.push(`/trending-ai/${item.slug}`)}
+      onKeyDown={(e) => e.key === "Enter" && router.push(`/trending-ai/${item.slug}`)}
       className="group relative flex flex-col gap-4 rounded-xl p-px cursor-pointer"
       style={{
         background: "linear-gradient(135deg, rgba(251,191,36,0.5) 0%, rgba(59,130,246,0.4) 50%, rgba(6,182,212,0.4) 100%)",

@@ -6,17 +6,10 @@ const year = new Date().getFullYear();
 const footerLinks = {
   navigation: [
     { label: "Home", href: "/" },
+    { label: "Trending AI Tech", href: "/trending-ai" },
     { label: "Blog", href: "/blog" },
-    { label: "Tools", href: "/tools" },
-    { label: "About this Page", href: "/about" },
     { label: "About Me", href: "/cv" },
     { label: "Kontakt", href: "/kontakt" },
-  ],
-  tools: [
-    { label: "Trending AI Tech", href: "/tools/trending-ai" },
-    { label: "AI Use Cases", href: "/tools/ai-use-cases" },
-    { label: "Prompt Library", href: "/tools/prompt-library" },
-    { label: "User Story Generator", href: "/tools/user-story-generator" },
   ],
   legal: [
     { label: "Impressum", href: "/impressum" },
@@ -30,7 +23,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-1 group w-fit">
               <span className="font-mono font-bold text-lg text-primary group-hover:text-primary/80 transition-colors">
                 ai.
@@ -39,8 +32,8 @@ export default function Footer() {
                 wojtek&#8209;gorecki.de
               </span>
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              Tools und Ressourcen für Product Owner und Digitalexperten.
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-sm">
+              Persönliche Perspektiven zu KI und dem gesellschaftlichen Wandel — mit wöchentlich kuratierten Trends und Artikeln.
             </p>
             {/* Social Links */}
             <div className="mt-4 flex items-center gap-3">
@@ -70,25 +63,6 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {footerLinks.navigation.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Tools */}
-          <div>
-            <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-4">
-              Tools
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks.tools.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

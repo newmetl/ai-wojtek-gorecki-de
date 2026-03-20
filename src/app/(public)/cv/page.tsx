@@ -1,108 +1,64 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import ExperienceTimeline from "@/components/cv/ExperienceTimeline";
-import SkillTags from "@/components/cv/SkillTags";
-import LanguageBar from "@/components/cv/LanguageBar";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Me — Wojtek Gorecki, Product Owner",
+  title: "About Me — Wojtek Gorecki",
   description:
-    "Lebenslauf und Profil von Wojtek Gorecki — erfahrener Product Owner, Softwareentwickler und Diplom-Informatiker mit über 15 Jahren Erfahrung in der Entwicklung digitaler Produkte.",
+    "Ich bin Informatiker, ehemaliger Softwareentwickler, Gründer und Berater — und seit einigen Jahren intensiver Beobachter des KI-Zeitalters.",
+  openGraph: {
+    title: "About Me — Wojtek Gorecki",
+    description:
+      "Informatiker, Unternehmer und neugieriger Beobachter des KI-Zeitalters.",
+    type: "profile",
+    url: "https://ai.wojtek-gorecki.de/cv",
+  },
 };
 
-const experience = [
+const themes = [
   {
-    role: "Beratung für persönliche Entwicklung",
-    company: "Selbstständig",
-    period: "04/2025 – heute",
-    description:
-      "Begleitung von Einzelpersonen in Veränderungsprozessen. Konzeption und Durchführung von Vortrags- und Dialogformaten. Aufbau und Positionierung eines eigenständigen Beratungsangebots.",
-    tags: ["Coaching", "Beratung", "KI-Integration"],
+    emoji: "🌍",
+    title: "Die gesellschaftliche Frage",
+    text: "Nicht \"Was kann KI?\" — sondern \"Was macht KI mit uns?\" Wie verändert sie unser Selbstbild, unsere Demokratie, unsere Gemeinschaften?",
   },
   {
-    role: "Product Owner / Dev-Teamleiter / Projektportfoliomanager",
-    company: "Shift Digital · publicplan GmbH",
-    period: "05/2023 – 03/2025",
-    description:
-      "Konzeption und Weiterentwicklung webbasierter Empfangssysteme für digitale Verwaltungsanträge. Disziplinarische Leitung eines Entwicklungsteams, fachliche Verantwortung für ein Projektportfolio und inhaltliche Steuerung eines 13-köpfigen interdisziplinären Teams.",
-    tags: ["Product Ownership", "Scrum", "Team Lead", "Öffentliche Verwaltung"],
+    emoji: "💼",
+    title: "Die Arbeitswelt",
+    text: "Welche Rollen verschwinden, welche entstehen neu? Wie müssen sich Organisationen verändern, um mit KI sinnvoll umzugehen?",
   },
   {
-    role: "Co-Founder und Mentor",
-    company: "let's lead",
-    period: "09/2020 – 05/2022",
-    description:
-      "Mitgründer eines Beratungsunternehmens. Durchführung 12-monatiger Entwicklungsprogramme für Führungskräfte. Begleitung von Transformationsprozessen in Unternehmen.",
-    tags: ["Leadership", "Coaching", "Unternehmertum"],
+    emoji: "🔬",
+    title: "Die Technologie",
+    text: "Was ist wirklich Substanz, was ist Hype? Ich versuche, die Entwicklungen einzuordnen — mit dem Blick eines Informatikers, nicht eines Marketers.",
   },
   {
-    role: "Berater für Organisations- und Persönlichkeitsentwicklung",
-    company: "Selbstständig",
-    period: "11/2018 – 04/2023",
-    description:
-      "Beratung von Start-ups und Mittelständlern beim Aufbau agiler und selbstorganisierter Strukturen. Coaching von Gründer:innen und Führungskräften.",
-    tags: ["Organisationsentwicklung", "Agilität", "Change Management"],
-  },
-  {
-    role: "Trainer für JavaScript, TypeScript und React",
-    company: "Freiberuflich · workshops.de",
-    period: "11/2018 – 08/2020",
-    description:
-      "Durchführung mehrtägiger Schulungen für moderne Web-Technologien.",
-    tags: ["TypeScript", "React", "JavaScript", "Training"],
-  },
-  {
-    role: "Web-Entwickler und Team-Lead",
-    company: "9elements GmbH",
-    period: "02/2011 – 10/2018",
-    description:
-      "Entwicklung komplexer Web-Anwendungen als Full-Stack Entwickler. Fachliche Leitung von Projektteams (bis 6 Personen). Konzeption digitaler Produkte für unterschiedliche Branchen.",
-    tags: ["Ruby on Rails", "JavaScript", "React", "Team Lead"],
-  },
-  {
-    role: "Consulting und Web-Entwicklung",
-    company: "e-Spirit AG",
-    period: "12/2009 – 01/2011",
-    description:
-      "Umsetzung von Web-Projekten mit FirstSpirit CMS und Schulung von Kunden.",
-    tags: ["CMS", "Consulting", "Web-Entwicklung"],
+    emoji: "🧠",
+    title: "Die menschliche Seite",
+    text: "Angst, Neugier, Überforderung — wie gehen Menschen mit dem Wandel um? Was brauchen sie, um handlungsfähig zu bleiben?",
   },
 ];
 
-const focuses = [
-  "Strategische Schärfung und Operationalisierung von Produktvisionen",
-  "Konzeption digitaler Produkte und Features von der Idee bis zur Umsetzungsreife",
-  "Übersetzung von Business- und Experience-Zielen in technisch tragfähige Lösungen",
-  "Integration von KI-Funktionalitäten und neuen Technologien in bestehende Produktkontexte",
-  "Strukturierung, Priorisierung und Roadmap-Gestaltung in komplexen Umfeldern",
-  "Enge Zusammenarbeit mit Entwicklungsteams bei Architektur- und Umsetzungsentscheidungen",
-  "Entwicklung sinnvoller Test- und Qualitätsstrategien (Testability by Design)",
-  "Weiterentwicklung von Team- und Zusammenarbeitsstrukturen im Produkt- und Projektkontext",
+const chapters = [
+  {
+    period: "2009 – 2018",
+    title: "Informatik & Software",
+    text: "Diplom-Informatiker von der TU Dortmund. Danach sieben Jahre als Webentwickler und Team Lead bei 9elements — komplexe Webanwendungen, Full-Stack, Produktentwicklung für verschiedenste Branchen.",
+  },
+  {
+    period: "2018 – 2025",
+    title: "Führung & Menschen",
+    text: "Wechsel auf die menschliche Seite: Leadership-Beratung, Co-Gründer von let's lead, Begleitung von Führungskräften und Organisationen. Zuletzt Product Owner und Teamleiter in der öffentlichen Verwaltung.",
+  },
+  {
+    period: "2025 – heute",
+    title: "KI & Wandel",
+    text: "Intensive Auseinandersetzung mit KI und ihren gesellschaftlichen Implikationen. Aufbau dieser Plattform als Ort für Beobachtungen, Einordnungen und offene Fragen.",
+  },
 ];
 
-const technicalSkills = [
-  "TypeScript", "JavaScript", "React", "Angular",
-  "Ruby on Rails", "PostgreSQL", "REST APIs", "Git",
-];
-
-const productSkills = [
-  "Product Ownership", "Scrum / Kanban", "Stakeholder Management",
-  "Roadmap Planning", "Agile Methoden", "KI-Integration", "Prompt Engineering",
-  "LLM Integration", "Digitale Transformation", "Testability by Design",
-  "Organisationsentwicklung", "Leadership & Coaching",
-];
-
-const languages = [
-  { name: "Deutsch", level: "Muttersprache", percent: 100 },
-  { name: "Englisch", level: "Verhandlungssicher", percent: 90 },
-  { name: "Polnisch", level: "Grundkenntnisse", percent: 25 },
-  { name: "Französisch", level: "Grundkenntnisse", percent: 15 },
-];
-
-export default function CVPage() {
+export default function AboutPage() {
   return (
     <>
-      {/* JSON-LD: Person */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -110,27 +66,18 @@ export default function CVPage() {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Wojtek Gorecki",
-            jobTitle: "Product Owner",
             url: "https://ai.wojtek-gorecki.de/cv",
-            email: "hallo@wojtek-gorecki.de",
             image: "https://ai.wojtek-gorecki.de/images/profile.jpg",
             sameAs: ["https://www.linkedin.com/in/wojtek-gorecki/"],
-            alumniOf: {
-              "@type": "CollegeOrUniversity",
-              name: "Technische Universität Dortmund",
-            },
-            knowsAbout: [
-              "Product Management", "Artificial Intelligence",
-              "Web Development", "Digital Transformation", "Agile Methods",
-            ],
+            knowsAbout: ["Artificial Intelligence", "Digital Transformation", "Web Development", "Leadership"],
           }),
         }}
       />
 
       <main className="flex-1 pt-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
 
-          {/* Profil-Header */}
+          {/* Header */}
           <div className="mb-16 flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
             <div className="relative shrink-0 self-start">
               <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-primary/40 to-secondary/20 blur" />
@@ -143,19 +90,12 @@ export default function CVPage() {
                 priority
               />
             </div>
-
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
                 Wojtek Gorecki
               </h1>
-              <p className="mt-1 text-lg text-primary font-medium">
-                Product Owner · Diplom-Informatiker · 15+ Jahre Erfahrung
-              </p>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Erfahrener Product Owner und Softwareentwickler mit über 15 Jahren Erfahrung
-                in der Entwicklung digitaler Produkte. Ich verbinde technisches
-                Tiefenverständnis mit strategischer Produktverantwortung und
-                Führungserfahrung — in Start-ups, Mittelstand und öffentlicher Verwaltung.
+              <p className="mt-2 text-lg text-primary font-medium">
+                Informatiker, Unternehmer und neugieriger Beobachter des KI-Zeitalters.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
@@ -169,78 +109,107 @@ export default function CVPage() {
                   </svg>
                   LinkedIn
                 </a>
-                <a
+                <Link
                   href="/kontakt"
                   className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-white/10"
                 >
                   Kontakt aufnehmen
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
-          {/* Tätigkeitsschwerpunkte */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold text-foreground mb-5">Tätigkeitsschwerpunkte</h2>
-            <div className="rounded-xl border border-white/10 bg-card p-6">
-              <ul className="space-y-2.5">
-                {focuses.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="mt-0.5 h-4 w-4 shrink-0 text-primary">
-                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
+          {/* Wer ich bin */}
+          <section className="mb-14">
+            <h2 className="text-xl font-bold text-foreground mb-5">Wer ich bin</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Ich bin Diplom-Informatiker, ehemaliger Softwareentwickler, Gründer, Berater —
+                und seit einigen Jahren intensiver Beobachter des KI-Zeitalters. Mein Weg war selten geradlinig:
+                Ich habe Software gebaut, Teams geleitet, ein Beratungsunternehmen gegründet,
+                Führungskräfte begleitet — und dabei immer wieder dieselbe Frage gestellt:
+                <span className="text-foreground font-medium"> Wie verändert Technologie eigentlich die Art, wie wir arbeiten, entscheiden und zusammenleben?</span>
+              </p>
+              <p>
+                Diese Frage hat mich durch eine Informatikkarriere geführt, dann in die Welt von Leadership
+                und Organisationsentwicklung — und schließlich mitten hinein ins KI-Zeitalter.
+                Heute brenne ich heißer denn je auf diese Frage. Nicht weil KI einfach faszinierend ist,
+                sondern weil die Antworten darauf bestimmen werden, wie wir als Gesellschaft die nächsten
+                Jahrzehnte gestalten.
+              </p>
+              <p>
+                Diese Website ist mein Versuch, öffentlich nachzudenken — ehrlich, ohne fertige Antworten
+                und ohne die Überheblichkeit, die in diesem Thema so schnell mitschwingt.
+              </p>
+            </div>
+          </section>
+
+          {/* Was mich beschäftigt */}
+          <section className="mb-14">
+            <h2 className="text-xl font-bold text-foreground mb-5">Was mich beschäftigt</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {themes.map((theme) => (
+                <div
+                  key={theme.title}
+                  className="rounded-xl border border-white/10 bg-surface p-5"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl leading-none">{theme.emoji}</span>
+                    <h3 className="font-semibold text-foreground text-sm">{theme.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{theme.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Mein Weg */}
+          <section className="mb-14">
+            <h2 className="text-xl font-bold text-foreground mb-5">Mein Weg</h2>
+            <div className="relative">
+              {/* Vertikale Linie */}
+              <div className="absolute left-[11px] top-2 bottom-2 w-px bg-white/10" />
+              <div className="space-y-8">
+                {chapters.map((chapter) => (
+                  <div key={chapter.title} className="relative flex gap-6">
+                    {/* Punkt auf der Linie */}
+                    <div className="relative shrink-0 mt-1">
+                      <div className="h-5 w-5 rounded-full border-2 border-primary bg-background" />
+                    </div>
+                    <div className="flex-1 pb-2">
+                      <p className="text-xs font-semibold text-primary mb-1">{chapter.period}</p>
+                      <h3 className="font-semibold text-foreground mb-2">{chapter.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{chapter.text}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            </div>
-          </section>
-
-          {/* Ausbildung & Fortbildung */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold text-foreground mb-4">Ausbildung</h2>
-            <div className="space-y-3">
-              <div className="rounded-xl border border-white/10 bg-card p-5">
-                <p className="text-xs font-medium text-primary/80 mb-1">2009</p>
-                <h3 className="font-semibold text-foreground">Diplom-Informatiker</h3>
-                <p className="text-sm text-muted-foreground mt-0.5">
-                  Technische Universität Dortmund
-                </p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-card p-5">
-                <p className="text-xs font-medium text-primary/80 mb-1">2019 · Fortbildung</p>
-                <h3 className="font-semibold text-foreground">Future Leadership Consultant</h3>
-                <p className="text-sm text-muted-foreground mt-0.5">
-                  Intrinsify Akademie
-                </p>
               </div>
             </div>
           </section>
 
-          {/* Berufserfahrung */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold text-foreground mb-6">Berufserfahrung</h2>
-            <ExperienceTimeline entries={experience} />
-          </section>
-
-          {/* Skills */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold text-foreground mb-6">Kenntnisse</h2>
-            <div className="rounded-xl border border-white/10 bg-card p-6 space-y-7">
-              <SkillTags title="Technischer Hintergrund" skills={technicalSkills} variant="primary" />
-              <SkillTags title="Kompetenzen" skills={productSkills} variant="secondary" />
+          {/* CTA */}
+          <div className="rounded-2xl border border-white/10 bg-surface p-8 text-center">
+            <p className="text-foreground font-semibold mb-2">Austauschen?</p>
+            <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto">
+              Wenn dich ähnliche Fragen beschäftigen, freue ich mich auf den Kontakt.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+              >
+                Nachricht schreiben
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/wojtek-gorecki/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-white/10 transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
-          </section>
-
-          {/* Sprachen */}
-          <section>
-            <h2 className="text-xl font-bold text-foreground mb-6">Sprachen</h2>
-            <div className="rounded-xl border border-white/10 bg-card p-6">
-              <LanguageBar languages={languages} />
-            </div>
-          </section>
+          </div>
 
         </div>
       </main>

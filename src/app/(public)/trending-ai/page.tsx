@@ -9,12 +9,12 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Trending AI Tech — Die wichtigsten KI-Technologien",
   description:
-    "Wöchentlich aktualisierte Übersicht der Top-KI-Technologien, kategorisiert und mit kurzen Erklärungen. Für Product Owner und Tech-Experten.",
+    "Wöchentlich aktualisierte Übersicht der Top-KI-Technologien, kategorisiert und mit kurzen Erklärungen.",
   openGraph: {
     title: "Trending AI Tech — ai.wojtek-gorecki.de",
     description: "Die wichtigsten KI-Technologien auf einen Blick.",
     type: "website",
-    url: "https://ai.wojtek-gorecki.de/tools/trending-ai",
+    url: "https://ai.wojtek-gorecki.de/trending-ai",
   },
 };
 
@@ -75,7 +75,6 @@ export default async function TrendingAIPage() {
   }));
 
   // Featured Items: approved + featuredIndex gesetzt, sortiert nach featuredIndex
-  // Hinweis: e.featuredIndex != null (loose) fängt sowohl null als auch undefined ab
   const featuredItems = entries
     .filter((e) => e.featuredIndex != null)
     .sort((a, b) => (a.featuredIndex ?? 0) - (b.featuredIndex ?? 0))
@@ -105,16 +104,13 @@ export default async function TrendingAIPage() {
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
               <TrendingUp className="h-5 w-5 text-primary" />
             </div>
-            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-              Tool
-            </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
             Trending AI Tech
           </h1>
           <p className="mt-3 max-w-2xl text-muted">
             Die wichtigsten KI-Technologien, Tools und Entwicklungen — wöchentlich recherchiert
-            und kuratiert für Product Owner und Tech-Entscheider.
+            und kuratiert.
           </p>
           {lastUpdatedStr && (
             <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">

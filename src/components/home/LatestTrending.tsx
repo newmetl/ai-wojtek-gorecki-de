@@ -4,12 +4,13 @@ import TrendBadge from "@/components/trending/TrendBadge";
 import { ArrowRight } from "lucide-react";
 
 export default async function LatestTrending() {
-  const items = await db.trendingTech.findMany({
-    where: { reviewStatus: "approved" },
+  const allFeatured = await db.trendingTech.findMany({
+    where: { reviewStatus: "approved", featuredIndex: { not: null } },
     include: { category: true },
-    orderBy: [{ trendScore: "desc" }, { createdAt: "desc" }],
-    take: 4,
+    orderBy: { featuredIndex: "asc" },
   });
+
+  const items = allFeatured.slice(0, 4);
 
   if (items.length === 0) return null;
 
@@ -27,7 +28,7 @@ export default async function LatestTrending() {
             </p>
           </div>
           <Link
-            href="/tools/trending-ai"
+            href="/trending-ai"
             className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
           >
             Alle ansehen
@@ -40,7 +41,7 @@ export default async function LatestTrending() {
           {items.map((item) => (
             <Link
               key={item.id}
-              href={`/tools/trending-ai/${item.slug}`}
+              href={`/trending-ai/${item.slug}`}
               className="group flex flex-col gap-3 rounded-xl border border-white/10 bg-surface p-5 transition-all hover:border-white/20 hover:bg-surface-hover"
             >
               <div className="flex items-start justify-between gap-2">

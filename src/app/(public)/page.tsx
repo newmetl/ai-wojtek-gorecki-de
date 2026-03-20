@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
-import ToolTeaser from "@/components/home/ToolTeaser";
 import LatestTrending from "@/components/home/LatestTrending";
 import LatestBlogPosts from "@/components/home/LatestBlogPosts";
 import ShortProfile from "@/components/home/ShortProfile";
@@ -8,9 +7,9 @@ import ShortProfile from "@/components/home/ShortProfile";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Wojtek Gorecki — KI-gestützter Product Owner",
+  title: "Wojtek Gorecki — KI und der gesellschaftliche Wandel",
   description:
-    "KI-Tools und Ressourcen für Product Owner: Trending AI Tech, Use Cases, Prompt Library und User Story Generator.",
+    "Meine persönliche Website über KI, technologischen Wandel und die Fragen, die mich bewegen — mit wöchentlich kuratierten Trends und Artikeln.",
 };
 
 export default function HomePage() {
@@ -23,10 +22,10 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Wojtek Gorecki — KI-gestützter Product Owner",
+            name: "Wojtek Gorecki",
             url: "https://ai.wojtek-gorecki.de",
             description:
-              "Tools und Ressourcen für Product Owner und Digitalexperten.",
+              "Persönliche Website über KI, technologischen Wandel und die Fragen, die mich bewegen.",
             author: {
               "@type": "Person",
               name: "Wojtek Gorecki",
@@ -37,7 +36,6 @@ export default function HomePage() {
 
       <main className="flex-1 pt-16">
         <Hero />
-        <ToolTeaser />
         <LatestTrending />
         <LatestBlogPosts />
         <ShortProfile />

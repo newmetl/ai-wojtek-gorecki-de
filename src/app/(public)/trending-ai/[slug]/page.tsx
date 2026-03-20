@@ -29,10 +29,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${item.name} — ai.wojtek-gorecki.de`,
       description: item.description,
       type: "article",
-      url: `${siteUrl}/tools/trending-ai/${slug}`,
+      url: `${siteUrl}/trending-ai/${slug}`,
     },
     alternates: {
-      canonical: `${siteUrl}/tools/trending-ai/${slug}`,
+      canonical: `${siteUrl}/trending-ai/${slug}`,
     },
   };
 }
@@ -52,7 +52,7 @@ export default async function TrendingDetailPage({ params }: Props) {
       <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         {/* Zurück-Link */}
         <Link
-          href="/tools/trending-ai"
+          href="/trending-ai"
           className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors mb-8"
         >
           <ArrowLeft className="h-4 w-4" />

@@ -33,42 +33,40 @@ export default function Hero() {
           {/* Tag-Chip */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            KI-Plattform für Product Owner
+            Persönliche Perspektiven zu KI und Wandel
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            KI-Tools, die
+            KI verändert alles —
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Product Ownership
+              nicht nur die Tech-Branche.
             </span>
-            <br />
-            besser machen.
           </h1>
 
           {/* Subline */}
           <p className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl leading-relaxed">
-            Wöchentlich aktualisierte KI-Trends, praxisnahe Use Cases und
-            Prompt-Vorlagen — kuratiert von einem Product Owner für Product Owner.
+            Hier schreibe ich über Themen, die mich bewegen: Künstliche Intelligenz, technologischer
+            Wandel und was das für uns als Gesellschaft bedeutet.
           </p>
 
           {/* CTAs */}
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/tools"
+              href="/trending-ai"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 hover:-translate-y-0.5"
             >
-              Tools entdecken
+              Trending AI Tech
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
             <Link
-              href="/kontakt"
+              href="/blog"
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5"
             >
-              Kontakt
+              Zum Blog
             </Link>
           </div>
         </div>
