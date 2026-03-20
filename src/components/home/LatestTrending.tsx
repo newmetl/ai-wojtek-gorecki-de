@@ -6,7 +6,10 @@ export default async function LatestTrending() {
   const items = await db.trendingTech.findMany({
     where: { reviewStatus: "approved" },
     include: { category: true },
-    orderBy: { featuredIndex: "asc" },
+    orderBy: [
+      { featuredIndex: "asc" },
+      { trendScore: "desc" },
+    ],
     take: 3,
   });
 
