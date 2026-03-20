@@ -47,7 +47,7 @@ export default function LatestBlogPosts() {
               <>
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0c141e] via-[#121a25] to-[#080f18]" />
                 <div className="absolute inset-0 bg-grid-pattern" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/10 blur-[80px] rounded-full pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
               </>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-[#080f18] via-[#080f18]/30 to-transparent" />
@@ -57,13 +57,13 @@ export default function LatestBlogPosts() {
                 {post1.tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
-                    className="font-headline text-[10px] tracking-[0.15em] uppercase px-2.5 py-0.5 rounded-full bg-secondary/15 text-secondary border border-secondary/20"
+                    className="font-headline text-[10px] tracking-[0.15em] uppercase px-2.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/20"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="font-headline text-xl md:text-3xl font-bold leading-tight mb-3 group-hover:text-secondary transition-colors duration-300">
+              <h3 className="font-headline text-xl md:text-3xl font-bold leading-tight mb-3 group-hover:text-primary transition-colors duration-300">
                 {post1.title}
               </h3>
               <div className="flex items-center gap-3">
@@ -71,7 +71,7 @@ export default function LatestBlogPosts() {
                   {formatDate(post1.publishedAt)} · {post1.readingTimeMinutes} Min.
                 </span>
                 <div className="h-px flex-1 bg-[#424853]/20" />
-                <span className="font-headline text-[10px] text-secondary/0 group-hover:text-secondary/80 tracking-widest uppercase transition-colors duration-300">
+                <span className="font-headline text-[10px] text-primary/0 group-hover:text-primary/80 tracking-widest uppercase transition-colors duration-300">
                   Lesen →
                 </span>
               </div>
@@ -82,12 +82,12 @@ export default function LatestBlogPosts() {
           {post2 && (
             <Link
               href={`/blog/${post2.slug}`}
-              className="md:col-span-1 md:row-span-2 min-h-[200px] group flex flex-col p-6 md:p-8 rounded-xl bg-[#17202c]/40 border border-[#424853]/10 hover:border-secondary/30 backdrop-blur-sm transition-all duration-300 cursor-pointer"
+              className="md:col-span-1 md:row-span-2 min-h-[200px] group flex flex-col p-6 md:p-8 rounded-xl bg-[#17202c]/40 border border-[#424853]/10 hover:border-primary/30 backdrop-blur-sm transition-all duration-300 cursor-pointer"
             >
-              <span className="font-headline text-[10px] tracking-[0.2em] text-secondary uppercase mb-4 block">
+              <span className="font-headline text-[10px] tracking-[0.2em] text-primary uppercase mb-4 block">
                 {post2.tags[0]}
               </span>
-              <h4 className="font-headline text-lg md:text-xl font-bold mb-4 group-hover:text-secondary transition-colors leading-snug">
+              <h4 className="font-headline text-lg md:text-xl font-bold mb-4 group-hover:text-primary transition-colors leading-snug">
                 {post2.title}
               </h4>
               <p className="text-[#a5abb8] text-sm leading-relaxed line-clamp-3 mb-6">
@@ -97,7 +97,7 @@ export default function LatestBlogPosts() {
                 <span className="font-headline text-[10px] text-[#a5abb8]/40 tracking-widest uppercase">
                   {post2.readingTimeMinutes} Min.
                 </span>
-                <span className="font-headline text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase">
+                <span className="font-headline text-[10px] text-primary opacity-0 group-hover:opacity-100 transition-opacity tracking-widest uppercase">
                   →
                 </span>
               </div>
