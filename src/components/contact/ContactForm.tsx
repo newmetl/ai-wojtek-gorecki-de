@@ -4,63 +4,98 @@ export default function ContactForm() {
   const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "#";
 
   return (
-    <form action={endpoint} method="POST" className="space-y-8">
-      {/* Name */}
-      <div className="relative group">
-        <label htmlFor="name" className="block font-headline text-[10px] text-[#6f7682] uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          autoComplete="name"
-          placeholder="Dein Name"
-          className="w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-4 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none"
-        />
-      </div>
+    <div className="bg-[#1d2634]/40 backdrop-blur-2xl p-8 md:p-12 rounded-xl border border-primary/20 shadow-[0_0_50px_rgba(0,240,255,0.05)] relative overflow-hidden">
+      {/* Corner accent */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent pointer-events-none" />
 
-      {/* E-Mail */}
-      <div className="relative group">
-        <label htmlFor="email" className="block font-headline text-[10px] text-[#6f7682] uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
-          E-Mail
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          placeholder="deine@email.de"
-          className="w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-4 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none"
-        />
-      </div>
+      <form action={endpoint} method="POST" className="space-y-8 relative z-10">
+        {/* Name + E-Mail grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-2 group">
+            <label
+              htmlFor="name"
+              className="block font-headline text-[10px] tracking-widest text-[#a5abb8] uppercase ml-1 group-focus-within:text-primary transition-colors"
+            >
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              placeholder="Dein Name"
+              className="w-full bg-[#1d2634]/50 border-0 border-b border-[#424853]/30 py-3 px-4 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm placeholder:text-[#6f7682]/40 font-headline tracking-tight outline-none transition-colors"
+            />
+          </div>
 
-      {/* Nachricht */}
-      <div className="relative group">
-        <label htmlFor="message" className="block font-headline text-[10px] text-[#6f7682] uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
-          Nachricht
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          placeholder="Deine Nachricht..."
-          className="w-full bg-[#1d2634]/40 border-0 border-b-2 border-[#6f7682]/20 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm py-4 transition-all duration-300 placeholder:text-[#6f7682]/40 outline-none resize-none"
-        />
-      </div>
+          <div className="space-y-2 group">
+            <label
+              htmlFor="email"
+              className="block font-headline text-[10px] tracking-widest text-[#a5abb8] uppercase ml-1 group-focus-within:text-primary transition-colors"
+            >
+              E-Mail
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="deine@email.de"
+              className="w-full bg-[#1d2634]/50 border-0 border-b border-[#424853]/30 py-3 px-4 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm placeholder:text-[#6f7682]/40 font-headline tracking-tight outline-none transition-colors"
+            />
+          </div>
+        </div>
 
-      <input type="hidden" name="_next" value="https://ai.wojtek-gorecki.de/kontakt?sent=1" />
+        {/* Betreff */}
+        <div className="space-y-2 group">
+          <label
+            htmlFor="subject"
+            className="block font-headline text-[10px] tracking-widest text-[#a5abb8] uppercase ml-1 group-focus-within:text-primary transition-colors"
+          >
+            Betreff
+          </label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="Worum geht es?"
+            className="w-full bg-[#1d2634]/50 border-0 border-b border-[#424853]/30 py-3 px-4 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm placeholder:text-[#6f7682]/40 font-headline tracking-tight outline-none transition-colors"
+          />
+        </div>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        className="w-full bg-primary text-[#003f43] font-headline font-bold text-sm tracking-widest py-4 px-8 rounded-md transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] active:scale-95 uppercase"
-      >
-        Nachricht senden
-      </button>
-    </form>
+        {/* Nachricht */}
+        <div className="space-y-2 group">
+          <label
+            htmlFor="message"
+            className="block font-headline text-[10px] tracking-widest text-[#a5abb8] uppercase ml-1 group-focus-within:text-primary transition-colors"
+          >
+            Nachricht
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={5}
+            placeholder="Deine Nachricht..."
+            className="w-full bg-[#1d2634]/50 border-0 border-b border-[#424853]/30 py-3 px-4 focus:border-primary focus:ring-0 text-[#e8eefc] text-sm placeholder:text-[#6f7682]/40 font-headline tracking-tight outline-none transition-colors resize-none"
+          />
+        </div>
+
+        <input type="hidden" name="_next" value="https://ai.wojtek-gorecki.de/kontakt?sent=1" />
+
+        {/* Submit */}
+        <div className="pt-2">
+          <button
+            type="submit"
+            className="group relative w-full md:w-auto overflow-hidden rounded-lg bg-gradient-to-br from-primary to-[#00deec] px-12 py-4 font-headline font-bold tracking-widest text-[#003f43] text-sm uppercase hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all duration-300 active:scale-95"
+          >
+            <span className="relative z-10">Nachricht senden</span>
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
