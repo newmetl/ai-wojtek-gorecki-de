@@ -5,8 +5,8 @@ export default function ContactForm() {
 
   return (
     <div className="bg-[#1d2634]/40 backdrop-blur-2xl p-8 md:p-12 rounded-xl border border-primary/20 shadow-[0_0_50px_rgba(0,240,255,0.05)] relative overflow-hidden">
-      {/* Corner accent */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent pointer-events-none" />
+      {/* Full-card gradient accent */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-primary/[0.04] via-transparent to-transparent pointer-events-none" />
 
       <form action={endpoint} method="POST" className="space-y-8 relative z-10">
         {/* Name + E-Mail grid */}
