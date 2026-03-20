@@ -101,6 +101,18 @@ export default async function BlogPostPage({ params }: Props) {
             ← Alle Beiträge
           </Link>
 
+          {/* Hero Image */}
+          {post.image && (
+            <div className="relative w-full rounded-xl overflow-hidden mb-12 bg-[#0c141e]" style={{ aspectRatio: "21/9" }}>
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover opacity-60 grayscale"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080f18] via-transparent to-transparent" />
+            </div>
+          )}
+
           {/* Header */}
           <header className="mb-12">
             {/* Tags */}

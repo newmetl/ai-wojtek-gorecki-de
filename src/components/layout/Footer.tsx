@@ -17,9 +17,10 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 py-16 gap-8 max-w-[1440px] mx-auto">
         <Link
           href="/"
-          className="font-headline text-lg font-bold tracking-tighter text-foreground hover:text-primary transition-colors"
+          className="font-headline text-lg font-bold tracking-tighter hover:opacity-80 transition-opacity"
         >
-          ai.wojtek&#8209;gorecki.de
+          <span className="text-primary">ai.</span>
+          <span className="text-foreground">wojtek&#8209;gorecki.de</span>
         </Link>
 
         <div className="flex flex-wrap justify-center gap-8 font-headline text-[10px] tracking-[0.2em] uppercase">

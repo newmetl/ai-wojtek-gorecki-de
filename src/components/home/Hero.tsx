@@ -33,10 +33,10 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-8">
             <Link
-              href="/trending-ai"
+              href="/blog"
               className="group flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-md font-headline font-bold text-base hover:bg-primary transition-colors duration-300"
             >
-              Trending AI Tech
+              Zum Blog
               <svg
                 className="h-5 w-5 group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -48,10 +48,10 @@ export default function Hero() {
               </svg>
             </Link>
             <Link
-              href="/blog"
+              href="/trending-ai"
               className="font-headline text-sm tracking-widest text-[#a5abb8] hover:text-secondary transition-colors uppercase border-b border-transparent hover:border-secondary pb-1"
             >
-              Zum Blog
+              Trending AI Tech
             </Link>
           </div>
         </div>

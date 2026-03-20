@@ -21,9 +21,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-headline text-xl font-bold tracking-tighter text-primary hover:glow-sm transition-all duration-200 active:scale-95"
+          className="font-headline text-xl font-bold tracking-tighter hover:opacity-80 transition-all duration-200 active:scale-95"
         >
-          ai.wojtek&#8209;gorecki.de
+          <span className="text-primary">ai.</span>
+          <span className="text-foreground">wojtek&#8209;gorecki.de</span>
         </Link>
 
         {/* Desktop Nav */}

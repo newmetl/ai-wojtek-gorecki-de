@@ -97,9 +97,9 @@ export default async function TrendingDetailPage({ params }: Props) {
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-foreground mb-3">Was ist das?</h2>
           {item.beginnerExplanation ? (
-            <p className="text-sm leading-relaxed text-muted">{item.beginnerExplanation}</p>
+            <p className="text-sm leading-relaxed text-[#a5abb8]">{item.beginnerExplanation}</p>
           ) : (
-            <p className="text-sm text-muted/60 italic">
+            <p className="text-sm text-[#6f7682] italic">
               Die einfache Erklärung wird beim nächsten Scraping generiert.
             </p>
           )}
