@@ -4,12 +4,9 @@ import TrendBadge from "@/components/trending/TrendBadge";
 
 export default async function LatestTrending() {
   const items = await db.trendingTech.findMany({
-    where: { reviewStatus: "approved" },
+    where: { reviewStatus: "approved", featuredIndex: { not: null } },
     include: { category: true },
-    orderBy: [
-      { featuredIndex: "asc" },
-      { trendScore: "desc" },
-    ],
+    orderBy: { featuredIndex: "asc" },
     take: 3,
   });
 
