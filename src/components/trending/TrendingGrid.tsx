@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useLayoutEffect } from "react";
 import SearchBar from "./SearchBar";
 import CategoryFilter, { type CategoryOption } from "./CategoryFilter";
 import TrendingCard, { type TrendingCardData } from "./TrendingCard";
@@ -19,6 +19,25 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
   const [sortBy, setSortBy] = useState<"score" | "name" | "status">("score");
+
+  // Scroll-Anker: verhindert Sprung wenn Featured-Section ein-/ausblendet
+  const filterBarRef = useRef<HTMLDivElement>(null);
+  const scrollOffsetRef = useRef<number | null>(null);
+
+  const handleCategoryChange = (slug: string) => {
+    if (filterBarRef.current) {
+      scrollOffsetRef.current = filterBarRef.current.getBoundingClientRect().top;
+    }
+    setActiveCategory(slug);
+  };
+
+  useLayoutEffect(() => {
+    if (filterBarRef.current && scrollOffsetRef.current !== null) {
+      const newTop = filterBarRef.current.getBoundingClientRect().top;
+      window.scrollBy(0, newTop - scrollOffsetRef.current);
+      scrollOffsetRef.current = null;
+    }
+  });
 
   // Featured IDs — im Haupt-Grid ausblenden (solange kein Filter aktiv)
   const featuredIds = useMemo(() => new Set(featuredItems.map((f) => f.id)), [featuredItems]);
@@ -89,7 +108,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
       )}
 
       {/* ── Suche + Sortierung ── */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div ref={filterBarRef} className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex-1">
           <SearchBar
             value={search}
@@ -118,7 +137,7 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
       <CategoryFilter
         categories={categoriesWithCount}
         activeSlug={activeCategory}
-        onChange={setActiveCategory}
+        onChange={handleCategoryChange}
       />
 
       {/* ── Ergebnis-Info ── */}
