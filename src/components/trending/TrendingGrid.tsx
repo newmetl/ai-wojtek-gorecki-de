@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import CategoryFilter, { type CategoryOption } from "./CategoryFilter";
 import TrendingCard, { type TrendingCardData } from "./TrendingCard";
 import FeaturedCard, { type FeaturedCardData } from "./FeaturedCard";
-import { SlidersHorizontal, Star } from "lucide-react";
+import { SlidersHorizontal, Star, ChevronDown } from "lucide-react";
 
 interface TrendingGridProps {
   items: TrendingCardData[];
@@ -99,15 +99,18 @@ export default function TrendingGrid({ items, categories, featuredItems }: Trend
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <SlidersHorizontal className="h-4 w-4 text-[#6f7682]" />
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-            className="appearance-none rounded-lg border border-[#424853]/40 bg-[#121a25] py-2 pl-3 pr-8 text-sm text-foreground placeholder:text-[#6f7682] focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
-          >
-            <option value="score">Nach Relevanz</option>
-            <option value="status">Nach Status</option>
-            <option value="name">Nach Name</option>
-          </select>
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+              className="appearance-none rounded-lg border border-[#424853]/40 bg-[#121a25] py-2 pl-3 pr-8 text-sm text-foreground focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-colors"
+            >
+              <option value="score">Nach Relevanz</option>
+              <option value="status">Nach Status</option>
+              <option value="name">Nach Name</option>
+            </select>
+            <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#6f7682] pointer-events-none" />
+          </div>
         </div>
       </div>
 
