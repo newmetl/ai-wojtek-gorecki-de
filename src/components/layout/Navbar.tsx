@@ -6,6 +6,7 @@ import MobileNav from "./MobileNav";
 import { cn } from "@/lib/utils";
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Trending AI", href: "/trending-ai" },
   { label: "Blog", href: "/blog" },
   { label: "About Me", href: "/cv" },
