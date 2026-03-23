@@ -2,7 +2,7 @@
 set -e
 echo "=== Deploying PROD at $(date) ==="
 cd /srv/repos/app-prod
-git pull origin main
+git pull origin prod
 docker compose -f /srv/docker-compose.yml build app-prod
 docker compose -f /srv/docker-compose.yml up -d --no-deps --force-recreate app-prod
 docker compose -f /srv/docker-compose.yml exec -T app-prod \
