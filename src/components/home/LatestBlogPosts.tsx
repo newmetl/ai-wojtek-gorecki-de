@@ -63,9 +63,12 @@ export default function LatestBlogPosts() {
                   </span>
                 ))}
               </div>
-              <h3 className="font-headline text-xl md:text-3xl font-bold leading-tight mb-3 group-hover:text-primary transition-colors duration-300">
+              <h3 className="font-headline text-xl md:text-3xl font-bold leading-tight mb-2 group-hover:text-primary transition-colors duration-300">
                 {post1.title}
               </h3>
+              <p className="text-[#a5abb8] text-sm leading-relaxed line-clamp-2 mb-3">
+                {post1.description}
+              </p>
               <div className="flex items-center gap-3">
                 <span className="font-headline text-[10px] text-[#a5abb8]/50 tracking-widest uppercase">
                   {formatDate(post1.publishedAt)} · {post1.readingTimeMinutes} Min.
