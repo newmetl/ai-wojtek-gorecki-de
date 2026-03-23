@@ -114,9 +114,12 @@ export default function LatestBlogPosts() {
               <span className="font-headline text-[10px] tracking-[0.2em] text-primary uppercase mb-3 block">
                 {post.tags[0]}
               </span>
-              <h4 className="font-headline text-sm font-bold leading-snug flex-1 group-hover:text-primary transition-colors line-clamp-3">
+              <h4 className="font-headline text-sm font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2">
                 {post.title}
               </h4>
+              <p className="text-[#a5abb8] text-xs leading-relaxed line-clamp-2 mt-2 flex-1">
+                {post.description}
+              </p>
               <div className="mt-4 flex items-center gap-2">
                 <div className="h-px flex-1 bg-[#424853]/20" />
                 <span className="font-headline text-[10px] text-[#a5abb8]/40 tracking-widest uppercase">
