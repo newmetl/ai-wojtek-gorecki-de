@@ -81,13 +81,13 @@ export default function CategoryManager({
   return (
     <div className="space-y-6">
       {/* Tab-Filter */}
-      <div className="flex rounded-lg border border-border overflow-hidden text-sm w-fit">
+      <div className="flex rounded-lg bg-surface-container-low overflow-hidden text-sm w-fit">
         {Object.entries(TYPE_LABELS).map(([type, label]) => (
           <button
             key={type}
             onClick={() => { setActiveType(type); setEditing(null); setShowNew(false); }}
-            className={`px-4 py-2 transition-colors ${
-              activeType === type ? "bg-primary text-white" : "text-muted hover:text-foreground hover:bg-surface-hover"
+            className={`px-4 py-2 transition-all duration-300 ${
+              activeType === type ? "bg-primary text-primary-foreground font-medium" : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest"
             }`}
           >
             {label}
@@ -96,26 +96,26 @@ export default function CategoryManager({
       </div>
 
       {/* Kategorien-Liste */}
-      <div className="bg-surface border border-border rounded-xl overflow-hidden">
+      <div className="bg-surface-container-low rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-border text-left">
-              <th className="px-4 py-3 text-muted font-medium">Emoji</th>
-              <th className="px-4 py-3 text-muted font-medium">Name</th>
-              <th className="px-4 py-3 text-muted font-medium">Slug</th>
-              <th className="px-4 py-3 text-muted font-medium">Sortierung</th>
-              <th className="px-4 py-3 text-muted font-medium">Aktionen</th>
+            <tr className="border-b border-outline-variant/20 text-left">
+              <th className="px-4 py-3 text-on-surface-variant font-medium">Emoji</th>
+              <th className="px-4 py-3 text-on-surface-variant font-medium">Name</th>
+              <th className="px-4 py-3 text-on-surface-variant font-medium">Slug</th>
+              <th className="px-4 py-3 text-on-surface-variant font-medium">Sortierung</th>
+              <th className="px-4 py-3 text-on-surface-variant font-medium">Aktionen</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((cat) => (
-              <tr key={cat.id} className="border-b border-border last:border-0 hover:bg-surface-hover/50 transition-colors">
+              <tr key={cat.id} className="border-b border-outline-variant/10 last:border-0 hover:bg-surface-container transition-all duration-300">
                 <td className="px-4 py-3">
                   {editing === cat.id ? (
                     <input
                       value={editValues.emoji}
                       onChange={(e) => setEditValues((p) => ({ ...p, emoji: e.target.value }))}
-                      className="w-14 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                      className="w-14 px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                     />
                   ) : (
                     <span className="text-xl">{cat.emoji ?? "—"}</span>
@@ -126,23 +126,23 @@ export default function CategoryManager({
                     <input
                       value={editValues.name}
                       onChange={(e) => setEditValues((p) => ({ ...p, name: e.target.value }))}
-                      className="w-full px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                      className="w-full px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                     />
                   ) : (
-                    <span className="text-foreground">{cat.name}</span>
+                    <span className="text-on-surface">{cat.name}</span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-muted font-mono text-xs">{cat.slug}</td>
+                <td className="px-4 py-3 text-on-surface-variant font-mono text-xs">{cat.slug}</td>
                 <td className="px-4 py-3">
                   {editing === cat.id ? (
                     <input
                       type="number"
                       value={editValues.sortOrder}
                       onChange={(e) => setEditValues((p) => ({ ...p, sortOrder: parseInt(e.target.value) }))}
-                      className="w-20 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                      className="w-20 px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                     />
                   ) : (
-                    <span className="text-muted">{cat.sortOrder}</span>
+                    <span className="text-on-surface-variant">{cat.sortOrder}</span>
                   )}
                 </td>
                 <td className="px-4 py-3">
@@ -150,22 +150,22 @@ export default function CategoryManager({
                     {editing === cat.id ? (
                       <>
                         <button onClick={() => saveEdit(cat.id)} disabled={saving}
-                          className="p-1.5 rounded hover:bg-green-400/10 text-muted hover:text-green-400 transition-colors">
+                          className="p-1.5 rounded hover:bg-green-400/10 text-on-surface-variant hover:text-green-400 transition-all duration-300">
                           <Check className="h-4 w-4" />
                         </button>
                         <button onClick={() => setEditing(null)}
-                          className="p-1.5 rounded hover:bg-surface text-muted hover:text-foreground transition-colors">
+                          className="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-300">
                           <X className="h-4 w-4" />
                         </button>
                       </>
                     ) : (
                       <>
                         <button onClick={() => startEdit(cat)}
-                          className="p-1.5 rounded hover:bg-primary/10 text-muted hover:text-primary transition-colors">
+                          className="p-1.5 rounded hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all duration-300">
                           <Pencil className="h-4 w-4" />
                         </button>
                         <button onClick={() => deleteCategory(cat.id)}
-                          className="p-1.5 rounded hover:bg-red-400/10 text-muted hover:text-red-400 transition-colors">
+                          className="p-1.5 rounded hover:bg-red-400/10 text-on-surface-variant hover:text-red-400 transition-all duration-300">
                           <Trash2 className="h-4 w-4" />
                         </button>
                       </>
@@ -177,13 +177,13 @@ export default function CategoryManager({
 
             {/* Neue Kategorie Zeile */}
             {showNew && (
-              <tr className="border-t border-border bg-surface-hover/30">
+              <tr className="border-t border-outline-variant/20 bg-surface-container/50">
                 <td className="px-4 py-3">
                   <input
                     value={newForm.emoji}
                     onChange={(e) => setNewForm((p) => ({ ...p, emoji: e.target.value }))}
                     placeholder="🏷️"
-                    className="w-14 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                    className="w-14 px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                   />
                 </td>
                 <td className="px-4 py-3">
@@ -191,26 +191,26 @@ export default function CategoryManager({
                     value={newForm.name}
                     onChange={(e) => setNewForm((p) => ({ ...p, name: e.target.value }))}
                     placeholder="Kategoriename"
-                    className="w-full px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                    className="w-full px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                   />
                 </td>
-                <td className="px-4 py-3 text-muted text-xs italic">wird generiert</td>
+                <td className="px-4 py-3 text-on-surface-variant text-xs italic">wird generiert</td>
                 <td className="px-4 py-3">
                   <input
                     type="number"
                     value={newForm.sortOrder}
                     onChange={(e) => setNewForm((p) => ({ ...p, sortOrder: parseInt(e.target.value) }))}
-                    className="w-20 px-2 py-1 bg-[#1d2634]/40 border-0 border-b border-[#6f7682]/30 focus:border-primary text-[#e8eefc] text-sm outline-none transition-colors"
+                    className="w-20 px-2 py-1 bg-surface-container-highest/40 border-0 border-b border-outline/30 focus:border-primary text-on-surface text-sm outline-none transition-colors"
                   />
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-1">
                     <button onClick={createCategory} disabled={saving}
-                      className="p-1.5 rounded hover:bg-green-400/10 text-muted hover:text-green-400 transition-colors">
+                      className="p-1.5 rounded hover:bg-green-400/10 text-on-surface-variant hover:text-green-400 transition-all duration-300">
                       <Check className="h-4 w-4" />
                     </button>
                     <button onClick={() => setShowNew(false)}
-                      className="p-1.5 rounded hover:bg-surface text-muted hover:text-foreground transition-colors">
+                      className="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-300">
                       <X className="h-4 w-4" />
                     </button>
                   </div>
@@ -220,7 +220,7 @@ export default function CategoryManager({
 
             {filtered.length === 0 && !showNew && (
               <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-muted">
+                <td colSpan={5} className="px-4 py-8 text-center text-on-surface-variant">
                   Keine Kategorien vorhanden.
                 </td>
               </tr>
@@ -232,7 +232,7 @@ export default function CategoryManager({
       {!showNew && (
         <button
           onClick={() => setShowNew(true)}
-          className="flex items-center gap-2 text-muted hover:text-foreground text-sm transition-colors"
+          className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface text-sm transition-all duration-300"
         >
           <Plus className="h-4 w-4" />
           Neue Kategorie hinzufügen

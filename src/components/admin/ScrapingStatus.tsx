@@ -84,16 +84,16 @@ export default function ScrapingStatus() {
   const isRunning = log?.status === "running" || triggering;
 
   return (
-    <div className="bg-surface border border-border rounded-xl p-5 mb-6">
+    <div className="bg-surface-container-low rounded-xl p-5 mb-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <RefreshCw className="h-4 w-4 text-primary" />
-          <h3 className="font-semibold text-foreground text-sm">Scraping-Status</h3>
+          <h3 className="font-semibold text-on-surface text-sm">Scraping-Status</h3>
         </div>
         <button
           onClick={handleTrigger}
           disabled={isRunning}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium bg-primary hover:bg-primary-hover text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
         >
           {isRunning ? (
             <>
@@ -110,18 +110,18 @@ export default function ScrapingStatus() {
       </div>
 
       {error && (
-        <div className="text-sm text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg px-3 py-2 mb-3">
+        <div className="text-sm text-red-400 bg-red-400/10 rounded-lg px-3 py-2 mb-3">
           {error}
         </div>
       )}
 
       {loading ? (
-        <p className="text-sm text-muted">Lade Status…</p>
+        <p className="text-sm text-on-surface-variant">Lade Status…</p>
       ) : log ? (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {/* Status */}
-          <div className="bg-background rounded-lg p-3">
-            <p className="text-xs text-muted mb-1">Status</p>
+          <div className="bg-surface-container rounded-lg p-3">
+            <p className="text-xs text-on-surface-variant mb-1">Status</p>
             <div className="flex items-center gap-1.5">
               {log.status === "success" && (
                 <>
@@ -150,42 +150,42 @@ export default function ScrapingStatus() {
           </div>
 
           {/* Letzter Lauf */}
-          <div className="bg-background rounded-lg p-3">
-            <p className="text-xs text-muted mb-1">Letzter Lauf</p>
+          <div className="bg-surface-container rounded-lg p-3">
+            <p className="text-xs text-on-surface-variant mb-1">Letzter Lauf</p>
             <div className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-muted shrink-0" />
-              <span className="text-sm font-medium text-foreground">
+              <Clock className="h-4 w-4 text-on-surface-variant shrink-0" />
+              <span className="text-sm font-medium text-on-surface">
                 {formatDate(log.runAt)}
               </span>
             </div>
-            <p className="text-xs text-muted mt-1">
+            <p className="text-xs text-on-surface-variant mt-1">
               Dauer: {formatDuration(log.durationMs)}
             </p>
           </div>
 
           {/* Gefunden */}
-          <div className="bg-background rounded-lg p-3">
-            <p className="text-xs text-muted mb-1">Gefunden</p>
-            <p className="text-2xl font-bold text-foreground">{log.itemsFound}</p>
-            <p className="text-xs text-muted mt-0.5">Items gesamt</p>
+          <div className="bg-surface-container rounded-lg p-3">
+            <p className="text-xs text-on-surface-variant mb-1">Gefunden</p>
+            <p className="text-2xl font-bold text-on-surface">{log.itemsFound}</p>
+            <p className="text-xs text-on-surface-variant mt-0.5">Items gesamt</p>
           </div>
 
           {/* Neu / Aktualisiert */}
-          <div className="bg-background rounded-lg p-3">
-            <p className="text-xs text-muted mb-1">Ergebnis</p>
-            <p className="text-sm font-medium text-foreground">
+          <div className="bg-surface-container rounded-lg p-3">
+            <p className="text-xs text-on-surface-variant mb-1">Ergebnis</p>
+            <p className="text-sm font-medium text-on-surface">
               <span className="text-accent">+{log.itemsNew}</span> neu
             </p>
-            <p className="text-xs text-muted mt-0.5">{log.itemsUpdated} aktualisiert</p>
+            <p className="text-xs text-on-surface-variant mt-0.5">{log.itemsUpdated} aktualisiert</p>
           </div>
         </div>
       ) : (
-        <p className="text-sm text-muted">
+        <p className="text-sm text-on-surface-variant">
           Noch kein Scraping durchgeführt. Klicke auf &quot;Jetzt scrapen&quot; um zu starten.
         </p>
       )}
 
-      <p className="text-xs text-muted mt-3">
+      <p className="text-xs text-on-surface-variant mt-3">
         🕐 Automatischer Lauf: Sonntags um 03:00 Uhr
       </p>
     </div>
