@@ -30,16 +30,16 @@ export default async function AdminTrendingEditPage({
   return (
     <div className="p-8">
       <div className="mb-6">
-        <Link href="/admin/trending" className="flex items-center gap-2 text-muted hover:text-foreground text-sm transition-colors mb-4">
+        <Link href="/admin/trending" className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface text-sm transition-colors mb-4">
           <ArrowLeft className="h-4 w-4" />
           Zurück zur Übersicht
         </Link>
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="text-2xl font-semibold text-on-surface">
           {isNew ? "Neuer Eintrag" : `Bearbeiten: ${entry!.name}`}
         </h1>
       </div>
 
-      <div className="bg-surface border border-border rounded-xl p-6">
+      <div className="bg-surface-container-low rounded-xl p-6">
         <TrendingEditForm entry={formEntry} categories={categories} />
       </div>
     </div>

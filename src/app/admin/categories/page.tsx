@@ -13,8 +13,8 @@ export default async function AdminCategoriesPage() {
     <div className="p-8">
       <div className="flex items-center gap-3 mb-8">
         <Tag className="h-6 w-6 text-primary" />
-        <h1 className="text-2xl font-semibold text-foreground">Kategorien</h1>
-        <span className="text-muted text-sm ml-2">({categories.length} gesamt)</span>
+        <h1 className="text-2xl font-semibold text-on-surface">Kategorien</h1>
+        <span className="text-on-surface-variant text-sm ml-2">({categories.length} gesamt)</span>
       </div>
 
       <CategoryManager initialCategories={categories} />

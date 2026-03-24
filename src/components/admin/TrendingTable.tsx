@@ -22,13 +22,13 @@ type TrendingEntry = {
 const REVIEW_LABELS: Record<string, { label: string; color: string }> = {
   approved: { label: "Freigegeben", color: "text-green-400" },
   pending: { label: "Ausstehend", color: "text-yellow-400" },
-  hidden: { label: "Ausgeblendet", color: "text-muted" },
+  hidden: { label: "Ausgeblendet", color: "text-on-surface-variant" },
 };
 
 const TREND_LABELS: Record<string, { label: string; color: string }> = {
   new: { label: "Neu", color: "text-primary" },
   rising: { label: "Steigend", color: "text-accent" },
-  stable: { label: "Stabil", color: "text-muted" },
+  stable: { label: "Stabil", color: "text-on-surface-variant" },
 };
 
 type FilterStatus = "all" | "pending" | "approved" | "hidden";
@@ -94,13 +94,13 @@ export default function TrendingTable({
     <div className="space-y-4">
       {/* Filter-Leiste */}
       <div className="flex flex-wrap gap-3">
-        <div className="flex rounded-lg border border-border overflow-hidden text-sm">
+        <div className="flex rounded-lg bg-surface-container-low overflow-hidden text-sm">
           {(["all", "pending", "approved", "hidden"] as FilterStatus[]).map((s) => (
             <button
               key={s}
               onClick={() => setFilterStatus(s)}
-              className={`px-3 py-1.5 transition-colors ${
-                filterStatus === s ? "bg-primary text-white" : "text-muted hover:text-foreground hover:bg-surface-hover"
+              className={`px-3 py-1.5 transition-all duration-300 ${
+                filterStatus === s ? "bg-primary text-primary-foreground font-medium" : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest"
               }`}
             >
               {s === "all" ? "Alle" : REVIEW_LABELS[s]?.label}
@@ -112,14 +112,14 @@ export default function TrendingTable({
           <select
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="appearance-none pl-3 pr-8 py-1.5 bg-surface border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="appearance-none pl-3 pr-8 py-1.5 bg-surface-container-low rounded-lg text-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary/50"
           >
             <option value="all">Alle Kategorien</option>
             {categories.map((c) => (
               <option key={c.id} value={c.id}>{c.emoji} {c.name}</option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted pointer-events-none" />
+          <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-on-surface-variant pointer-events-none" />
         </div>
 
         <input
@@ -127,16 +127,16 @@ export default function TrendingTable({
           placeholder="Suchen…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="px-3 py-1.5 bg-surface border border-border rounded-lg text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/50"
+          className="px-3 py-1.5 bg-surface-container-low rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary/50"
         />
 
-        <span className="text-muted text-sm self-center ml-auto">{filtered.length} Einträge</span>
+        <span className="text-on-surface-variant text-sm self-center ml-auto">{filtered.length} Einträge</span>
 
         {pendingCount > 0 && (
           <button
             onClick={bulkApprove}
             disabled={bulkApproving}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 text-green-400 border border-green-500/20 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 text-green-400 rounded-lg text-sm font-medium transition-all duration-300 disabled:opacity-50"
           >
             <CheckCheck className="h-4 w-4" />
             {bulkApproving ? "Wird freigegeben…" : `Alle ${pendingCount} freigeben`}
@@ -145,17 +145,17 @@ export default function TrendingTable({
       </div>
 
       {/* Tabelle */}
-      <div className="bg-surface border border-border rounded-xl overflow-hidden">
+      <div className="bg-surface-container-low rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-border text-left">
-                <th className="px-4 py-3 text-muted font-medium">Eintrag</th>
-                <th className="px-4 py-3 text-muted font-medium">Kategorie</th>
-                <th className="px-4 py-3 text-muted font-medium">Trend</th>
-                <th className="px-4 py-3 text-muted font-medium">Score</th>
-                <th className="px-4 py-3 text-muted font-medium">Status</th>
-                <th className="px-4 py-3 text-muted font-medium">Aktionen</th>
+              <tr className="border-b border-outline-variant/20 text-left">
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Eintrag</th>
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Kategorie</th>
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Trend</th>
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Score</th>
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Status</th>
+                <th className="px-4 py-3 text-on-surface-variant font-medium">Aktionen</th>
               </tr>
             </thead>
             <tbody>
@@ -163,28 +163,28 @@ export default function TrendingTable({
                 const reviewStyle = REVIEW_LABELS[entry.reviewStatus] ?? REVIEW_LABELS.pending;
                 const trendStyle = TREND_LABELS[entry.trendStatus] ?? TREND_LABELS.stable;
                 return (
-                  <tr key={entry.id} className="border-b border-border last:border-0 hover:bg-surface-hover/50 transition-colors">
+                  <tr key={entry.id} className="border-b border-outline-variant/10 last:border-0 hover:bg-surface-container transition-all duration-300">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         <span className="text-lg">{entry.emoji ?? "📌"}</span>
                         <div className="min-w-0">
-                          <div className="text-foreground font-medium">{entry.name}</div>
-                          <div className="text-muted text-xs truncate max-w-48">{entry.description}</div>
+                          <div className="text-on-surface font-medium">{entry.name}</div>
+                          <div className="text-on-surface-variant text-xs truncate max-w-48">{entry.description}</div>
                         </div>
                         {entry.sourceUrl && (
-                          <a href={entry.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary ml-1 shrink-0">
+                          <a href={entry.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary ml-1 shrink-0 transition-colors">
                             <ExternalLink className="h-3.5 w-3.5" />
                           </a>
                         )}
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-muted whitespace-nowrap">
+                    <td className="px-4 py-3 text-on-surface-variant whitespace-nowrap">
                       {entry.category.emoji} {entry.category.name}
                     </td>
                     <td className={`px-4 py-3 whitespace-nowrap ${trendStyle.color}`}>
                       {trendStyle.label}
                     </td>
-                    <td className="px-4 py-3 text-foreground font-mono">{entry.trendScore}</td>
+                    <td className="px-4 py-3 text-on-surface font-mono">{entry.trendScore}</td>
                     <td className="px-4 py-3 whitespace-nowrap">
                       <span className={`${reviewStyle.color} text-xs font-medium`}>{reviewStyle.label}</span>
                     </td>
@@ -192,28 +192,28 @@ export default function TrendingTable({
                       <div className="flex items-center gap-1">
                         {entry.reviewStatus !== "approved" && (
                           <button onClick={() => updateStatus(entry.id, "approved")} title="Freigeben"
-                            className="p-1.5 rounded hover:bg-green-400/10 text-muted hover:text-green-400 transition-colors">
+                            className="p-1.5 rounded hover:bg-green-400/10 text-on-surface-variant hover:text-green-400 transition-all duration-300">
                             <CheckCircle className="h-4 w-4" />
                           </button>
                         )}
                         {entry.reviewStatus !== "hidden" && (
                           <button onClick={() => updateStatus(entry.id, "hidden")} title="Ausblenden"
-                            className="p-1.5 rounded hover:bg-surface text-muted hover:text-foreground transition-colors">
+                            className="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all duration-300">
                             <EyeOff className="h-4 w-4" />
                           </button>
                         )}
                         {entry.reviewStatus !== "pending" && (
                           <button onClick={() => updateStatus(entry.id, "pending")} title="Ausstehend"
-                            className="p-1.5 rounded hover:bg-yellow-400/10 text-muted hover:text-yellow-400 transition-colors">
+                            className="p-1.5 rounded hover:bg-yellow-400/10 text-on-surface-variant hover:text-yellow-400 transition-all duration-300">
                             <Clock className="h-4 w-4" />
                           </button>
                         )}
                         <Link href={`/admin/trending/${entry.id}`} title="Bearbeiten"
-                          className="p-1.5 rounded hover:bg-primary/10 text-muted hover:text-primary transition-colors">
+                          className="p-1.5 rounded hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all duration-300">
                           <Pencil className="h-4 w-4" />
                         </Link>
                         <button onClick={() => deleteEntry(entry.id)} disabled={deleting === entry.id} title="Löschen"
-                          className="p-1.5 rounded hover:bg-red-400/10 text-muted hover:text-red-400 transition-colors disabled:opacity-50">
+                          className="p-1.5 rounded hover:bg-red-400/10 text-on-surface-variant hover:text-red-400 transition-all duration-300 disabled:opacity-50">
                           <Trash2 className="h-4 w-4" />
                         </button>
                       </div>
@@ -223,7 +223,7 @@ export default function TrendingTable({
               })}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-4 py-8 text-center text-muted">
+                  <td colSpan={6} className="px-4 py-8 text-center text-on-surface-variant">
                     Keine Einträge gefunden.
                   </td>
                 </tr>
