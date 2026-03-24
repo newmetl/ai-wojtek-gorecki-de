@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     url: "https://ai.wojtek-gorecki.de",
     siteName: "ai.wojtek-gorecki.de",
   },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

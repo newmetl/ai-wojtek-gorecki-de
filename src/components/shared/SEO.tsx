@@ -15,16 +15,16 @@ export function JsonLd({ data }: JsonLdProps) {
 export const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Wojtek Gorecki — KI-gestützter Product Owner",
+  name: "Wojtek Gorecki — KI & Gesellschaftlicher Wandel",
   url: "https://ai.wojtek-gorecki.de",
-  description: "Tools und Ressourcen für Product Owner und Digitalexperten.",
+  description: "Persönliche Website zu KI, Technologie und gesellschaftlichem Wandel.",
 };
 
 export const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Wojtek Gorecki",
-  jobTitle: "Product Owner",
+  description: "Informatiker, Unternehmer und neugieriger Beobachter des KI-Zeitalters.",
   url: "https://ai.wojtek-gorecki.de/cv",
   sameAs: ["https://www.linkedin.com/in/wojtek-gorecki/"],
 };

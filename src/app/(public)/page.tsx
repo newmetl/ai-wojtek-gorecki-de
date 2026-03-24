@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   title: "Wojtek Gorecki — KI und der gesellschaftliche Wandel",
   description:
     "Meine persönliche Website über KI, technologischen Wandel und die Fragen, die mich bewegen — mit wöchentlich kuratierten Trends und Artikeln.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Wojtek Gorecki — KI und der gesellschaftliche Wandel",
+    description:
+      "Meine persönliche Website über KI, technologischen Wandel und die Fragen, die mich bewegen — mit wöchentlich kuratierten Trends und Artikeln.",
+  },
 };
 
 export default function HomePage() {

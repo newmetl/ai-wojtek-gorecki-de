@@ -31,6 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url: `${siteUrl}/trending-ai/${slug}`,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${item.name} — Trending AI Tech`,
+      description: item.description,
+    },
     alternates: {
       canonical: `${siteUrl}/trending-ai/${slug}`,
     },
