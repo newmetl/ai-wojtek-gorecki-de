@@ -32,9 +32,19 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: "https://ai.wojtek-gorecki.de",
     siteName: "ai.wojtek-gorecki.de",
+    images: [
+      {
+        url: "/images/og/default.png",
+        width: 1200,
+        height: 630,
+        alt: "Wojtek Gorecki — KI & Gesellschaftlicher Wandel",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/images/og/default.png"],
   },
 };
 
